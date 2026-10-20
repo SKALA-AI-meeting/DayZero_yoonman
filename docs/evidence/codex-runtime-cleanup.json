@@ -1,0 +1,16 @@
+{
+  "synthetic_sessions_closed": 130,
+  "synthetic_jobs_cancelled": 167,
+  "scope": "User-approved cleanup of explicitly named test companies with synthetic example.com account patterns; preview sessions preserved; no records deleted",
+  "services": {
+    "backend": "running",
+    "business-mcp": "running",
+    "rag-mcp": "running",
+    "worker-ai": "running",
+    "worker-report": "running"
+  },
+  "backend_health": "ok",
+  "admin_scenarios_status": 200,
+  "pending_or_running_jobs": 0,
+  "runtime_note": "Processes retained by an active terminal session; verified from a separate command."
+}

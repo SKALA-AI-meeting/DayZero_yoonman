@@ -1,0 +1,101 @@
+{
+  "synthetic_fixture": true,
+  "isolated_database_and_vhost": true,
+  "actual_backend": true,
+  "actual_model": true,
+  "compressed_clock": true,
+  "full_120_minutes": false,
+  "completed": false,
+  "steps": [
+    {
+      "step": "isolated_services_ready",
+      "seconds": 2.48
+    },
+    {
+      "step": "fictional_embeddings_copied",
+      "seconds": 2.59,
+      "documents": 5
+    },
+    {
+      "step": "isolated_transport_tests_passed",
+      "seconds": 7.41,
+      "tests": 10
+    },
+    {
+      "step": "kickoff_complete",
+      "seconds": 9.02
+    }
+  ],
+  "session_id": "14f57393-e527-45de-965d-83ac8a42d98b",
+  "binding": {
+    "backend": "openai",
+    "model": "gpt-4o-mini",
+    "adapter_version": "1.0.2",
+    "cli_version": null
+  },
+  "report_binding": {
+    "backend": "codex_cli",
+    "model": "gpt-5.6-sol",
+    "adapter_version": "1.0.2",
+    "cli_version": "codex-cli 0.153.4"
+  },
+  "failed_jobs": [
+    [
+      "colleague",
+      "assigned_work_unfinished"
+    ]
+  ],
+  "failure": {
+    "stage": "automatic_division",
+    "type": "AssertionError",
+    "detail": "model_job_failed"
+  },
+  "diagnostics": {
+    "migration.log": "",
+    "backend.log": "INFO:     Started server process [94973]\nINFO:     Waiting for application startup.\nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:64415 (Press CTRL+C to quit)\nINFO:     127.0.0.1:64507 - \"WebSocket /sessions/a769e996-8e7f-49dd-ba75-a8077ae6fc92/ws\" [accepted]\nINFO:     connection open\n",
+    "business.log": "611 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             CallToolRequest                                    \n                    INFO     HTTP Request: POST                  _client.py:1740\n                             http://127.0.0.1:64415/internal/job                \n                             s/fc2f737a-e4e3-4703-a95b-a372a2afa                \n                             f6f/business \"HTTP/1.1 409                         \n                             Conflict\"                                          \nINFO:     127.0.0.1:64613 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             ListToolsRequest                                   \n                    INFO     Terminating session:         streamable_http.py:831\n                             6fb4ed3e66d541f7bc00916a6a9e                       \n                             b6cf                                               \nINFO:     127.0.0.1:64614 - \"DELETE /mcp HTTP/1.1\" 200 OK\n                    INFO     Created new          streamable_http_manager.py:330\n                             transport with                                     \n                             session ID:                                        \n                             ad508a0fa83749149576                               \n                             145110507c2f                                       \nINFO:     127.0.0.1:64616 - \"POST /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64617 - \"POST /mcp HTTP/1.1\" 202 Accepted\nINFO:     127.0.0.1:64618 - \"GET /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64619 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             CallToolRequest                                    \n                    INFO     HTTP Request: POST                  _client.py:1740\n                             http://127.0.0.1:64415/internal/job                \n                             s/fc2f737a-e4e3-4703-a95b-a372a2afa                \n                             f6f/business \"HTTP/1.1 409                         \n                             Conflict\"                                          \nINFO:     127.0.0.1:64621 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             ListToolsRequest                                   \n                    INFO     Terminating session:         streamable_http.py:831\n                             ad508a0fa8374914957614511050                       \n                             7c2f                                               \nINFO:     127.0.0.1:64622 - \"DELETE /mcp HTTP/1.1\" 200 OK\n[10/20/26 15:53:02] INFO     Created new          streamable_http_manager.py:330\n                             transport with                                     \n                             session ID:                                        \n                             19e9b22dd4d444729a1a                               \n                             00af5dd79fe8                                       \nINFO:     127.0.0.1:64654 - \"POST /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64655 - \"POST /mcp HTTP/1.1\" 202 Accepted\nINFO:     127.0.0.1:64656 - \"GET /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64657 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             CallToolRequest                                    \n                    INFO     HTTP Request: POST                  _client.py:1740\n                             http://127.0.0.1:64415/internal/job                \n                             s/2a260915-a645-4687-aab2-71bc93800                \n                             1b3/business \"HTTP/1.1 409                         \n                             Conflict\"                                          \nINFO:     127.0.0.1:64659 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             ListToolsRequest                                   \n                    INFO     Terminating session:         streamable_http.py:831\n                             19e9b22dd4d444729a1a00af5dd7                       \n                             9fe8                                               \nINFO:     127.0.0.1:64660 - \"DELETE /mcp HTTP/1.1\" 200 OK\n                    INFO     Created new          streamable_http_manager.py:330\n                             transport with                                     \n                             session ID:                                        \n                             65c1f26fb7b541039fb6                               \n                             ed93faaea085                                       \nINFO:     127.0.0.1:64662 - \"POST /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64663 - \"POST /mcp HTTP/1.1\" 202 Accepted\nINFO:     127.0.0.1:64664 - \"GET /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64665 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             CallToolRequest                                    \n                    INFO     HTTP Request: POST                  _client.py:1740\n                             http://127.0.0.1:64415/internal/job                \n                             s/2a260915-a645-4687-aab2-71bc93800                \n                             1b3/business \"HTTP/1.1 409                         \n                             Conflict\"                                          \nINFO:     127.0.0.1:64667 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             ListToolsRequest                                   \n                    INFO     Terminating session:         streamable_http.py:831\n                             65c1f26fb7b541039fb6ed93faae                       \n                             a085                                               \nINFO:     127.0.0.1:64668 - \"DELETE /mcp HTTP/1.1\" 200 OK\n[10/20/26 15:53:09] INFO     Created new          streamable_http_manager.py:330\n                             transport with                                     \n                             session ID:                                        \n                             bd1ee514a0e648629b10                               \n                             a0add67fe697                                       \nINFO:     127.0.0.1:64691 - \"POST /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64693 - \"GET /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64692 - \"POST /mcp HTTP/1.1\" 202 Accepted\nINFO:     127.0.0.1:64694 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             CallToolRequest                                    \n                    INFO     HTTP Request: POST                  _client.py:1740\n                             http://127.0.0.1:64415/internal/job                \n                             s/2a260915-a645-4687-aab2-71bc93800                \n                             1b3/business \"HTTP/1.1 409                         \n                             Conflict\"                                          \nINFO:     127.0.0.1:64697 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             ListToolsRequest                                   \n                    INFO     Terminating session:         streamable_http.py:831\n                             bd1ee514a0e648629b10a0add67f                       \n                             e697                                               \nINFO:     127.0.0.1:64698 - \"DELETE /mcp HTTP/1.1\" 200 OK\n",
+    "rag.log": "                    started                                            \nINFO:     Application startup complete.\nINFO:     Uvicorn running on http://127.0.0.1:64417 (Press CTRL+C to quit)\n[10/20/26 15:52:47] INFO     Created new          streamable_http_manager.py:330\n                             transport with                                     \n                             session ID:                                        \n                             57fe0638bbbe4603a930                               \n                             98c6d0da712e                                       \nINFO:     127.0.0.1:64440 - \"GET /mcp HTTP/1.1\" 406 Not Acceptable\n                    INFO     Terminating session:         streamable_http.py:831\n                             57fe0638bbbe4603a93098c6d0da                       \n                             712e                                               \n[10/20/26 15:52:48] INFO     Created new          streamable_http_manager.py:330\n                             transport with                                     \n                             session ID:                                        \n                             95fe7c759d4042448428                               \n                             4b05d3c9b0f9                                       \nINFO:     127.0.0.1:64457 - \"POST /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64458 - \"POST /mcp HTTP/1.1\" 202 Accepted\nINFO:     127.0.0.1:64459 - \"GET /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64460 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             ListToolsRequest                                   \nINFO:     127.0.0.1:64461 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             CallToolRequest                                    \n                    INFO     HTTP Request: GET                   _client.py:1740\n                             http://127.0.0.1:64415/internal/job                \n                             s/92958b48-adfa-4aaa-89e3-4da09b407                \n                             e66/documents \"HTTP/1.1 200 OK\"                    \nINFO:     127.0.0.1:64463 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             CallToolRequest                                    \n                    INFO     HTTP Request: GET                   _client.py:1740\n                             http://127.0.0.1:64415/internal/job                \n                             s/92958b48-adfa-4aaa-89e3-4da09b407                \n                             e66/documents \"HTTP/1.1 200 OK\"                    \n                    INFO     Terminating session:         streamable_http.py:831\n                             95fe7c759d40424484284b05d3c9                       \n                             b0f9                                               \nINFO:     127.0.0.1:64465 - \"DELETE /mcp HTTP/1.1\" 200 OK\n[10/20/26 15:52:51] INFO     Created new          streamable_http_manager.py:330\n                             transport with                                     \n                             session ID:                                        \n                             6aa7055871184bc3b941                               \n                             44cce919c86d                                       \nINFO:     127.0.0.1:64520 - \"POST /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64521 - \"POST /mcp HTTP/1.1\" 202 Accepted\nINFO:     127.0.0.1:64522 - \"GET /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64523 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             CallToolRequest                                    \n                    INFO     HTTP Request: GET                   _client.py:1740\n                             http://127.0.0.1:64415/internal/job                \n                             s/5352a8bb-cec7-4259-9f93-17503a45c                \n                             51e/documents \"HTTP/1.1 200 OK\"                    \nINFO:     127.0.0.1:64525 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             ListToolsRequest                                   \n                    INFO     Terminating session:         streamable_http.py:831\n                             6aa7055871184bc3b94144cce919                       \n                             c86d                                               \nINFO:     127.0.0.1:64526 - \"DELETE /mcp HTTP/1.1\" 200 OK\n[10/20/26 15:52:52] INFO     Created new          streamable_http_manager.py:330\n                             transport with                                     \n                             session ID:                                        \n                             80afce8e99d248029a75                               \n                             a9eaaee4d3f1                                       \nINFO:     127.0.0.1:64535 - \"POST /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64536 - \"POST /mcp HTTP/1.1\" 202 Accepted\nINFO:     127.0.0.1:64537 - \"GET /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64538 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             CallToolRequest                                    \n                    INFO     HTTP Request: GET                   _client.py:1740\n                             http://127.0.0.1:64415/internal/job                \n                             s/a40c0005-e025-4894-b90d-27702430d                \n                             515/documents \"HTTP/1.1 200 OK\"                    \nINFO:     127.0.0.1:64540 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             ListToolsRequest                                   \n                    INFO     Terminating session:         streamable_http.py:831\n                             80afce8e99d248029a75a9eaaee4                       \n                             d3f1                                               \nINFO:     127.0.0.1:64541 - \"DELETE /mcp HTTP/1.1\" 200 OK\n                    INFO     Created new          streamable_http_manager.py:330\n                             transport with                                     \n                             session ID:                                        \n                             cf337699d55e405da8ab                               \n                             3bc0d7f3532d                                       \nINFO:     127.0.0.1:64551 - \"POST /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64552 - \"POST /mcp HTTP/1.1\" 202 Accepted\nINFO:     127.0.0.1:64553 - \"GET /mcp HTTP/1.1\" 200 OK\nINFO:     127.0.0.1:64554 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             CallToolRequest                                    \n                    INFO     HTTP Request: GET                   _client.py:1740\n                             http://127.0.0.1:64415/internal/job                \n                             s/b2f868cc-fada-491d-9283-d613d58d9                \n                             9c7/documents \"HTTP/1.1 200 OK\"                    \nINFO:     127.0.0.1:64556 - \"POST /mcp HTTP/1.1\" 200 OK\n                    INFO     Processing request of type            server.py:733\n                             ListToolsRequest                                   \n                    INFO     Terminating session:         streamable_http.py:831\n                             cf337699d55e405da8ab3bc0d7f3                       \n                             532d                                               \nINFO:     127.0.0.1:64557 - \"DELETE /mcp HTTP/1.1\" 200 OK\n",
+    "transport-tests.log": "..........                                                               [100%]\n10 passed in 4.18s\n",
+    "ai.log": "",
+    "report.log": ""
+  },
+  "jobs": [
+    {
+      "agent": "colleague",
+      "status": "done",
+      "error": null,
+      "model_calls": 0,
+      "queue_attempts": 1
+    },
+    {
+      "agent": "colleague",
+      "status": "done",
+      "error": null,
+      "model_calls": 2,
+      "queue_attempts": 1
+    },
+    {
+      "agent": "colleague",
+      "status": "failed",
+      "error": "assigned_work_unfinished",
+      "model_calls": 5,
+      "queue_attempts": 1
+    },
+    {
+      "agent": "colleague",
+      "status": "running",
+      "error": null,
+      "model_calls": 0,
+      "queue_attempts": 1
+    },
+    {
+      "agent": "leader",
+      "status": "done",
+      "error": null,
+      "model_calls": 0,
+      "queue_attempts": 1
+    }
+  ],
+  "disposable_resources_removed": true,
+  "elapsed_seconds": 28.04
+}

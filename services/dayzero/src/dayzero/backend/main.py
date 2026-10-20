@@ -678,7 +678,9 @@ def business(jid: str, body: ToolInput, auth=Depends(bearer), db=Depends(get_db,
         if previous:
             if previous.data.get('request', args) != args:
                 raise HTTPException(409, 'idempotency_conflict')
-            return {'rounds': previous.data['rounds'], 'agreed': previous.data['agreed'], 'mutation_ids': [previous.id]}
+            assigned = db.scalars(select(Record.id).where(Record.session_id == s.id,
+                Record.kind == 'task', Record.data['request']['division'].astext == body.operation_id).order_by(Record.at)).all()
+            return {'rounds': previous.data['rounds'], 'agreed': previous.data['agreed'], 'mutation_ids': [previous.id]+list(assigned)}
         if session_scenario(s)['workflow'] == 'conversation':
             from dayzero.backend.tasks import source_record
             source_record(db, s, args.get('source_id'), 'colleague')
@@ -701,7 +703,11 @@ def business(jid: str, body: ToolInput, auth=Depends(bearer), db=Depends(get_db,
         proof = journal(db, s, 'division', 'colleague', {'before': before,
                 'after': [serialize_part(p) for p in parts(db, s.id)],
                 'rounds': s.negotiation_rounds, 'agreed': s.division_agreed, 'source_id': args.get('source_id'), 'job_id': job.id, 'request': args}, body.operation_id)
-        return {'rounds': s.negotiation_rounds, 'agreed': s.division_agreed, 'mutation_ids': [proof.id]}
+        assigned = []
+        if s.division_agreed:
+            from dayzero.backend.tasks import assign_division
+            assigned = assign_division(db, s, args.get('source_id'), job.id, body.operation_id)
+        return {'rounds': s.negotiation_rounds, 'agreed': s.division_agreed, 'mutation_ids': [proof.id]+assigned}
     raise HTTPException(403, 'tool_not_allowed')
 
 

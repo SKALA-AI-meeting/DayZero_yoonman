@@ -105,7 +105,8 @@ def test_reassignment_needs_confirmation_and_keeps_exact_operation_proof():
     assert changed.status_code==200,changed.text
     assert client.get('/sessions/'+sid,headers=auth).json()['parts'][3]['owner']=='candidate'
     assert client.post(base,headers=scoped,json=first).json()==accepted.json()
-    assert len(client.get('/internal/jobs/'+jid+'/context',headers=scoped).json()['mutation_ids'])==2
+    assert set(client.get('/internal/jobs/'+jid+'/context',headers=scoped).json()['mutation_ids'])==(
+        set(accepted.json()['mutation_ids']) | set(changed.json()['mutation_ids']))
     changed_input={**first,'arguments':{**first['arguments'],'owners':{**owners,'4':'candidate'}}}
     assert client.post(base,headers=scoped,json=changed_input).status_code==409
 

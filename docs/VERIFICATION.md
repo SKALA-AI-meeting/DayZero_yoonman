@@ -1,6 +1,21 @@
 # 개정 구현·검증 기록
 
-2026-10-20 KST. **진행 중 — P0 완료 아님.** 아래 표와 MVP_PLAN 9장이 현재 증거입니다. 실제 120분 완료와 최종 리포트 원문 검토가 남아 있습니다.
+## 2026-10-20 오류 수정 재검증
+
+Claude의 미커밋 변경을 이어서 검증·수정했습니다. 이번 범위는 분업 자동 실행, 응답·출처, UI 입력·스크롤, 제출부터 리포트 공개까지의 오류 해결입니다.
+
+- 단위 **80개**, 별도 PostgreSQL DB의 백엔드 통합 **42개**, 별도 DB·RabbitMQ vhost의 MCP/큐/체크포인트 통합 **10개** 통과.
+- [실제 모델 검증](evidence/codex-revision-verification.json): **86.55초**. 대화 분업 → 태스크 2개 자동 생성 → 동료 파트 2개 실제 저장·완료 → 개인 AI의 실제 MCP 출처 응답 → 제출·디브리핑 → CLI Report Worker → 기업 목록·상세 API까지 통과. 수동 태스크 생성 0회, 모든 작업 done/error 없음. [생성된 합성 리포트](evidence/codex-revision-verification-report.json)는 10개 관찰 항목·3개 품질 비교를 포함합니다.
+- 실제 모델에서 배정 태스크를 완료한 후 다른 파트 ID로 추가 작업을 시도하는 오류를 재현했습니다. 완료 도구를 배정 태스크·현재 버전에 한정하고, 완료 즉시 추가 도구 실행을 중단했습니다. [첫 실패](evidence/codex-revision-verification-attempt1.json)와 [추가 도구 실행 실패](evidence/codex-revision-verification-attempt2.json)를 보존했습니다.
+- 자동 태스크 생성·재요청 중복 방지·예약/담당 보존·재분업 취소·부분 초안 배정 회귀 검증을 추가했습니다. 출처는 모델/Backend 및 Backend/화면 사이의 중복을 각각 제거했습니다.
+- [브라우저 회귀 5개](evidence/codex-browser-e2e.json), [UI 동작 13개 및 TypeScript·프로덕션 빌드](evidence/codex-ui-regression.json) 통과. 브라우저 기업 리포트는 합성 결과를 주입한 표시 검사이며, 실제 리포트 생성은 위의 격리 연동 검사로 별도 확인했습니다.
+- 사용자가 승인한 기존 자동 테스트 세션 정리 후 `scripts/dev.sh up`으로 Backend·Business MCP·RAG MCP·AI Worker·Report Worker를 재시작했습니다. [정리 범위](evidence/codex-runtime-cleanup.json).
+- 120분 실제 대기 검증은 사용자 요청에 따라 실행하지 않았습니다. 이벤트 전달·문서 공개·마감 계약은 제어 시계 통합 테스트로 확인했고, 실제 모델 스모크는 10분 분업 시점으로 시계를 이동한 뒤 조기 제출했습니다. 짧은 문서의 저장 성공이 결과물의 일반적 품질을 보장하지는 않습니다.
+- 태스크 보드 선택 표시 문제는 현재 화면에서 재현되지 않았습니다. 컴포넌트 전체 분리와 디자인 개편은 별도 단계이며 이번 변경에 포함하지 않았습니다.
+
+## 이전 구현 단계 기록
+
+아래는 이번 오류 수정 이전의 기록입니다. 당시에는 실제 120분 완료와 최종 리포트 원문 검토가 남아 있어 P0 완료로 판단하지 않았습니다.
 
 - 기존 미추적 파일 기준선 `/tmp/dayzero-before-20261020.tgz` 보존. [경로별 변경 목록](evidence/revision-source-inventory.json)은 Git diff가 아니며 사용자 쪽 UI 변경도 포함함. 마이그레이션 0005·0006만 추가하고 기존 snapshot·legacy checkpoint는 소급 변경/복제하지 않음.
 - 미니 PC 세 앱, leader/colleague/chat 독립 Graph·기억·checkpoint·권한, 독립 태스크·실제 문서/완료 저장, 90분 별도 리뷰와 개인/기업 진입·완료자별 보고서 구현.

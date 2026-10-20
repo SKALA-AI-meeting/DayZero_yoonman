@@ -2,7 +2,7 @@
 import pytest
 from langgraph.checkpoint.memory import InMemorySaver
 from dayzero.agents.graph import build_graph
-from dayzero.agents.harness import tool_definitions, validate_tool
+from dayzero.agents.harness import tool_definitions, validate_tool, append_sources
 from dayzero.llm.schemas import Reply, ModelError
 
 
@@ -34,6 +34,8 @@ async def test_three_graphs_keep_identity_threads_and_current_trigger(monkeypatc
     assert [r['agent_id'] for r in results]==['leader','colleague','chat']
     assert '팀장' in captured[0].messages[0]['content']
     assert '기획 동료' in captured[1].messages[0]['content']
+    assert '3인칭으로 부르거나' in captured[1].messages[0]['content']
+    assert 'Backend가 자동으로 등록' in captured[1].messages[0]['content']
     assert '현재 배정 업무' in captured[1].messages[-2]['content']
     assert '개인 업무용 AI' in captured[2].messages[0]['content']
     for agent,graph in graphs.items():
@@ -62,6 +64,88 @@ async def test_over_budget_proposal_is_rejected_then_repaired_without_extra_tool
     assert len(executed)==2 and len(calls)==3
     repaired=calls[1] if first_batch==4 else calls[2]
     assert '제안은 실행되지 않았습니다' in repaired.messages[-2]['content']
+
+
+@pytest.mark.parametrize('used',[0,2])
+async def test_repeated_over_budget_batch_executes_only_remaining_prefix_and_discloses_skipped_write(monkeypatch,used):
+    ctx=context('colleague');ctx['tool_calls']=used
+    requests=[];executed=[];saved=[]
+    proposals=[{'name':'get_workspace','arguments':{}}]*(3-used)+[
+        {'name':'update_part','arguments':{'part_id':'unwritten-part','change':{'version':1,'body':'작성안'}}}]
+    class Internal:
+        def __init__(self,*args):pass
+        async def call(self,path,method='GET',body=None):
+            if path=='context':return ctx
+            if path=='result':saved.append(body)
+            return {}
+    async def model(request,*args,**kwargs):
+        requests.append(request)
+        if len(requests)<=2:return Reply(kind='tools',text='문서를 수정했습니다.',tools=proposals),None
+        assert request.tools==[]
+        notice=next(m['content'] for m in request.messages if '한도 초과로 실행하지 않은' in m['content'])
+        assert 'unwritten-part' in notice and '자동으로 이어서 처리한다고 약속하지 마세요' in notice
+        return Reply(kind='final',text='업무 상태를 확인했어요. 문서 수정은 아직 처리하지 못했어요.',tools=[]),None
+    async def execute(*args):
+        executed.append(args)
+        return {'parts':[]}
+    monkeypatch.setattr('dayzero.agents.graph.Internal',Internal)
+    monkeypatch.setattr('dayzero.agents.graph.complete',model)
+    monkeypatch.setattr('dayzero.agents.graph.execute',execute)
+    result=await build_graph('colleague',InMemorySaver()).ainvoke({'job_id':'j','agent_id':'colleague'},
+        {'configurable':{'thread_id':'truncated:colleague'}},context={'job_token':'runtime'})
+    assert len(requests)==3 and len(executed)==3-used and result['calls']==3
+    assert [call[3].name for call in executed]==['get_workspace']*(3-used)
+    assert [call[4] for call in executed]==['j:tool:'+str(n) for n in range(used,3)]
+    assert saved[0]['mutation_ids']==[]
+    assert '아직 처리하지 못한 작업: 문서 수정.' in saved[0]['text']
+    assert '수정했습니다' not in saved[0]['text']
+
+
+@pytest.mark.parametrize('footer',[
+    '\n참고: 운영 정책 v1',
+    '\n\n**참고:** 운영 정책 v1',
+    '\n참고:\n- 운영 정책 v1',
+    '\n참고: 운영 정책 v1\n참고: 운영 정책 v1',
+])
+def test_verified_source_footer_is_written_once(footer):
+    sources=[{'id':'policy','title':'운영 정책','version':1}]
+    text='올해는 무료 기능을 검토해야 해요.'
+    actual=append_sources(text+footer,sources)
+    assert actual==text+'\n참고: 운영 정책 v1'
+    assert append_sources(actual,sources)==actual
+
+
+def test_source_footer_preserves_ordinary_notes_and_distinct_versions():
+    text='참고: 운영 정책을 함께 검토해 주세요.'
+    sources=[{'id':'policy','title':'운영 정책','version':1},
+             {'id':'policy','title':'운영 정책','version':1},
+             {'id':'policy-v2','title':'운영 정책','version':2}]
+    assert append_sources(text,[])==text
+    assert append_sources(text,sources)==text+'\n참고: 운영 정책 v1, 운영 정책 v2'
+
+
+async def test_graph_persists_one_verified_source_footer(monkeypatch):
+    requests=[];saved=[]
+    class Internal:
+        def __init__(self,*args):pass
+        async def call(self,path,method='GET',body=None):
+            if path=='context':return context('colleague')
+            if path=='result':saved.append(body)
+            return {}
+    async def model(request,*args,**kwargs):
+        requests.append(request)
+        if len(requests)==1:
+            return Reply(kind='tools',text='',tools=[{'name':'search_documents','arguments':{'query':'운영 정책'}}]),None
+        return Reply(kind='final',text='무료 기능을 검토해 주세요.\n참고: 운영 정책 v1',tools=[]),None
+    async def execute(*args):
+        return {'documents':[{'id':'policy','title':'운영 정책','version':1}]}
+    monkeypatch.setattr('dayzero.agents.graph.Internal',Internal)
+    monkeypatch.setattr('dayzero.agents.graph.complete',model)
+    monkeypatch.setattr('dayzero.agents.graph.execute',execute)
+    await build_graph('colleague',InMemorySaver()).ainvoke({'job_id':'j','agent_id':'colleague'},
+        {'configurable':{'thread_id':'citations:colleague'}},context={'job_token':'runtime'})
+    assert saved[0]['text']=='무료 기능을 검토해 주세요.\n참고: 운영 정책 v1'
+    assert saved[0]['sources']==[{'id':'policy','title':'운영 정책','version':1}]
 
 
 @pytest.mark.parametrize('agent',['leader','chat'])
@@ -101,6 +185,47 @@ async def test_assigned_work_cannot_stop_at_a_future_promise(monkeypatch,status)
         {'configurable':{'thread_id':'work:colleague'}},context={'job_token':'runtime'})
     assert len(calls)==3 and result['repairs']==1
     assert saved[0]['mutation_ids']==['task-record','part-record']
+
+
+async def test_assigned_completion_binds_current_versions_and_stops_before_sibling_work(monkeypatch):
+    ctx=context('colleague','work_trigger')
+    ctx['input']['data'].update(trigger='assignment:t:1',target={'id':'t','part_id':'p'})
+    ctx['tasks']=[{'id':'t','owner':'colleague','status':'todo','version':1,'part_id':'p'},
+                  {'id':'other-task','owner':'colleague','status':'todo','version':4,'part_id':'other-part'}]
+    ctx['parts']=[{'id':'p','number':4,'owner':'colleague','version':2,'body':''},
+                  {'id':'other-part','number':5,'owner':'colleague','version':7,'body':''}]
+    requests=[];executed=[]
+    class Internal:
+        def __init__(self,*args):pass
+        async def call(self,path,*args):
+            return ctx if path=='context' else {}
+    async def model(request,*args,**kwargs):
+        requests.append(request)
+        if len(requests)==1:
+            definition=next(t['function'] for t in request.tools if t['function']['name']=='complete_task')
+            properties=definition['parameters']['properties']
+            assert properties['task_id']['enum']==['t']
+            assert properties['version']['enum']==[1]
+            assert properties['part_version']['enum']==[2]
+            return Reply(kind='tools',text='',tools=[
+                {'name':'complete_task','arguments':{'task_id':'t','version':1,'part_version':2,
+                                                   'body':'작성한 실제 초안','note':'완료'}},
+                {'name':'complete_task','arguments':{'task_id':'other-task','version':4,'part_version':7,
+                                                   'body':'다른 태스크 초안','note':'완료'}}]),None
+        assert request.tools==[]
+        assert '추가 작업 없이' in request.messages[-1]['content']
+        return Reply(kind='final',text='배정받은 문서를 저장했습니다.',tools=[]),None
+    async def execute(agent,jid,token,proposal,*args):
+        executed.append(proposal.arguments['task_id'])
+        ctx['tasks'][0]['status']='done'
+        return {'task':{'after':dict(ctx['tasks'][0])},'mutation_ids':['saved-part','saved-task']}
+    monkeypatch.setattr('dayzero.agents.graph.Internal',Internal)
+    monkeypatch.setattr('dayzero.agents.graph.complete',model)
+    monkeypatch.setattr('dayzero.agents.graph.execute',execute)
+    result=await build_graph('colleague',InMemorySaver()).ainvoke({'job_id':'j','agent_id':'colleague'},
+        {'configurable':{'thread_id':'scoped-assignment:colleague'}},context={'job_token':'runtime'})
+    assert executed==['t'] and result['calls']==1 and len(requests)==2
+    assert ctx['tasks'][1]['status']=='todo'
 
 
 async def test_new_task_can_be_scheduled_within_the_same_model_job(monkeypatch):

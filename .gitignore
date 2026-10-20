@@ -16,3 +16,4 @@ test-results/
 
 # Separate output for the scenario preview while an existing session is running.
 .next-scenario-preview/
+.logs/

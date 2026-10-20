@@ -1,0 +1,88 @@
+{
+  "verified_on": "2026-10-20",
+  "scope": "Office frontend bug fixes (items 5 and 8–11)",
+  "source_files": [
+    "apps/web/src/app/office/[sessionId]/page.tsx"
+  ],
+  "environment": {
+    "browser": "Playwright Chromium headless",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "url": "http://127.0.0.1:3000/office/ui-regression",
+    "transport": "Mocked session HTTP and WebSocket responses; no model calls"
+  },
+  "checks": [
+    {
+      "name": "Initial conversation opens at latest message",
+      "result": "passed"
+    },
+    {
+      "name": "Incoming message preserves intentional reading position",
+      "result": "passed"
+    },
+    {
+      "name": "Incoming message follows bottom when already at latest",
+      "result": "passed"
+    },
+    {
+      "name": "IME composing Enter and keyCode 229 do not submit",
+      "result": "passed"
+    },
+    {
+      "name": "Shift+Enter inserts a newline",
+      "result": "passed"
+    },
+    {
+      "name": "Enter submits once while pending and own send scrolls to bottom",
+      "result": "passed"
+    },
+    {
+      "name": "Direct-message Enter sends",
+      "result": "passed"
+    },
+    {
+      "name": "Private AI Enter sends",
+      "result": "passed"
+    },
+    {
+      "name": "Task navigation aria-pressed and final background color are correct",
+      "result": "passed",
+      "selected_background": "rgb(231, 238, 226)",
+      "unselected_background": "rgba(0, 0, 0, 0)",
+      "note": "Reported item 10 did not reproduce on current code; navigation code unchanged."
+    },
+    {
+      "name": "Legacy task creation form stays collapsed until requested",
+      "result": "passed"
+    },
+    {
+      "name": "Canonical body plus duplicate source metadata displays source footer once",
+      "result": "passed"
+    },
+    {
+      "name": "Legacy body without footer displays deduplicated metadata sources",
+      "result": "passed"
+    },
+    {
+      "name": "Ordinary 참고 explanatory prose is preserved alongside sources",
+      "result": "passed"
+    },
+    {
+      "name": "npm run typecheck --prefix apps/web",
+      "result": "passed"
+    },
+    {
+      "name": "npm run build --prefix apps/web",
+      "result": "passed",
+      "next_version": "16.4.2"
+    }
+  ],
+  "browser_page_errors": [],
+  "limitations": [
+    "IME safety verified with synthetic composing key events; physical Korean keyboard input was not exercised.",
+    "Mocked UI checks do not verify backend or model execution."
+  ],
+  "note": "TypeScript check and production build repeated successfully after the source footer fix."
+}

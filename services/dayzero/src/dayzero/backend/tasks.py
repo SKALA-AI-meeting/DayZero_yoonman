@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 from sqlalchemy import select
-from dayzero.backend.db import Task, Part, Record
+from dayzero.backend.db import Task, Part, Record, Job
 from dayzero.backend.domain import require_active, journal, serialize_task, serialize_part, trigger_work, elapsed
 
 
@@ -33,6 +33,17 @@ def create_task(db, session, value, actor, operation_id, job_id=None):
         return old.data['after']
     if actor == 'colleague' or value.source_id:
         source_record(db, session, value.source_id, actor)
+    existing = None
+    if actor == 'colleague' and value.part_id and value.owner == 'colleague' and value.status == 'todo' and value.delay_seconds is None and value.due_elapsed is None:
+        existing = db.scalar(select(Task).where(Task.session_id == session.id, Task.part_id == value.part_id,
+            Task.owner == 'colleague', Task.status == 'todo', Task.source_id == value.source_id,
+            Task.id.in_(division_task_ids(session))))
+    if existing:
+        # The division already opened this part's card; record the replay as proof without a duplicate.
+        after = serialize_task(existing)
+        journal(db, session, 'task', actor, {'before': after, 'after': after, 'request': request,
+            'job_id': job_id, 'existing': True}, operation_id)
+        return after
     if value.status=='waiting' and (value.due_elapsed is None or value.due_elapsed <= elapsed(session)):
         if value.delay_seconds is None:
             raise HTTPException(422, 'future_promise_required')
@@ -56,6 +67,54 @@ def create_task(db, session, value, actor, operation_id, job_id=None):
     if actor == 'candidate' and task.owner in ['colleague', 'shared'] and task.status=='todo':
         trigger_work(db, session, 'assignment:'+task.id+':1', after)
     return after
+
+
+def open_part_task(db, session, part_id):
+    return db.scalar(select(Task).where(Task.session_id == session.id, Task.part_id == part_id,
+        Task.owner.in_(['colleague', 'shared']), Task.status.not_in(['done', 'cancelled'])))
+
+
+def division_task_ids(session):
+    return select(Record.data['after']['id'].astext).where(Record.session_id == session.id,
+        Record.kind == 'task', Record.data['request']['division'].astext.is_not(None),
+        Record.data['before'].astext.is_(None))
+
+
+def assign_division(db, session, source_id, job_id, operation_id):
+    """An agreed division gives the colleague a card per assigned part and starts that work.
+
+    Without this, parts assigned in conversation had no task and therefore no work trigger.
+    """
+    created = []
+    for task in db.scalars(select(Task).join(Part, Task.part_id == Part.id).where(
+            Task.session_id == session.id, Task.id.in_(division_task_ids(session)),
+            Task.status.not_in(['done', 'cancelled']), Part.owner != 'colleague')):
+        before = serialize_task(task)
+        task.status, task.version = 'cancelled', task.version+1
+        record = journal(db, session, 'task', 'colleague', {'before': before, 'after': serialize_task(task),
+            'request': {'division': operation_id, 'task_id': task.id, 'cancelled': True},
+            'job_id': job_id}, operation_id+':cancel-task:'+task.id)
+        triggers = select(Record.id).where(Record.session_id == session.id, Record.kind == 'work_trigger',
+            Record.data['target']['id'].astext == task.id, Record.data['trigger'].astext.startswith('assignment:'))
+        for pending in db.scalars(select(Job).where(Job.session_id == session.id, Job.agent_id == 'colleague',
+                Job.status == 'pending', Job.input_id.in_(triggers))):
+            pending.status = 'cancelled'
+        created.append(record.id)
+    for part in db.scalars(select(Part).where(Part.session_id == session.id, Part.owner == 'colleague')):
+        completed = db.scalar(select(Task.id).where(Task.session_id == session.id, Task.part_id == part.id,
+            Task.status == 'done'))
+        if part.status == 'done' or completed or open_part_task(db, session, part.id):
+            continue
+        task = Task(session_id=session.id, title=part.title+' 작성', owner='colleague', part_id=part.id,
+                    source_id=source_id, note='분업 합의에 따라 배정')
+        db.add(task)
+        db.flush()
+        after = serialize_task(task)
+        record = journal(db, session, 'task', 'colleague', {'before': None, 'after': after,
+            'request': {'division': operation_id, 'part_id': part.id}, 'job_id': job_id}, operation_id+':task:'+part.id)
+        trigger_work(db, session, 'assignment:'+task.id+':1', after)
+        created.append(record.id)
+    return created
 
 
 def update_task(db, session, task_id, value, actor, operation_id, job_id=None):

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="description" content="현재 구현 아키텍처">
+<title>현재 구현 아키텍처 · Day Zero</title><style>
+[hidden]{display:none!important}
+:root{--paper:#f4f3ee;--white:#fffefa;--ink:#203b35;--muted:#64736c;--green:#255c47;--line:#d9dfd6;--lime:#def099;--mint:#e9f0e5;--orange:#a5632d;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px;line-height:1.85;word-break:keep-all;overflow-wrap:anywhere}a{color:var(--green);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}button,input,select{font:inherit}button,a,input,summary{outline-offset:5px}button{cursor:pointer}button:hover{background:var(--mint)}.skip{position:fixed;top:-100px;left:20px;z-index:99;background:white;padding:10px}.skip:focus{top:10px}.progress{position:fixed;top:0;left:0;height:3px;background:var(--green);z-index:50;width:0}.masthead{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(244,243,238,.96);backdrop-filter:blur(16px);padding:15px 34px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-size:20px;font-weight:750;letter-spacing:-.6px}.mark{display:grid;place-items:center;width:35px;height:35px;background:var(--green);color:var(--lime);border-radius:9px;font-family:Georgia,serif;font-size:26px;font-weight:400}.brand small{font:10px var(--mono);color:var(--muted);letter-spacing:1.5px;margin-left:10px}.tools{display:flex;gap:7px;align-items:center}.tools a,.tools button{border:1px solid transparent;border-radius:7px;padding:7px 13px;font-size:12px;font-weight:650;background:transparent;text-decoration:none;color:var(--muted)}.tools .selected{background:var(--ink);color:white}.tools button{border-color:var(--line)}.layout{display:grid;grid-template-columns:235px minmax(0,1fr);gap:48px;max-width:1530px;margin:0 auto;padding:0 38px}.sidebar{position:sticky;top:95px;align-self:start;height:calc(100vh - 116px);overflow:auto;padding:24px 10px 18px 0;scrollbar-width:thin}.eyebrow,.section-kicker{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--green)}.sidebar .eyebrow{margin-bottom:15px}.search-label{display:block;font-size:11px;color:var(--muted);margin-bottom:5px}.search{display:flex;border:1px solid var(--line);border-radius:7px;background:var(--white);margin-bottom:5px}.search input{width:100%;min-width:0;border:0;background:transparent;padding:8px 10px;font-size:12px;color:var(--ink)}.search button{border:0;background:transparent;color:var(--muted);padding:3px 10px}.search-status{font-size:10px;color:var(--muted);min-height:22px;margin:0 0 13px}.toc{display:flex;flex-direction:column;gap:3px}.toc a{display:flex;gap:10px;align-items:baseline;border-left:2px solid transparent;padding:6px 9px;text-decoration:none;font-size:12px;line-height:1.55;color:var(--muted);border-radius:0 5px 5px 0}.toc a:hover{background:var(--mint);color:var(--ink)}.toc a.active{border-left-color:var(--green);background:var(--mint);color:var(--green);font-weight:700}.toc-num{font:10px var(--mono);min-width:20px;opacity:.75}.sidebar-note{border-top:1px solid var(--line);padding-top:16px;margin-top:22px;font-size:10px;color:var(--muted);line-height:1.8}.main{max-width:1150px;min-width:0;padding:44px 0 60px}.hero{position:relative;padding:10px 0 32px;border-bottom:1px solid var(--line)}.hero-top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:22px}.badge{display:inline-flex;padding:3px 10px;border:1px solid #c9d4c3;border-radius:100px;font-size:10px;color:var(--green);background:#edf2e6}.hero h1{font-size:clamp(35px,4.2vw,64px);line-height:1.23;letter-spacing:-2.5px;margin:0 0 22px;font-weight:750}.hero .serif{font-family:Georgia,"Times New Roman",serif;display:block;font-size:clamp(65px,7.5vw,110px);font-weight:400;letter-spacing:-6px;line-height:1.05;margin-bottom:18px}.hero h1 .ko{display:block;font-size:clamp(25px,2.7vw,39px);letter-spacing:-1.5px;line-height:1.35}.hero-desc{font-size:16px;line-height:1.9;max-width:760px;color:var(--muted);margin:0}.hero-bottom{display:flex;flex-wrap:wrap;gap:18px;margin-top:23px;font-size:11px;color:var(--muted)}.hero-bottom b{color:var(--ink);margin-right:6px}.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--ink);border-radius:12px;color:#fff;margin:27px 0 32px;padding:24px 9px}.stat{padding:0 22px;border-right:1px solid #466057}.stat:last-child{border:0}.stat b{display:block;font-family:Georgia,serif;font-size:40px;font-weight:400;color:var(--lime);line-height:1.15}.stat b small{font-family:inherit;font-size:17px;margin-left:5px}.stat span{display:block;font-size:12px;margin-top:7px;color:#e6ece4}.stat em{font-style:normal;display:block;font-size:10px;color:#bfcfc2;margin-top:3px}.chapter{padding:38px 0 30px;border-bottom:1px solid var(--line);scroll-margin-top:92px}.chapter[hidden]{display:none}.chapter h2{font-size:29px;line-height:1.4;letter-spacing:-1.1px;margin:8px 0 22px;font-weight:730}.chapter h3{font-size:20px;line-height:1.5;letter-spacing:-.4px;margin:36px 0 15px}.chapter h4{font-size:16px;margin:25px 0 12px}.chapter p{margin:12px 0}.chapter>p{max-width:940px}.chapter li{padding-left:3px;margin:7px 0}.chapter ul,.chapter ol{padding-left:24px}.chapter strong{font-weight:700;color:#1d4938}.chapter blockquote{margin:22px 0;background:var(--mint);border-left:3px solid var(--green);padding:15px 23px;border-radius:0 8px 8px 0;font-size:15px}.chapter blockquote p{margin:4px 0}.table-wrap{max-width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:9px;margin:22px 0;background:var(--white);scrollbar-width:thin}.table-wrap table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.8;min-width:580px}.table-wrap th{background:#e9ede4;padding:12px 16px;text-align:left;color:var(--ink);font-size:11px;letter-spacing:.1px;font-weight:750;vertical-align:top}.table-wrap td{padding:15px 16px;border-top:1px solid #e5e7df;vertical-align:top;min-width:90px}.table-wrap tr:nth-child(even) td{background:#f8f9f4}.table-wrap td:first-child{font-weight:600;color:#284c3c}.table-wrap tr:hover td{background:#f1f5e9}.table-wrap td p{margin:0}code{font-family:var(--mono);font-size:.85em;background:#e9ede6;border:1px solid #e1e5dd;border-radius:4px;padding:2px 5px;overflow-wrap:anywhere}pre{background:#213b34;color:#eff3e7;padding:23px;border-radius:9px;overflow:auto;line-height:1.8;font-size:12px;word-break:normal;white-space:pre}pre code{font-size:inherit;background:transparent;border:0;color:inherit;padding:0}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:22px 0}.card{border:1px solid var(--line);background:var(--white);border-radius:10px;padding:23px}.card h3{font-size:17px;margin:9px 0 9px}.card p{font-size:13px;color:var(--muted);line-height:1.85;margin:0}.card .index{font:11px var(--mono);color:var(--green)}.card ul{font-size:13px;padding-left:17px}.card small{display:block;margin-top:13px;font-size:11px;color:var(--green)}.callout{background:var(--mint);border:1px solid #cfdbc7;border-radius:9px;padding:19px 23px;margin:22px 0;font-size:13px}.callout strong{color:var(--green)}.callout p{margin:6px 0}.callout.warning{background:#f8f0dd;border-color:#e6d9b7;color:#6b5934}.source{font-size:11px;color:var(--muted);line-height:1.7;margin-top:18px!important;word-break:break-word}.pill{display:inline-block;border-radius:5px;padding:2px 8px;font:700 10px var(--mono);white-space:nowrap}.p0{color:#245c43;background:#e5efd9}.p1{color:#805a28;background:#f4e8ca}.optional{color:#677171;background:#e9eceb}.timeline{border-left:2px solid #c8d7bb;margin:25px 0 25px 9px;padding-left:26px}.moment{position:relative;display:grid;grid-template-columns:60px 1fr;gap:20px;padding:0 0 23px}.moment:last-child{padding-bottom:0}.moment:before{content:"";position:absolute;left:-33px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid #8ea87e}.moment.key:before{background:var(--green);border-color:var(--green)}.moment time{font:12px var(--mono);padding-top:4px;color:var(--green)}.moment b{font-size:14px}.moment p{font-size:12px;margin:1px 0;color:var(--muted)}.moment .badge{margin-left:8px;font-size:9px;padding:1px 7px}.flow{display:flex;gap:10px;margin:20px 0;align-items:stretch}.flow .step{flex:1;position:relative;border:1px solid var(--line);border-radius:8px;background:var(--white);padding:15px;font-size:12px;min-width:0}.flow .step:not(:last-child):after{content:"→";position:absolute;right:-12px;top:calc(50% - 15px);z-index:1;color:var(--green);background:var(--paper);font-size:18px}.flow .step b{display:block;font-size:13px}.flow .step p{font-size:12px;color:var(--muted);line-height:1.75;margin:5px 0}.flow.vertical{flex-direction:column}.flow.vertical .step:not(:last-child):after{content:"↓";right:calc(50% - 6px);top:auto;bottom:-20px}.no-results{padding:40px;background:var(--white);border:1px solid var(--line);border-radius:8px;text-align:center}.footer{display:flex;justify-content:space-between;gap:18px;font-size:11px;color:var(--muted);padding:30px 0}.mobile-menu{display:none}.diagram{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--white);overflow:auto;margin:24px 0}.diagram svg{display:block;width:100%;height:auto;min-width:780px}.diagram-label{display:flex;gap:18px;flex-wrap:wrap;font-size:10px;color:var(--muted);padding:2px 5px 8px}.legend-dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;background:var(--green)}.legend-dot.light{background:#dcebb9}.legend-dot.gray{background:#dee2de}.diagram-note{font-size:11px;color:var(--muted);margin:8px 4px 0!important}.subtle{font-size:12px;color:var(--muted)}details{border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:20px 0;background:var(--white)}summary{cursor:pointer;font-size:13px;font-weight:650}.mini-map{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:12px;margin:20px 0}.mini-map>div{border:1px solid var(--line);border-radius:8px;padding:17px;background:var(--white);font-size:12px}.mini-map b{display:block;margin-bottom:6px}.mini-map .hub{background:var(--ink);color:white}.section-divider{margin-top:36px;padding:15px 0;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:15px}
+@media(min-width:1600px){.layout{gap:64px}.main{padding-top:56px}}
+@media(max-width:1100px){.layout{grid-template-columns:190px minmax(0,1fr);gap:30px;padding:0 25px}.stat{padding:0 13px}.cards{gap:10px}.card{padding:18px}.brand small{display:none}.chapter h2{font-size:26px}.table-wrap td{padding:12px}.flow{flex-wrap:wrap}.flow .step{flex-basis:30%}}
+@media(max-width:760px){html{scroll-padding-top:90px}.masthead{padding:12px 16px;gap:8px}.brand{font-size:18px}.mark{width:30px;height:30px;font-size:22px}.tools{gap:2px}.tools a,.tools button{font-size:11px;padding:6px 8px}.tools button{display:none}.layout{display:block;padding:0 20px}.sidebar{position:static;height:auto;overflow:visible;padding:16px 0 0}.sidebar .eyebrow,.sidebar-note{display:none}.sidebar .toc{display:none;max-height:300px;overflow:auto;margin:14px 0}.sidebar.open .toc{display:flex}.mobile-menu{display:block;width:100%;border:1px solid var(--line);border-radius:7px;background:var(--white);padding:9px 12px;text-align:left;color:var(--ink);font-size:12px}.mobile-menu span{float:right}.search-label{margin-top:12px}.search-status{margin-bottom:0}.main{padding:24px 0 25px}.hero-top{margin-bottom:24px;align-items:start}.eyebrow{font-size:9px;letter-spacing:1.3px}.badge{font-size:9px}.hero h1{letter-spacing:-1.6px;font-size:37px}.hero .serif{font-size:78px;letter-spacing:-4px}.hero h1 .ko{font-size:26px}.hero-desc{font-size:14px}.hero-bottom{font-size:10px;gap:9px 18px}.stats{grid-template-columns:repeat(2,1fr);padding:20px 10px;gap:22px 0;margin:22px 0}.stat:nth-child(2){border:0}.stat b{font-size:33px}.stat span{font-size:11px}.stat em{font-size:9px}.chapter{padding:29px 0 22px}.chapter h2{font-size:25px}.chapter h3{font-size:18px}.chapter p,.chapter li{font-size:14px}.chapter .card p{font-size:13px}.cards{grid-template-columns:1fr}.card{padding:20px}.table-wrap table{font-size:12px;min-width:600px}.table-wrap th{font-size:10px}.chapter blockquote{padding:13px 16px}.flow{flex-direction:column;gap:16px}.flow .step:not(:last-child):after{content:"↓";right:calc(50% - 6px);top:auto;bottom:-22px}.mini-map{grid-template-columns:1fr}.moment{gap:10px;grid-template-columns:52px 1fr}.moment .badge{display:inline-block;margin-left:5px}.moment p{font-size:12px}.footer{display:block}.footer a{display:inline-block;margin-top:10px}.section-divider{display:block}.section-divider span{display:block}.diagram{padding:10px}.diagram-note{font-size:11px!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@page{size:A4;margin:16mm}
+@media print{html{scroll-behavior:auto}body{background:white;font-size:10pt;line-height:1.65;color:#172d25}.masthead,.sidebar,.progress,.skip,.footer,.search-status,.mobile-menu,.no-results{display:none!important}.layout{display:block;padding:0}.main{max-width:none;padding:0}.hero{padding-top:0}.hero h1 .serif{font-size:60pt}.hero h1 .ko{font-size:24pt}.hero-desc{font-size:11pt}.hero-bottom{font-size:8pt}.stats{print-color-adjust:exact;-webkit-print-color-adjust:exact;padding:15px 5px}.stat b{font-size:26pt}.chapter{padding:20px 0;break-before:auto}.chapter[hidden]{display:block!important}.chapter h2{font-size:20pt;break-after:avoid}.chapter h3,.chapter h4{break-after:avoid}.chapter p,.chapter li{font-size:10pt}.card{break-inside:avoid}.cards{grid-template-columns:repeat(3,1fr);gap:8px}.card p{font-size:9pt!important}.table-wrap{overflow:visible}.table-wrap table{min-width:0!important;font-size:8pt}.table-wrap th,.table-wrap td{padding:8px;min-width:0}.table-wrap th{font-size:8pt}thead{display:table-header-group}tr{break-inside:avoid}.callout{break-inside:avoid}.diagram{overflow:visible;padding:6px;break-inside:avoid}.diagram svg{min-width:0}.flow .step{font-size:8pt}.flow .step p{font-size:8pt}pre{white-space:pre-wrap;font-size:8pt;word-break:break-all}.moment{break-inside:avoid}a{color:inherit;text-decoration:none}.section-kicker{font-size:7pt}details{break-inside:auto}details>summary{display:none}details:not([open])>*:not(summary){display:block}}
+</style></head>
+<body><a href="#main" class="skip">본문 바로가기</a><div class="progress" aria-hidden="true"></div>
+<header class="masthead"><a class="brand" href="prd.html"><span class="mark">d.</span>Day Zero<small>PRODUCT NOTEBOOK</small></a>
+<nav class="tools" aria-label="문서 전환"><a href="prd.html" >제품 PRD</a><a href="architecture.html" class="selected" aria-current="page">아키텍처</a><button id="print" type="button">인쇄 / PDF ↗</button></nav></header>
+<div class="layout"><aside class="sidebar" aria-label="문서 탐색">
+<div class="eyebrow">IMPLEMENTATION MAP</div>
+<button id="menu" class="mobile-menu" aria-expanded="false" aria-controls="toc">문서 목차 <span>⌄</span></button>
+<label class="search-label" for="search">문서 내용 검색</label><div class="search"><input id="search" type="search" placeholder="키워드 입력" autocomplete="off"><button id="clear-search" aria-label="검색 초기화" type="button">×</button></div>
+<p class="search-status" id="search-status" role="status" aria-live="polite">목차에서 섹션을 선택하거나 내용을 검색하세요.</p>
+<nav class="toc" id="toc" aria-label="섹션 목차"><a href="#overview"><span class="toc-num">01</span><span>구현 구조 한눈에</span></a><a href="#deployment"><span class="toc-num">02</span><span>프로세스와 포트</span></a><a href="#flows"><span class="toc-num">03</span><span>사용자 요청 처리</span></a><a href="#agents"><span class="toc-num">04</span><span>Graph와 권한</span></a><a href="#data"><span class="toc-num">05</span><span>데이터와 복구</span></a><a href="#boundaries"><span class="toc-num">06</span><span>인증과 실행 경계</span></a><a href="#differences"><span class="toc-num">07</span><span>기획과 구현의 구분</span></a><a href="#sources"><span class="toc-num">08</span><span>코드 근거 목록</span></a></nav>
+<div class="sidebar-note">DOCUMENT SNAPSHOT<br>2026.10.20 · 한국어<br>현재 작업트리 구현 기준<br>로컬 열람 · 외부 리소스 없음</div></aside>
+<main class="main" id="main"><section class="hero"><div class="hero-top"><span class="eyebrow">DAY ZERO / SYSTEM ARCHITECTURE</span><span class="badge">현재 구현 기준</span></div>
+<h1>현재 구현<br>아키텍처<span style="color:#8ca971">.</span></h1>
+<p class="hero-desc">화면에서 시작한 요청이 업무 원본, 작업 큐, 독립 에이전트와<br>근거 리포트로 이어지는 실제 코드의 연결 구조.</p>
+<div class="hero-bottom"><span><b>코드 기준</b>2026.10.20 검토 시점</span><span><b>베이스</b>930624a + 작업트리 변경</span><span><b>범위</b>코드·설정 정적 확인</span></div></section><div class="stats"><div class="stat"><b>5<small>processes</small></b><span>Python 실행 단위</span><em>Backend · Worker 2 · MCP 2</em></div><div class="stat"><b>3<small>graphs</small></b><span>독립 에이전트</span><em>leader · colleague · chat</em></div><div class="stat"><b>4<small>queues</small></b><span>역할별 작업 큐</span><em>AI 3개 · 리포트 1개 + DLQ</em></div><div class="stat"><b>1<small>database</small></b><span>PostgreSQL + pgvector</span><em>업무 원본 · 체크포인트 · 검색</em></div></div>
+<div class="no-results" id="no-results" hidden>검색 결과가 없습니다. 다른 키워드로 검색해 주세요.</div>
+<section class="chapter" id="overview" data-title="구현 구조 한눈에">
+  <div class="section-kicker">01 / SYSTEM OVERVIEW</div>
+  <h2>업무의 기준은 Backend,<br>AI 실행은 별도 Worker</h2>
+  <p>현재 Day Zero는 <strong>Next.js 웹, FastAPI Backend, AI Worker, Report Worker, Business MCP, RAG MCP</strong>를 분리한 로컬 MVP입니다. Python 서비스는 하나의 패키지와 이미지를 공유하며, PostgreSQL과 RabbitMQ를 공통 기반으로 사용합니다. 팀장·동료·개인 AI는 하나의 AI Worker 안에서 각각 독립 LangGraph로 컴파일됩니다.</p>
+  <figure class="diagram" aria-labelledby="map-caption">
+<div class="diagram-label"><span><i class="legend-dot"></i>업무의 중심</span><span><i class="legend-dot light"></i>비동기 실행</span><span><i class="legend-dot gray"></i>저장소 · 도구</span></div>
+<svg viewBox="0 0 1100 710" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="map-title">Day Zero 현재 구현의 주요 실행 경로</title>
+<desc id="map-desc">Next.js에서 FastAPI로 요청합니다. Backend는 PostgreSQL에 업무와 작업을 저장하고 RabbitMQ의 세 AI 큐 및 리포트 큐에 발행합니다. AI Worker는 세 독립 LangGraph, Business MCP와 RAG MCP 및 모델 어댑터를 사용합니다. Report Worker는 확정 스냅샷을 모델로 분석합니다. Business MCP와 두 Worker의 결과는 Backend 내부 API로 돌아가며, AI 체크포인트와 RAG 검색은 각각 허용된 DB 역할을 사용합니다.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#709078"/></marker></defs>
+<g fill="none" stroke="#8ca480" stroke-width="1.8" marker-end="url(#arrow)">
+<path d="M235 91H320"/><path d="M735 91H815"/><path d="M525 152V218"/>
+<path d="M425 310V342H315V377"/><path d="M625 310V342H865V377"/>
+<path d="M210 497V559"/><path d="M430 497V559"/><path d="M580 442H677V659H760"/>
+<path d="M865 497V559"/>
+</g>
+<g font-family="-apple-system,BlinkMacSystemFont,Apple SD Gothic Neo,Malgun Gothic,sans-serif">
+<g font-size="11" fill="#61755e"><text x="278" y="69" text-anchor="middle">REST / WS</text><text x="775" y="69" text-anchor="middle">SQL</text><text x="542" y="189">outbox · job_id 발행</text><text x="315" y="362" text-anchor="middle">AI 작업 · 역할별 3개 큐</text><text x="865" y="362" text-anchor="middle">리포트 작업 · 1개 큐</text><text x="209" y="535" text-anchor="middle">MCP / Streamable HTTP</text><text x="430" y="535" text-anchor="middle">MCP</text><text x="880" y="533">근거 분석</text><text x="655" y="686" text-anchor="middle">응답 생성</text></g>
+<rect x="15" y="35" width="220" height="117" rx="12" fill="#f0f2eb" stroke="#d6dfd0"/>
+<text x="35" y="60" fill="#72816a" font-size="10" letter-spacing="1">WEB · :3000</text><text x="35" y="89" fill="#203b35" font-size="19" font-weight="700">Next.js + React</text><text x="35" y="116" fill="#64736c" font-size="12">지원자 미니 PC · 기업 화면</text><text x="35" y="136" fill="#64736c" font-size="11">/api → Backend 프록시</text>
+<rect x="320" y="35" width="415" height="117" rx="12" fill="#255c47"/>
+<text x="342" y="60" fill="#c8e29d" font-size="10" letter-spacing="1">BACKEND · :8000</text><text x="342" y="90" fill="#fffefa" font-size="22" font-weight="700">FastAPI · 업무 원본의 진입점</text><text x="342" y="117" fill="#e2ecdf" font-size="12">인증 · 세션 · 태스크 · 제출 · 내부 API</text><text x="342" y="138" fill="#c9dbcb" font-size="11">시간·이벤트 스케줄러 + outbox publisher</text>
+<rect x="815" y="35" width="270" height="117" rx="12" fill="#f0f2eb" stroke="#d6dfd0"/>
+<text x="835" y="60" fill="#72816a" font-size="10" letter-spacing="1">DATABASE · :5432</text><text x="835" y="88" fill="#203b35" font-size="18" font-weight="700">PostgreSQL + pgvector</text><text x="835" y="115" fill="#64736c" font-size="12">업무 테이블 / checkpoints 스키마</text><text x="835" y="136" fill="#64736c" font-size="11">company_documents · 1024차원 벡터</text>
+<rect x="320" y="218" width="415" height="92" rx="12" fill="#e4edca" stroke="#ccdbac"/>
+<text x="342" y="244" fill="#50663d" font-size="10" letter-spacing="1">MESSAGE BROKER · :5672</text><text x="342" y="271" fill="#203b35" font-size="20" font-weight="700">RabbitMQ</text><text x="342" y="294" fill="#536b48" font-size="12">ai.leader / ai.colleague / ai.chat / reports + DLQ</text>
+<rect x="65" y="377" width="515" height="120" rx="12" fill="#eef3e0" stroke="#c9d7b3"/>
+<text x="87" y="402" fill="#68824e" font-size="10" letter-spacing="1">AI WORKER · ONE PROCESS</text><text x="87" y="429" fill="#203b35" font-size="20" font-weight="700">독립 LangGraph 3개</text>
+<rect x="87" y="445" width="102" height="29" rx="6" fill="#fffefa" stroke="#d1ddc5"/><text x="138" y="465" text-anchor="middle" fill="#3b613c" font-size="12">leader</text>
+<rect x="199" y="445" width="112" height="29" rx="6" fill="#fffefa" stroke="#d1ddc5"/><text x="255" y="465" text-anchor="middle" fill="#3b613c" font-size="12">colleague</text>
+<rect x="321" y="445" width="102" height="29" rx="6" fill="#fffefa" stroke="#d1ddc5"/><text x="372" y="465" text-anchor="middle" fill="#3b613c" font-size="12">chat</text>
+<text x="440" y="465" fill="#647553" font-size="11">공통 Harness</text><text x="87" y="488" fill="#647553" font-size="10">각 session_id:agent_id → checkpoints / graph DB 역할</text>
+<rect x="740" y="377" width="345" height="120" rx="12" fill="#eef3e0" stroke="#c9d7b3"/>
+<text x="762" y="402" fill="#68824e" font-size="10" letter-spacing="1">REPORT WORKER · SEPARATE PROCESS</text><text x="762" y="430" fill="#203b35" font-size="20" font-weight="700">확정 기록 → 근거 리포트</text><text x="762" y="457" fill="#647553" font-size="12">snapshot v2 · 원문 / 주체 / 최종본 검사</text><text x="762" y="482" fill="#647553" font-size="11">context / result → Backend 내부 API</text>
+<rect x="65" y="559" width="245" height="115" rx="12" fill="#f0f2eb" stroke="#d6dfd0"/>
+<text x="85" y="584" fill="#72816a" font-size="10" letter-spacing="1">BUSINESS MCP · :8001</text><text x="85" y="613" fill="#203b35" font-size="18" font-weight="700">업무 조회 · 변경</text><text x="85" y="640" fill="#64736c" font-size="12">Backend 내부 API로 중계</text><text x="85" y="661" fill="#64736c" font-size="11">권한 · 버전 · 저장 결과 확인</text>
+<rect x="335" y="559" width="245" height="115" rx="12" fill="#f0f2eb" stroke="#d6dfd0"/>
+<text x="355" y="584" fill="#72816a" font-size="10" letter-spacing="1">RAG MCP · :8002</text><text x="355" y="613" fill="#203b35" font-size="18" font-weight="700">공개 자료 검색 · 원문</text><text x="355" y="640" fill="#64736c" font-size="12">허용 문서 확인 → BGE-M3</text><text x="355" y="661" fill="#64736c" font-size="11">pgvector / rag 역할 SELECT</text>
+<rect x="760" y="559" width="325" height="115" rx="12" fill="#f0f2eb" stroke="#d6dfd0"/>
+<text x="782" y="584" fill="#72816a" font-size="10" letter-spacing="1">SHARED MODEL ADAPTER</text><text x="782" y="613" fill="#203b35" font-size="18" font-weight="700">OpenAI API / Codex CLI</text><text x="782" y="640" fill="#64736c" font-size="12">API: gpt-4o-mini · CLI: 선택 모델</text><text x="782" y="661" fill="#64736c" font-size="11">에이전트 / 리포트 바인딩 각각 고정</text>
+</g></svg>
+<figcaption id="map-caption" class="diagram-note">주요 실행 경로를 표시했습니다. 큐 이름의 공통 접두사는 <code>dayzero.</code>입니다. Worker의 claim·context·result 반환, MCP의 내부 API 호출과 DB 접근 관계는 아래 표에 정리했습니다. 포트는 프로세스·컨테이너 내부 기준입니다.</figcaption>
+</figure>
+
+  <div class="callout"><strong>이 문서의 기준</strong><p>2026년 10월 20일, 커밋 <code>930624a</code>와 현재 미커밋 변경을 포함한 작업트리 코드·Compose 설정을 읽었습니다. 현재 프로세스의 실행 여부, 실제 모델 호출 성공, 전체 Docker 구동과 120분 세션을 이번 작업에서 재검증한 것은 아닙니다.</p></div>
+  <div class="cards">
+    <article class="card"><h3>하나의 업무 원본</h3><p>인증, 세션 시간, 수신자 결정, 문서·태스크 변경, 이벤트와 결과 저장은 Backend가 검증합니다. Worker와 Business MCP는 내부 HTTP API를 거쳐 업무를 요청합니다.</p></article>
+    <article class="card"><h3>세 에이전트의 독립 실행</h3><p><code>leader</code>, <code>colleague</code>, <code>chat</code>은 Graph 템플릿을 공유하되 기억, 체크포인트 thread, 작업 순번, 실행 리스를 분리합니다.</p></article>
+    <article class="card"><h3>제출 후 확정 입력 분석</h3><p>세션 종료 때 snapshot v2를 고정하고 미완료 AI 작업을 취소합니다. 별도 Report Worker가 이 입력을 분석하고 Backend 검사를 통과한 리포트를 공개합니다.</p></article>
+  </div>
+  <div class="table-wrap"><table><thead><tr><th>호출 주체</th><th>대상</th><th>실제 연결과 역할</th></tr></thead><tbody>
+    <tr><td>브라우저</td><td>Next.js → Backend</td><td>동일 출처 <code>/api/*</code> 프록시로 REST와 WebSocket 연결</td></tr>
+    <tr><td>Backend</td><td>PostgreSQL / RabbitMQ</td><td>원본·작업 저장 후 DB outbox를 읽어 큐에 확인 발행</td></tr>
+    <tr><td>RabbitMQ</td><td>AI Worker / Report Worker</td><td>세 에이전트 큐와 리포트 큐의 작업 ID 전달</td></tr>
+    <tr><td>두 Worker</td><td>Backend 내부 API</td><td>작업 claim, 문맥 조회, 호출 예산 예약, heartbeat, 결과 저장</td></tr>
+    <tr><td>AI Worker</td><td>Business MCP / RAG MCP</td><td>공통 MCP 클라이언트의 Streamable HTTP 직접 연결</td></tr>
+    <tr><td>Business MCP</td><td>Backend 내부 API</td><td>업무 도구 제안 중계. 업무 ORM 직접 변경 없음</td></tr>
+    <tr><td>RAG MCP</td><td>Backend / PostgreSQL</td><td>허용 문서 확인 후 BGE-M3 질의 임베딩과 pgvector 검색</td></tr>
+    <tr><td>AI Worker</td><td>PostgreSQL checkpoints</td><td>LangGraph Postgres Checkpointer로 실행 상태 저장·재개</td></tr>
+    <tr><td>두 Worker</td><td>공통 모델 어댑터</td><td>고정 binding에 따라 OpenAI API 또는 로컬 Codex CLI 실행</td></tr>
+  </tbody></table></div>
+  <p class="source">근거: compose.yaml:47 · apps/web/next.config.ts:4 · backend/queue.py:36 · workers/ai.py:10 · workers/report.py:6 · mcp_client/client.py:12</p>
+</section>
+
+<section class="chapter" id="deployment" data-title="프로세스와 포트">
+  <div class="section-kicker">02 / DEPLOYMENT</div>
+  <h2>8개 상시 서비스와<br>2개 준비 작업</h2>
+  <p>Compose에는 8개의 상시 서비스가 정의되어 있습니다. <code>migrate</code>는 Backend 시작 전 완료되어야 하는 일회성 마이그레이션이며, <code>index</code>는 별도 프로파일로 실행하는 문서 색인 작업입니다. 호스트에 공개되는 포트는 모두 loopback으로 제한됩니다.</p>
+  <div class="table-wrap"><table><thead><tr><th>실행 단위</th><th>기술 / 명령</th><th>포트</th><th>주요 책임</th></tr></thead><tbody>
+    <tr><td><strong>web</strong></td><td>Next.js 16 · React 19 · TypeScript</td><td>127.0.0.1:3000 → 3000</td><td>개인·기업 진입, 미니 PC, 기업 리포트</td></tr>
+    <tr><td><strong>backend</strong></td><td>Python 3.12 · FastAPI · Uvicorn</td><td>127.0.0.1:8000 → 8000</td><td>REST·WebSocket·내부 API, scheduler, outbox publisher</td></tr>
+    <tr><td><strong>business-mcp</strong></td><td><code>dayzero.mcp_servers.business</code></td><td>컨테이너 내부 8001 /mcp</td><td>업무 조회·변경 도구 중계</td></tr>
+    <tr><td><strong>rag-mcp</strong></td><td><code>dayzero.mcp_servers.rag</code></td><td>컨테이너 내부 8002 /mcp</td><td>허용된 회사 문서 검색·원문 조회</td></tr>
+    <tr><td><strong>worker-ai</strong></td><td><code>dayzero.workers.ai</code></td><td>수신 HTTP 포트 없음</td><td>세 Graph, LLM·MCP 호출, 체크포인트</td></tr>
+    <tr><td><strong>worker-report</strong></td><td><code>dayzero.workers.report</code></td><td>수신 HTTP 포트 없음</td><td>확정 snapshot 기반 리포트 생성</td></tr>
+    <tr><td><strong>postgres</strong></td><td>PostgreSQL 16 + pgvector</td><td>127.0.0.1:55432 → 5432</td><td>업무 원본·체크포인트·문서 벡터</td></tr>
+    <tr><td><strong>rabbitmq</strong></td><td>RabbitMQ 4.1 management</td><td>127.0.0.1:5673 → 5672<br>127.0.0.1:15673 → 15672</td><td>AMQP 큐 / 관리 UI</td></tr>
+    <tr><td>migrate</td><td><code>alembic upgrade head</code></td><td>없음 · 일회성</td><td>스키마 준비 후 Backend 시작 허용</td></tr>
+    <tr><td>index</td><td><code>dayzero.rag.index</code></td><td>없음 · profile: index</td><td>BGE-M3 모델 준비·회사 문서 벡터 기록</td></tr>
+  </tbody></table></div>
+  <div class="cards">
+    <article class="card"><h3>Compose 배치</h3><p>Python 역할은 같은 이미지로 실행됩니다. AI Worker는 Backend와 두 MCP 서비스 시작 후, Report Worker와 Web은 Backend 시작 후 구동합니다. <code>pgdata</code>, <code>rabbitdata</code>, <code>models</code> 볼륨을 사용합니다.</p></article>
+    <article class="card"><h3>로컬 직접 실행</h3><p>현재 <code>scripts/dev.sh</code>는 DB·큐를 Docker로 올리고 Python 프로세스 5개를 호스트에서 시작합니다. 웹은 별도 <code>npm run dev</code>입니다. 로컬 MCP 기본 바인딩은 <code>127.0.0.1</code>입니다.</p></article>
+    <article class="card"><h3>시작 조건의 의미</h3><p>DB·큐는 healthcheck, 마이그레이션은 완료 조건을 사용합니다. Backend·MCP 의존은 <code>service_started</code>이므로 실제 요청 준비나 모델 캐시·색인 준비까지 보장하지 않습니다.</p></article>
+  </div>
+  <p class="source">근거: compose.yaml:20–100 · apps/web/package.json:4 · services/dayzero/pyproject.toml:4 · shared/config.py:17–27 · scripts/dev.sh:13–19,53–71</p>
+</section>
+
+<section class="chapter" id="flows" data-title="사용자 요청 처리">
+  <div class="section-kicker">03 / REQUEST FLOWS</div>
+  <h2>대화, 문서 검색, 제출이<br>각각 처리되는 경로</h2>
+  <h3>① 메시지 입력 → 에이전트 응답</h3>
+  <div class="flow">
+    <div class="step"><b>1. 웹에서 전송</b><p>메신저 팀 채널·동료 DM·개인 AI 흐름을 지정하고 고유 operation ID를 보냅니다.</p></div>
+    <div class="step"><b>2. Backend 접수</b><p>지원자 토큰·세션 상태·수신자를 검사하고 메시지와 에이전트별 Job을 같은 트랜잭션에 저장합니다.</p></div>
+    <div class="step"><b>3. 큐와 작업 획득</b><p>publisher가 Job ID를 RabbitMQ에 발행합니다. Worker는 내부 claim API에서 실행 리스와 작업 토큰을 받습니다.</p></div>
+    <div class="step"><b>4. Graph 실행</b><p>허용 문맥을 읽고 모델의 응답 또는 도구 제안을 받습니다. 도구는 Harness 검사 후 MCP를 거쳐 실행합니다.</p></div>
+    <div class="step"><b>5. 결과 검증·반영</b><p>Backend가 발신자·리스·공개 자료·변경 근거·이벤트 버전을 확인해 결과를 기록하고 웹이 최신 상태를 받습니다.</p></div>
+  </div>
+  <p>실시간 화면은 <strong>WebSocket으로 전체 workspace snapshot을 반복 전달</strong>하는 구조입니다. 지원자 화면은 5초 REST 조회도 병행하고, 연결 종료 시 2초 후 재접속합니다. 기업 목록·리포트 대기는 3초 조회를 사용합니다. 토큰은 WebSocket URL에 넣지 않고 연결 후 첫 메시지로 전송합니다.</p>
+  <h3>② 회사 정보 질문 → 근거 문서 반환</h3>
+  <div class="flow">
+    <div class="step"><b>1. 허용 도구 제안</b><p>Graph가 <code>search_documents</code> 또는 <code>get_document</code>를 제안합니다.</p></div>
+    <div class="step"><b>2. 공개 범위 확정</b><p>RAG MCP는 작업 토큰으로 Backend에 문서를 요청합니다. 기업·시나리오·공개 시점·승인 조건을 적용합니다.</p></div>
+    <div class="step"><b>3. 벡터 검색</b><p>로컬 BGE-M3가 1024차원 질의 벡터를 만들고, 허용 문서 ID 안에서 pgvector 코사인 거리 상위 3건을 조회합니다.</p></div>
+    <div class="step"><b>4. 출처 보존</b><p>공개 문서 원문과 ID·버전을 반환합니다. Graph 응답의 출처와 Backend 저장 시 출처 범위를 다시 검사합니다.</p></div>
+  </div>
+  <p>현재 색인은 문서 본문 전체를 한 벡터로 저장합니다. 별도 청크 테이블·reranker는 없습니다. 검색 서버는 다운로드된 모델을 <code>local_files_only=True</code>로 읽으며, 캐시나 색인이 없을 때 다른 검색 방식으로 자동 대체하지 않습니다.</p>
+  <h3>③ 제출 또는 120분 마감 → 기업 리포트</h3>
+  <div class="flow">
+    <div class="step"><b>1. 종료와 고정</b><p>Backend가 세션을 completed로 바꾸고 문서·대화·태스크·이벤트·모델 binding·기록 누락을 snapshot v2에 고정합니다.</p></div>
+    <div class="step"><b>2. 후속 AI 차단</b><p>대기·실행 중인 대화 작업을 취소하고 <code>reports</code> Job을 등록합니다.</p></div>
+    <div class="step"><b>3. 별도 분석</b><p>Report Worker가 snapshot을 받아 규칙 기반 근거를 구성하고 도구 없는 모델 호출로 관찰 문장을 생성합니다.</p></div>
+    <div class="step"><b>4. 공개 전 검사</b><p>원문·주체·ID·최종본·조건을 검증합니다. 통과하면 report_ready, 재시도 한도 소진 시 failed가 됩니다.</p></div>
+  </div>
+  <p class="source">근거: backend/main.py:293–314,458–478,505–534,733–795 · backend/domain.py:96–119 · office/[sessionId]/page.tsx:38–40 · company-portal.tsx:20,25 · mcp_servers/rag.py:12–50 · reporting/build.py:116–188,254–298</p>
+</section>
+
+<section class="chapter" id="agents" data-title="Graph와 권한">
+  <div class="section-kicker">04 / AGENT EXECUTION</div>
+  <h2>공통 Graph 템플릿,<br>독립 기억과 실행 권한</h2>
+  <p>AI Worker는 세 Graph를 각각 컴파일하고 <code>{session_id}:{agent_id}</code>를 thread ID로 사용합니다. 같은 에이전트 안에서는 순번과 리스로 작업을 직렬 처리하며, 다른 에이전트는 독립적으로 진행할 수 있습니다. 현재 작업과 일치하는 미완료 체크포인트만 재개합니다.</p>
+  <div class="flow">
+    <div class="step"><b>load_context</b><p>Backend에서 현재 입력·공개 대화·개인 기억·태스크·파트·이벤트 버전을 읽습니다.</p></div>
+    <div class="step"><b>respond / teammate_work</b><p>일반 대화 또는 동료 업무 계기를 처리합니다. 모델은 최종 답변이나 도구 제안을 반환합니다.</p></div>
+    <div class="step"><b>tools → 반복</b><p>허용 도구와 스키마·호출 예산을 검증하고 MCP를 실행한 뒤 응답 노드로 돌아갑니다.</p></div>
+    <div class="step"><b>guard → persist</b><p>출처·금지 표현·실제 변경 근거를 검사합니다. 필요 시 제한된 보정 후 Backend에 저장합니다.</p></div>
+  </div>
+  <div class="table-wrap"><table><thead><tr><th>에이전트</th><th>대화 문맥</th><th>공통 조회</th><th>업무 변경</th></tr></thead><tbody>
+    <tr><td><strong>leader · 팀장</strong></td><td>팀 채널 메시지</td><td>workspace·변경 이력·공개 자료</td><td>파트·태스크·분업 변경 불가</td></tr>
+    <tr><td><strong>colleague · 동료</strong></td><td>팀 채널 + 동료 DM</td><td>workspace·변경 이력·공개 자료</td><td>허용된 태스크 생성·수정·완료, 분업 조정, 동료·공동 파트 변경</td></tr>
+    <tr><td><strong>chat · 개인 AI</strong></td><td>개인 AI 대화</td><td>workspace·변경 이력·공개 자료</td><td>업무 변경 불가. 지원자가 답변을 선택해 공유·반영</td></tr>
+  </tbody></table></div>
+  <p>세 에이전트 모두 <code>remember</code>로 <strong>자신에게 공개된 근거에 연결된 개인 메모</strong>를 저장할 수 있습니다. 따라서 팀장·개인 AI의 “조회 권한”은 업무 원본 변경 제한을 뜻하며, 개인 기억 기록까지 금지하는 것은 아닙니다. 미래 이벤트 원문과 비공개 자료는 문맥에서 제외됩니다.</p>
+  <div class="cards">
+    <article class="card"><h3>동료의 실제 작업</h3><p>현재 미커밋 구현은 분업 합의 후 동료 담당 파트에 태스크와 업무 계기를 자동 등록합니다. <code>complete_task</code>는 문서 내용과 태스크 완료를 함께 저장합니다. 재조율 시 이전 자동 태스크·대기 작업을 정리합니다.</p></article>
+    <article class="card"><h3>실행 한도</h3><p>Job당 도구 호출은 최대 3회입니다. Backend는 AI 모델 시도 6회, 리포트 모델 시도 3회를 제한합니다. 전체 Job 실행 기한은 최초 시작부터 450초이며 heartbeat로 리스를 갱신합니다.</p></article>
+    <article class="card"><h3>고정 모델 경로</h3><p>세션 시작 시 <code>binding</code>과 <code>report_binding</code>을 따로 고정합니다. 기본 API 모델은 <code>gpt-4o-mini</code>이며 리포트 전용 설정을 생략하면 에이전트 설정을 상속합니다. 실패 시 다른 공급자로 자동 전환하지 않습니다.</p></article>
+  </div>
+  <p class="source">근거: workers/ai.py:10–22 · agents/graph.py:215–233 · agents/harness.py:43–99 · backend/main.py:574–614,544–571 · backend/tasks.py:83–117 · llm/client.py:12–32</p>
+</section>
+
+<section class="chapter" id="data" data-title="데이터와 복구">
+  <div class="section-kicker">05 / DATA &amp; RECOVERY</div>
+  <h2>업무 이력과 Graph 상태를<br>서로 다른 저장물로 관리</h2>
+  <div class="table-wrap"><table><thead><tr><th>저장 영역</th><th>실제 테이블 / 스키마</th><th>담는 내용</th></tr></thead><tbody>
+    <tr><td>기업·세션</td><td><code>companies</code>, <code>sessions</code></td><td>기업 인증, 초대 토큰 해시, 시간·상태, 시나리오·계약, 모델 binding, snapshot·report JSONB</td></tr>
+    <tr><td>업무 원본</td><td><code>parts</code>, <code>tasks</code></td><td>파트 내용·담당·상태·버전, 세부 업무·출처·예정 시점</td></tr>
+    <tr><td>변경 기록</td><td><code>records</code></td><td>대화·문서 변경·분업·태스크·동의·제출 기록. session + operation ID 중복 방지</td></tr>
+    <tr><td>이벤트·실행 작업</td><td><code>events</code>, <code>jobs</code></td><td>예정·저장·전달 시각, 큐 발행 여부, 순번·리스·시도 횟수·오류·결과</td></tr>
+    <tr><td>개인 기억</td><td><code>agent_memories</code></td><td>session + agent 복합 키, 기억 버전과 근거 연결 메모</td></tr>
+    <tr><td>회사 문서</td><td><code>company_documents</code></td><td>기업·slug·버전·본문·공개 시점·승인 여부·1024차원 임베딩</td></tr>
+    <tr><td>Graph 실행 상태</td><td><code>checkpoints</code> 스키마</td><td>Postgres Checkpointer가 관리하는 에이전트별 실행 상태</td></tr>
+  </tbody></table></div>
+  <p>시나리오 원본은 <code>scenarios/*/scenario.json</code>과 문서 JSON 파일입니다. 초대할 때 전체 정의를 세션에 고정하고 시작할 때 공개 계약과 모델 설정을 고정합니다. 업무 기록은 DB 트리거가 수정·삭제를 막는 append-only 구조이며, 최신 문서·태스크 변경은 예상 버전과 operation ID를 검사합니다.</p>
+  <h3>큐는 작업 ID만 전달합니다</h3>
+  <div class="table-wrap"><table><thead><tr><th>큐 이름</th><th>소비자</th><th>용도</th></tr></thead><tbody>
+    <tr><td><code>dayzero.ai.leader</code></td><td>AI Worker</td><td>팀장 작업</td></tr>
+    <tr><td><code>dayzero.ai.colleague</code></td><td>AI Worker</td><td>동료 대화·업무 계기</td></tr>
+    <tr><td><code>dayzero.ai.chat</code></td><td>AI Worker</td><td>개인 AI 요청</td></tr>
+    <tr><td><code>dayzero.reports</code></td><td>Report Worker</td><td>확정 입력 리포트 생성</td></tr>
+    <tr><td><code>dayzero.dlq</code></td><td>자동 소비자 없음</td><td>재큐잉하지 않고 거절된 메시지 보관</td></tr>
+  </tbody></table></div>
+  <div class="cards">
+    <article class="card"><h3>접수와 발행 분리</h3><p><code>jobs.published=false</code>가 DB outbox 역할을 합니다. publisher는 0.5초 간격으로 대기를 확인하고 durable 큐에 persistent 메시지를 확인 발행합니다.</p></article>
+    <article class="card"><h3>리스 기반 회복</h3><p>claim은 45초 리스를 발급하고 Worker는 5초마다 heartbeat를 보냅니다. 리스 만료 Job은 pending으로 되돌아갑니다. 재시도 가능한 실패는 작업 시도 3회 미만에서 다시 대기합니다.</p></article>
+    <article class="card"><h3>중복·늦은 결과 차단</h3><p>같은 에이전트의 앞선 작업이 남아 있으면 claim을 거절합니다. 리스 ID와 세션 상태·이벤트 버전을 재검사하므로 오래된 실행 결과가 최신 업무 상태를 덮어쓰지 못하도록 합니다.</p></article>
+  </div>
+  <p class="source">근거: backend/db.py:17–130 · migrations/versions/0001_initial.py:20–29 · shared/scenarios.py:87–107 · backend/queue.py:10–47 · workers/runtime.py:13–16,47–122 · backend/main.py:487–540,734–766</p>
+</section>
+
+<section class="chapter" id="boundaries" data-title="인증과 실행 경계">
+  <div class="section-kicker">06 / TRUST BOUNDARIES</div>
+  <h2>사용자, 작업, 저장소를<br>각기 다른 범위로 검증</h2>
+  <div class="table-wrap"><table><thead><tr><th>경계</th><th>실제 구현</th><th>보호 범위와 해석</th></tr></thead><tbody>
+    <tr><td>기업 사용자</td><td>Argon2 비밀번호 해시 + HS256 JWT</td><td>관리자 role과 company_id 검사. 다른 기업의 세션·리포트 접근 제한</td></tr>
+    <tr><td>지원자</td><td>72시간 초대 링크, 원본 토큰은 브라우저 sessionStorage, DB에는 SHA-256 해시</td><td>세션 ID + 토큰 해시로 범위 확인. 초대 상태의 만료를 검사</td></tr>
+    <tr><td>Worker claim</td><td><code>X-Internal-Secret</code></td><td>서비스 인증 후 Job 획득. 이후 데이터 요청에는 단기 작업 JWT 사용</td></tr>
+    <tr><td>Job 내부 API</td><td>15분 JWT + company / job / agent / role version / lease 검사</td><td>현재 작업의 기업·세션·에이전트·실행권을 고정하고 오래된 결과 차단</td></tr>
+    <tr><td>MCP 도구</td><td>job_id·job_token을 전달하고 Backend에서 다시 검증</td><td>모델이 기업·세션·발신자를 도구 인자로 선택하지 않음. 도구 이름·스키마·예산도 검사</td></tr>
+    <tr><td>Graph 저장소</td><td><code>graph</code> DB 역할 / <code>checkpoints</code> search_path</td><td>Graph 스키마에 실행 상태 저장. public 스키마 권한 분리</td></tr>
+    <tr><td>RAG 저장소</td><td><code>rag</code> DB 역할 / 회사 문서 SELECT</td><td>검색은 Backend가 허용한 문서 ID 안에서 수행. 별도 RLS 정의는 확인되지 않음</td></tr>
+    <tr><td>호스트 네트워크</td><td>Compose 공개 포트는 127.0.0.1, MCP·Worker는 호스트 포트 매핑 없음</td><td>로컬 개발 배치 경계. 외부 운영용 TLS·공개 인증 계층을 정의한 구성은 아님</td></tr>
+  </tbody></table></div>
+  <div class="callout"><strong>권한 분리의 실제 범위</strong><p>DB 접속 역할과 코드 경로는 분리되어 있습니다. 다만 Compose의 공통 Python 환경은 내부 URL과 여러 설정을 공유하고 두 MCP도 같은 기본 환경을 상속합니다. 따라서 이 구성을 서비스별 비밀정보가 완전히 분리된 운영 배포로 표현하지 않습니다.</p></div>
+  <h3>선택 경로인 Codex CLI 격리</h3>
+  <p>CLI 어댑터는 현재 <strong>macOS arm64, 지정 CLI 버전, <code>macos-seatbelt-v1</code> 프로파일</strong>에 한정됩니다. 호출마다 임시 디렉터리를 만들고 사용자 설정·규칙을 가져오지 않으며 native 도구를 비활성화합니다. OS 정책은 지정 실행 파일·인증 파일·임시 런타임을 허용하고 셸 등 다른 프로세스 실행을 제한합니다. 네트워크는 모델 접속을 위해 허용됩니다.</p>
+  <p>자식 환경에 제품 API 키를 상속하지 않고 기존 로그인 파일은 임시 런타임에 심볼릭 링크로 연결합니다. 모델 출력은 도구 제안일 뿐이며 실행은 계속 외부 Harness가 담당합니다. 지원하지 않는 OS·버전·프로파일은 실패하도록 구현되어 있습니다.</p>
+  <p class="source">근거: backend/security.py:8–24 · backend/main.py:35–50,143–157,481–540 · scripts/init-db.sql:1–7 · migrations/versions/0001_initial.py:25 · compose.yaml:8–16,27,38,50,94 · llm/codex_cli.py:22–44 · llm/isolation.py:32–80</p>
+</section>
+
+<section class="chapter" id="differences" data-title="기획과 구현의 구분">
+  <div class="section-kicker">07 / IMPLEMENTED VS. PLANNED</div>
+  <h2>기획의 의도를<br>구현 사실과 구분해서 읽기</h2>
+  <div class="table-wrap"><table><thead><tr><th>항목</th><th>현재 코드에서 확인한 사실</th><th>문서에 표시할 상태</th></tr></thead><tbody>
+    <tr><td>에이전트 3개</td><td>한 Worker 안에 독립 Graph·thread·메모리·작업 순번이 구현됨</td><td>구현 코드 확인</td></tr>
+    <tr><td>시나리오 범위</td><td>JSON 기반 정의 3개를 보관하며 신규 초대 목록에는 looplab-v2와 teamnote-onboarding-v1을 제공. looplab-v1은 기존 초대와 호환</td><td>PRD의 공통 루프랩 시나리오 1개보다 구현 범위가 확장됨</td></tr>
+    <tr><td>동료 Graph의 세부 단계</td><td>실제 노드는 load_context / respond / teammate_work / tools / guard / persist. negotiate는 도구이며 review_draft는 Backend 이벤트 기록</td><td>PRD 단계명과 실제 노드명을 동일하게 그리지 않음</td></tr>
+    <tr><td>실시간 화면</td><td>WebSocket 전체 snapshot 반복 + 지원자 5초 REST 조회. 기업 화면은 3초 조회</td><td>토큰 스트리밍·메시지 브로커 push 구조로 표현하지 않음</td></tr>
+    <tr><td>문서 검색</td><td>회사 문서 전체 본문의 BGE-M3 벡터 + 상위 3건 검색. 시간·기업·승인 조건은 Backend에서 결정</td><td>청크 파이프라인·reranker·외부 벡터 DB 없음</td></tr>
+    <tr><td>회사 문서 승인 F-06</td><td>approved 필드와 공개 필터는 존재. 등록·교체 승인 UI/API와 interrupt/resume 관리 흐름은 확인되지 않음</td><td>P1 범위 · 필수 P0 구현과 분리</td></tr>
+    <tr><td>관측</td><td>작업 ID, 시도 수, 지연, usage를 저장하고 로그 출력. 명시적인 LangSmith 연동 코드는 확인되지 않음</td><td>원격 LangSmith 추적 미검증</td></tr>
+    <tr><td>로컬 CLI</td><td>지정 macOS 프로파일용 어댑터 구현. Docker 이미지가 호스트 CLI·인증을 자동 제공하지 않음</td><td>CLI 호환 환경 제한 · 전체 에이전트 CLI 흐름과 별도 검증 필요</td></tr>
+    <tr><td>CLI 모델 설정</td><td>코드 기본값과 PRD 예시는 gpt-6.1-sol. README의 로컬 검증 설정 예시는 gpt-5.6-sol</td><td>기본 설정·검증 이력·현재 실행 모델을 구분. 이 문서는 실행 중인 모델을 확인한 결과가 아님</td></tr>
+    <tr><td>분업 후 실제 작업</td><td>미커밋 변경에 자동 태스크·작업 계기, 중복 방지, 재조율 정리가 포함됨</td><td>현재 작업트리 반영 · 이번 HTML 작업의 기능 검증 대상 아님</td></tr>
+    <tr><td>운영 준비</td><td>로컬 포트·로컬 프로세스 중심. 검증 문서에서 전체 Docker·실제 120분 등의 미검증 범위를 구분</td><td>구현 중 MVP · 운영 완료로 표시하지 않음</td></tr>
+  </tbody></table></div>
+  <div class="callout"><strong>이번에 확인한 것</strong><p>저장소 소스·설정·마이그레이션·작업트리 변경을 읽어 실제 구성과 연결을 확인했습니다. 테스트 재실행, 모델 유료 호출, 실행 서비스 변경, 세션 생성·진행은 하지 않았습니다. 기존 검증 기록의 성공 사례는 당시 조건의 증거이며 이 문서가 새로 검증한 결과는 아닙니다.</p></div>
+  <p class="source">근거: PRD.md:694,795–837,873 · agents/graph.py:215–233 · backend/domain.py:136–139 · office/[sessionId]/page.tsx:38–40 · shared/scenarios.py:121 · shared/config.py:14 · README.md:37–49 · MVP_PLAN.md:327,471 · docs/VERIFICATION.md:17</p>
+</section>
+
+<section class="chapter" id="sources" data-title="코드 근거 목록">
+  <div class="section-kicker">08 / SOURCE INDEX</div>
+  <h2>구조 설명의 근거 파일</h2>
+  <p>Python 경로는 <code>services/dayzero/src/dayzero/</code> 기준입니다. 아래 줄 번호는 조사 시점의 작업트리 기준이며 이후 코드 변경에 따라 이동할 수 있습니다.</p>
+  <div class="table-wrap"><table><thead><tr><th>근거 파일</th><th>시작 줄</th><th>확인한 내용</th></tr></thead><tbody>
+    <tr><td><code>compose.yaml</code></td><td>20 / 44 / 72 / 90</td><td>서비스·네트워크·포트·명령·역할별 환경·볼륨</td></tr>
+    <tr><td><code>apps/web/next.config.ts</code></td><td>4</td><td>/api 프록시 대상</td></tr>
+    <tr><td><code>apps/web/src/lib/api.ts</code></td><td>1 / 10</td><td>REST 요청과 지원자 인증 보관</td></tr>
+    <tr><td><code>apps/web/src/app/office/[sessionId]/page.tsx</code></td><td>38 / 60 / 64</td><td>WS·polling, 메시지 전송, 제출</td></tr>
+    <tr><td><code>apps/web/src/components/company-portal.tsx</code></td><td>20 / 25</td><td>기업 목록·리포트 polling</td></tr>
+    <tr><td><code>backend/main.py</code></td><td>53 / 217 / 293 / 458 / 481 / 584 / 733</td><td>scheduler·publisher, 시작, 메시지, WS, 내부 인증, 문맥, 결과 저장</td></tr>
+    <tr><td><code>backend/domain.py</code></td><td>47 / 96 / 122</td><td>작업 생성, snapshot 종료, 시간 이벤트</td></tr>
+    <tr><td><code>backend/db.py</code></td><td>17 / 85 / 107 / 115</td><td>업무 테이블, Job, 에이전트 기억, Task</td></tr>
+    <tr><td><code>backend/queue.py</code></td><td>10 / 19 / 36</td><td>큐 topology, 리스 회수, outbox 발행</td></tr>
+    <tr><td><code>backend/tasks.py</code></td><td>83</td><td>분업 합의 이후 자동 태스크·업무 계기</td></tr>
+    <tr><td><code>workers/ai.py</code>, <code>workers/report.py</code></td><td>10 / 6</td><td>Graph 컴파일·thread, 독립 리포트 소비자</td></tr>
+    <tr><td><code>workers/runtime.py</code></td><td>13 / 35 / 47</td><td>heartbeat, 브로커 연결 재시도, claim·ACK·실패 처리</td></tr>
+    <tr><td><code>agents/graph.py</code>, <code>agents/harness.py</code></td><td>215 / 43</td><td>실제 Graph 노드·간선, 역할별 허용 도구</td></tr>
+    <tr><td><code>mcp_client/client.py</code></td><td>12</td><td>도구 예약·검증과 MCP Streamable HTTP 호출</td></tr>
+    <tr><td><code>mcp_servers/business.py</code>, <code>mcp_servers/rag.py</code></td><td>7 / 8</td><td>두 MCP 서버의 실제 도구 진입점</td></tr>
+    <tr><td><code>rag/documents.py</code>, <code>rag/index.py</code></td><td>19 / 7</td><td>문서 공개 조건, BGE-M3 전체 문서 색인</td></tr>
+    <tr><td><code>reporting/build.py</code></td><td>116 / 254 / 375</td><td>도구 없는 리포트 생성, 원문·최종본·품질 근거 검사</td></tr>
+    <tr><td><code>llm/client.py</code>, <code>llm/openai.py</code></td><td>12 / 14</td><td>모델 binding·공통 재시도, Chat Completions 호출</td></tr>
+    <tr><td><code>llm/codex_cli.py</code>, <code>llm/isolation.py</code></td><td>22 / 32</td><td>CLI 실행과 로컬 OS 격리 프로파일</td></tr>
+    <tr><td><code>scripts/init-db.sql</code></td><td>1</td><td>graph·rag DB 역할과 checkpoints 스키마</td></tr>
+    <tr><td><code>services/dayzero/migrations/versions/0001_initial.py</code></td><td>20</td><td>문서 벡터·RAG SELECT·append-only 기록</td></tr>
+    <tr><td><code>PRD.md</code>, <code>MVP_PLAN.md</code>, <code>docs/VERIFICATION.md</code></td><td>673 / 471 / 17</td><td>설계 의도, P1 제외 범위, 기존 검증의 한계</td></tr>
+  </tbody></table></div>
+</section>
+<footer class="footer"><span>Day Zero · 현재 구현 아키텍처<br>2026.10.20 · 읽기용 HTML 스냅샷</span><a href="prd.html">제품 요구사항 보기 →</a></footer></main></div>
+<script>
+const query = document.querySelector('#search');
+const chapters = [...document.querySelectorAll('.chapter')];
+const tocLinks = [...document.querySelectorAll('.toc a')];
+const searchable = chapters.map(section => ({section,text:section.textContent.toLocaleLowerCase()}));
+function filterSections(){
+  const terms=query.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  let visible=0;
+  searchable.forEach(({section,text})=>{
+    const matches=terms.every(term=>text.includes(term));
+    section.hidden=!matches;
+    if(matches)visible++;
+    const link=tocLinks.find(a=>a.getAttribute('href')==='#'+section.id);
+    if(link)link.hidden=!matches;
+  });
+  document.querySelector('#search-status').textContent=terms.length?`${visible}개 섹션이 검색되었습니다.`:'목차에서 섹션을 선택하거나 내용을 검색하세요.';
+  document.querySelector('#no-results').hidden=visible!==0;
+  updatePosition();
+}
+query.addEventListener('input',filterSections);
+document.querySelector('#clear-search').addEventListener('click',()=>{query.value='';filterSections();query.focus()});
+document.querySelector('#print').addEventListener('click',()=>window.print());
+document.querySelector('#menu').addEventListener('click',()=>{
+ const sidebar=document.querySelector('.sidebar');sidebar.classList.toggle('open');
+ document.querySelector('#menu').setAttribute('aria-expanded',sidebar.classList.contains('open'));
+});
+document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',()=>{
+ const target=document.getElementById(decodeURIComponent(link.hash.slice(1)));
+ if(target?.closest('.chapter')?.hidden){query.value='';filterSections();}
+ if(link.closest('.toc')){document.querySelector('.sidebar').classList.remove('open');document.querySelector('#menu').setAttribute('aria-expanded','false')}
+}));
+let scheduled=false;
+function updatePosition(){
+ const available=chapters.filter(c=>!c.hidden);
+ let active=available[0];
+ for(const section of available){if(section.getBoundingClientRect().top<175)active=section}
+ tocLinks.forEach(a=>{const on=decodeURIComponent(a.hash)==='#'+active?.id;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+ const total=document.documentElement.scrollHeight-innerHeight;
+ document.querySelector('.progress').style.width=(total>0?Math.min(100,scrollY/total*100):0)+'%';
+ scheduled=false;
+}
+addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(updatePosition)}},{passive:true});
+addEventListener('resize',updatePosition);updatePosition();
+</script></body></html>

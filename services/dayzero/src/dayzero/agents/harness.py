@@ -119,6 +119,18 @@ def bounded_result(value):
     return result
 
 
+def append_sources(text, sources):
+    if not sources:
+        return text
+    # Replace model-written citation footers, while preserving ordinary "참고" notes.
+    footer = re.compile(r'(?m)^[ \t]*(?:\*\*)?참고(?:\*\*)?[ \t]*[:：](?:\*\*)?[^\n]*(?:\n[ \t]*[-*][^\n]*)*')
+    text = footer.sub(lambda match: '' if any(s['title'] in match.group() for s in sources)
+                      and re.search(r'(?:v|버전\s*)\d+', match.group())
+                      else match.group(), text).rstrip()
+    labels = dict.fromkeys(f"{s['title']} v{s['version']}" for s in sources)
+    return text+'\n참고: '+', '.join(labels)
+
+
 def requires_sources(text):
     topics = r'회사|서비스|모아런|루프랩|정책|지표|인터뷰|문서|자료'
     query = r'알려|확인해|정리해|요약해|찾아|검색|[?？]'

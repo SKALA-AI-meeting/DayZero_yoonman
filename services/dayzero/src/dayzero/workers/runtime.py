@@ -32,10 +32,22 @@ async def run_job(job, internal, handler):
         await asyncio.gather(processing, beat, return_exceptions=True)
 
 
+async def connect(attempts=30):
+    # connect_robust only reconnects after a first success; a broker still booting must be retried here.
+    for attempt in range(attempts):
+        try:
+            return await aio_pika.connect_robust(settings().rabbitmq_url)
+        except (aio_pika.exceptions.AMQPConnectionError, ConnectionError, OSError):
+            if attempt == attempts-1:
+                raise
+            print('broker_unavailable retrying', flush=True)
+            await asyncio.sleep(2)
+
+
 async def consume(flows, handler):
     if sys.platform != 'win32':
         asyncio.get_running_loop().add_signal_handler(signal.SIGTERM, asyncio.current_task().cancel)
-    async with await aio_pika.connect_robust(settings().rabbitmq_url) as connection:
+    async with await connect() as connection:
         channel = await connection.channel()
         await channel.set_qos(prefetch_count=8)
         dead = await channel.declare_queue('dayzero.dlq', durable=True)

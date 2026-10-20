@@ -3,7 +3,7 @@ import time
 from urllib.parse import urlsplit
 from sqlalchemy import select
 from test_backend import client, company, claim
-from dayzero.backend.db import DB, Job, Session
+from dayzero.backend.db import DB, Job, Session, Record
 from dayzero.reporting.build import session_conditions
 
 
@@ -58,17 +58,37 @@ def test_agreement_creates_one_task_and_actual_document_completion_in_three_sect
     owners = {'1':'candidate','2':'colleague','3':'shared'}
     division = {'name':'negotiate','operation_id':'three-part-division','context_event_version':0,
         'arguments':{'owners':owners,'accepted':True,'source_id':source['id']}}
-    assert client.post(base,headers=scoped,json=division).status_code==200
+    agreed = client.post(base,headers=scoped,json=division)
+    assert agreed.status_code==200,agreed.text
+    assert client.post(base,headers=scoped,json=division).json()==agreed.json()
     workspace = client.get('/sessions/'+sid,headers=auth).json()
     part = workspace['parts'][1]
+    # Conversation alone creates one card and a queued work trigger, without the manual form.
+    assert len(workspace['tasks'])==1
+    assigned = workspace['tasks'][0]
+    assert assigned['owner']=='colleague' and assigned['part_id']==part['id']
+    assert assigned['source_id']==source['id']
+    with DB.begin() as db:
+        triggers = list(db.scalars(select(Record).where(Record.session_id==sid,Record.kind=='work_trigger')))
+        assert len(triggers)==1 and triggers[0].data['target']['id']==assigned['id']
+        work_id = db.scalar(select(Job.id).where(Job.input_id==triggers[0].id))
+        assert work_id
     create = {'name':'create_task','operation_id':'record-agreement','context_event_version':0,
         'arguments':{'title':'정책을 반영한 온보딩 초안','owner':'colleague','part_id':part['id'],
                      'source_id':source['id'],'note':'대화에서 합의한 2번 항목 초안'}}
     response = client.post(base,headers=scoped,json=create)
     assert response.status_code==200,response.text
     task = response.json()['task']
+    assert task['id']==assigned['id']
     assert client.post(base,headers=scoped,json=create).json()==response.json()
-    complete = client.post(base,headers=scoped,json={'name':'complete_task','operation_id':'finish-agreement',
+    # The queued colleague job can execute after the agreement response is persisted.
+    assert client.post('/internal/jobs/'+jid+'/result',headers=scoped,json={
+        'text':'합의한 업무를 등록했습니다.','context_event_version':0,
+        'mutation_ids':agreed.json()['mutation_ids']}).json()['status']=='done'
+    work_auth = claim(work_id)
+    context = client.get('/internal/jobs/'+work_id+'/context',headers=work_auth).json()
+    assert context['input']['kind']=='work_trigger' and context['input']['data']['target']['id']==task['id']
+    complete = client.post('/internal/jobs/'+work_id+'/business',headers=work_auth,json={'name':'complete_task','operation_id':'finish-agreement',
         'context_event_version':0,'arguments':{'task_id':task['id'],'version':task['version'],
         'part_version':part['version'],'body':'제품 안의 시작 가이드와 예시 문서를 제공합니다. 개인 연락처는 수집하지 않습니다.',
         'note':'합의한 초안을 공유 문서에 저장했습니다.'}})

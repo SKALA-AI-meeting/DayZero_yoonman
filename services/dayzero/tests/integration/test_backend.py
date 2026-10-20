@@ -185,7 +185,8 @@ def test_division_three_round_limit_and_operation_deduplication():
         result=client.post(base,headers=auth,json=payload)
         assert result.status_code==200,result.text
         assert {k:result.json()[k] for k in ['rounds','agreed']}=={'rounds':number,'agreed':number==3}
-        assert len(result.json()['mutation_ids'])==1
+        # The agreeing round also opens one card per colleague-owned part (4, 5).
+        assert len(result.json()['mutation_ids'])==(3 if number==3 else 1)
         assert client.post(base,headers=auth,json=payload).json()==result.json()
     assert client.post(base,headers=auth,json={'context_event_version':event_version,'name':'negotiate','operation_id':'division-4',
         'arguments':{'owners':owners,'accepted':True}}).status_code==422
