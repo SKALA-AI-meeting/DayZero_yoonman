@@ -1,0 +1,7 @@
+CREATE EXTENSION IF NOT EXISTS vector;
+CREATE ROLE graph LOGIN PASSWORD 'graph';
+CREATE SCHEMA checkpoints AUTHORIZATION graph;
+ALTER ROLE graph SET search_path TO checkpoints;
+REVOKE ALL ON SCHEMA public FROM graph;
+CREATE ROLE rag LOGIN PASSWORD 'rag';
+GRANT USAGE ON SCHEMA public TO rag;

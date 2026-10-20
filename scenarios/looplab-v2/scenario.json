@@ -1,0 +1,125 @@
+{
+  "id": "looplab-v2",
+  "title": "모아런 신규 기능 기획",
+  "company": "루프랩",
+  "team": "프로덕트 팀",
+  "service": "모아런",
+  "introduction": "루프랩은 러닝 모임 앱 ‘모아런’을 만드는 12명 리모트 팀입니다.",
+  "brief": "첫 모임에 나온 사용자의 재참여를 돕는 신규 기능을 제안해 주세요. 제공된 회사 자료와 정책을 근거로 2시간 안에 2~3쪽 기획안을 공유해 주세요. 필요한 세부 업무와 순서, 분담은 동료와 대화하며 정할 수 있습니다.",
+  "short_brief": "첫 모임에 나온 사용자가 두 번째 모임에도 다시 나오게 만드는 신규 기능을 기획합니다.",
+  "deliverable_title": "모아런 신규 기능 기획안",
+  "deliverable_description": "2~3쪽 분량의 공유 기획안",
+  "completion_conditions": [
+    "제공된 자료를 근거로 대상 사용자와 문제를 설명합니다.",
+    "회사 정책과 변경된 요구사항을 결과물에 반영합니다.",
+    "제안의 실행 단계와 확인할 지표를 정리합니다."
+  ],
+  "roles": {
+    "leader": {
+      "name": "한서윤",
+      "role": "프로덕트 팀장",
+      "introduction": "과제 안내와 진행 보고를 함께합니다."
+    },
+    "colleague": {
+      "name": "이도현",
+      "role": "기획 동료",
+      "introduction": "안녕하세요. 기획자 이도현입니다. 함께 기획안을 완성해 봐요."
+    }
+  },
+  "sections": [
+    {
+      "title": "문제 정의와 대상 사용자",
+      "owner": "shared"
+    },
+    {
+      "title": "사용자 인터뷰에서 찾은 근거",
+      "owner": "shared"
+    },
+    {
+      "title": "핵심 기능 제안",
+      "owner": "shared"
+    },
+    {
+      "title": "비슷한 서비스 사례",
+      "owner": "shared"
+    },
+    {
+      "title": "성공 지표와 출시 일정",
+      "owner": "shared"
+    }
+  ],
+  "documents": [
+    "interviews.json",
+    "introduction.json",
+    "metrics.json",
+    "minutes.json",
+    "policy.json"
+  ],
+  "events": [
+    {
+      "key": "division",
+      "offset": 600,
+      "actor": "colleague",
+      "text": "목표와 제출 조건을 확인하고 필요한 일을 함께 정리해 볼까요? 먼저 살펴볼 자료와 직접 맡고 싶은 범위를 알려 주세요."
+    },
+    {
+      "key": "help",
+      "offset": 1800,
+      "actor": "colleague",
+      "text": "비슷한 서비스 사례를 찾는데 기준이 헷갈려요. 10분만 같이 봐줄 수 있을까요?",
+      "debrief": {
+        "title": "00:30 도움 요청",
+        "text": "동료가 사례 조사에 도움을 요청하는 상황이었습니다."
+      }
+    },
+    {
+      "key": "delay",
+      "offset": 3000,
+      "actor": "system",
+      "text": "사용자 인터뷰 요약은 리서치 담당자 사정으로 15분 늦게, 01:05에 공유됩니다.",
+      "debrief": {
+        "title": "00:50 자료 지연",
+        "text": "인터뷰 자료가 15분 늦게 도착하는 상황이었습니다."
+      }
+    },
+    {
+      "key": "release",
+      "offset": 3900,
+      "actor": "system",
+      "text": "사용자 인터뷰 요약이 공개되었습니다.",
+      "release_slug": "interviews"
+    },
+    {
+      "key": "change",
+      "offset": 4200,
+      "actor": "leader",
+      "text": "대표님과 이야기해 보니 대상을 바꿔야겠어요. 첫 참여자 말고 3개월 넘게 모임에 안 나온 사용자로 가 주세요. 마감은 그대로예요.",
+      "debrief": {
+        "title": "01:10 요구사항 변경",
+        "text": "대상 사용자가 3개월 미참여 사용자로 바뀌는 상황이었습니다."
+      }
+    },
+    {
+      "key": "review",
+      "offset": 5400,
+      "actor": "colleague",
+      "text": "별도 리뷰 초안을 공유합니다. 핵심 기능으로 재참여 시 할인되는 유료 멤버십을 제안해요. 함께 리뷰 부탁드려요. 작성 중인 기획안에는 반영하지 않았습니다.",
+      "review_body": "재참여 시 할인되는 유료 멤버십",
+      "review_part": 3,
+      "debrief": {
+        "title": "01:30 상호 리뷰",
+        "text": "동료가 올해 유료 기능을 내지 않는 정책과 어긋나는 멤버십을 제안하는 상황이었습니다."
+      }
+    },
+    {
+      "key": "report_request",
+      "offset": 6600,
+      "actor": "leader",
+      "text": "마감이 다가왔어요. 기획안을 공유하고 진행 내용과 남은 사항을 보고해 주세요."
+    }
+  ],
+  "initial_target": "첫 참여자",
+  "changed_target": "3개월 넘게 모임에 안 나온 사용자",
+  "duration_seconds": 7200,
+  "workflow": "conversation"
+}

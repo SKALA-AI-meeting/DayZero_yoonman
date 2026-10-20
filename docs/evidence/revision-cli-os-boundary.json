@@ -1,0 +1,12 @@
+{
+  "synthetic_fixture": true,
+  "actual_os_sandbox": true,
+  "model_called": false,
+  "profile": "macos-seatbelt-v1",
+  "checks": {
+    "other_candidate": "DENIED",
+    "project": "DENIED",
+    "shell": "DENIED"
+  },
+  "completed": true
+}

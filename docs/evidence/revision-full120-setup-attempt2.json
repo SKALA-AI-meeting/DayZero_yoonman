@@ -1,0 +1,15 @@
+{
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "compressed_clock": false,
+  "completed": false,
+  "steps": [],
+  "failure": {
+    "phase": "setup",
+    "action": "setup",
+    "message": "verification phase failed: TimeoutError",
+    "detail": "locator.check: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('checkbox')\u001b[22m\n",
+    "at": "2026-10-20T06:14:03.468Z",
+    "screenshot": "docs/evidence/revision-full120-2f851425-7a58-4e4f-a17d-24727887f1d1-failure.png"
+  }
+}

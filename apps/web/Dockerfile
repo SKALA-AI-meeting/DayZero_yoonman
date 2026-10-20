@@ -1,0 +1,10 @@
+FROM node:22-slim@sha256:c3de60bf2f9dd0ac6370e6117950ff62d6e339527e7472301c9c78a017978392
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+ARG BACKEND_PROXY_URL=http://backend:8000
+ENV BACKEND_PROXY_URL=$BACKEND_PROXY_URL
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]

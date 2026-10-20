@@ -1,0 +1,10 @@
+{
+  "session_id": "4967a424-5084-4192-ae67-385329265568",
+  "actual_model": true,
+  "synthetic_fixture": true,
+  "completed": false,
+  "error": "candidate_evidence_required",
+  "model_calls": 3,
+  "queue_attempts": 1,
+  "fix": "role-prefixed short evidence IDs mapped back to exact original IDs; same actor/window checks retained"
+}

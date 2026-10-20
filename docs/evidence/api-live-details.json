@@ -1,0 +1,175 @@
+{
+  "session_id": "da777879-07bb-46c5-a84f-87c60cc3e086",
+  "actual_model": true,
+  "jobs": [
+    {
+      "flow": "collaboration",
+      "status": "done",
+      "calls": 0,
+      "tools": 0,
+      "result": {
+        "usage": {
+          "cost": null,
+          "calls": []
+        },
+        "binding": {
+          "model": "gpt-4o-mini",
+          "backend": "openai",
+          "cli_version": null,
+          "adapter_version": "1.0.2"
+        },
+        "trace_id": "eb1cbd87-05f2-4b71-9c37-27acabde5439",
+        "model_attempts": 0,
+        "queue_attempts": 1,
+        "processing_seconds": 0.05060315132141113
+      }
+    },
+    {
+      "flow": "chat",
+      "status": "done",
+      "calls": 2,
+      "tools": 1,
+      "result": {
+        "usage": {
+          "cost": null,
+          "calls": [
+            {
+              "cost": null,
+              "model": "gpt-4o-mini",
+              "tokens": {
+                "input_tokens": 716,
+                "output_tokens": 16,
+                "cached_input_tokens": 0,
+                "reasoning_output_tokens": 0
+              },
+              "backend": "openai",
+              "attempts": 1,
+              "latency_ms": 937
+            },
+            {
+              "cost": null,
+              "model": "gpt-4o-mini",
+              "tokens": {
+                "input_tokens": 1088,
+                "output_tokens": 106,
+                "cached_input_tokens": 0,
+                "reasoning_output_tokens": 0
+              },
+              "backend": "openai",
+              "attempts": 1,
+              "latency_ms": 1501
+            }
+          ]
+        },
+        "binding": {
+          "model": "gpt-4o-mini",
+          "backend": "openai",
+          "cli_version": null,
+          "adapter_version": "1.0.2"
+        },
+        "trace_id": "38c77a47-c4f1-4ff3-857d-7ce813714f6a",
+        "model_attempts": 2,
+        "queue_attempts": 1,
+        "processing_seconds": 3.0928618907928467
+      }
+    },
+    {
+      "flow": "collaboration",
+      "status": "done",
+      "calls": 2,
+      "tools": 3,
+      "result": {
+        "usage": {
+          "cost": null,
+          "calls": [
+            {
+              "cost": null,
+              "model": "gpt-4o-mini",
+              "tokens": {
+                "input_tokens": 955,
+                "output_tokens": 67,
+                "cached_input_tokens": 0,
+                "reasoning_output_tokens": 0
+              },
+              "backend": "openai",
+              "attempts": 1,
+              "latency_ms": 1438
+            },
+            {
+              "cost": null,
+              "model": "gpt-4o-mini",
+              "tokens": {
+                "input_tokens": 1831,
+                "output_tokens": 91,
+                "cached_input_tokens": 0,
+                "reasoning_output_tokens": 0
+              },
+              "backend": "openai",
+              "attempts": 1,
+              "latency_ms": 1343
+            }
+          ]
+        },
+        "binding": {
+          "model": "gpt-4o-mini",
+          "backend": "openai",
+          "cli_version": null,
+          "adapter_version": "1.0.2"
+        },
+        "trace_id": "22e0a319-2ec8-4408-87ff-d1dda5788ca7",
+        "model_attempts": 2,
+        "queue_attempts": 1,
+        "processing_seconds": 3.2811949253082275
+      }
+    },
+    {
+      "flow": "reports",
+      "status": "done",
+      "calls": 1,
+      "tools": 0,
+      "result": {
+        "usage": {
+          "cost": null,
+          "model": "gpt-4o-mini",
+          "tokens": {
+            "input_tokens": 4665,
+            "output_tokens": 5,
+            "cached_input_tokens": 0,
+            "reasoning_output_tokens": 0
+          },
+          "backend": "openai",
+          "attempts": 1,
+          "latency_ms": 1164
+        },
+        "binding": {
+          "model": "gpt-4o-mini",
+          "backend": "openai",
+          "cli_version": null,
+          "adapter_version": "1.0.2"
+        },
+        "trace_id": "b0bf43bb-ae75-46cf-a16a-94e67f666f30",
+        "model_attempts": 1,
+        "queue_attempts": 1,
+        "processing_seconds": 1.200866937637329
+      }
+    }
+  ],
+  "rag_search_samples": [
+    {
+      "flow": "chat",
+      "search_seconds": 0.531568000005791
+    },
+    {
+      "flow": "collaboration",
+      "search_seconds": 0.23516958398977295
+    },
+    {
+      "flow": "collaboration",
+      "search_seconds": 0.03616695800155867
+    },
+    {
+      "flow": "collaboration",
+      "search_seconds": 0.03014641698973719
+    }
+  ]
+}

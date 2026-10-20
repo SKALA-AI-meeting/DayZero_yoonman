@@ -1,0 +1,7 @@
+{
+  "session_id": "088f6dc0-d435-4ca0-ab23-4f5ad9c20b80",
+  "actual_model": true,
+  "synthetic_fixture": true,
+  "completed": false,
+  "failure": "stopped after unit test found missing outgoing teammate_work edge; edge repaired and agent tests passed"
+}

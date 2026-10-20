@@ -1,0 +1,8 @@
+{
+  "session_id": "5cdfcbe3-ecd2-482d-bb93-a26be20b60d2",
+  "actual_model": true,
+  "synthetic_fixture": true,
+  "completed": false,
+  "task_and_document_saved": true,
+  "failure": "verification read task completion before asynchronous follow-up was persisted; wait condition corrected"
+}

@@ -1,0 +1,1914 @@
+{
+  "scenario_version": "looplab-v1",
+  "version": 2,
+  "binding": {
+    "backend": "codex_cli",
+    "model": "gpt-5.6-sol",
+    "adapter_version": "1.0.2",
+    "cli_version": "codex-cli 0.153.4"
+  },
+  "items": [
+    {
+      "axis": "업무 수행 역량",
+      "item": "요구사항 반영",
+      "situation": "세션 과제 수행",
+      "window": [
+        0,
+        28.833590030670166
+      ],
+      "status": "기록 있음",
+      "observation": "지원자는 운영 정책을 확인해 무료 알림을 검토해 달라고 요청했고, 최종 문서의 문제 정의와 대상 사용자 파트에 유료 기능을 제외한 무료 다음 모임 알림 제안을 직접 반영했습니다.",
+      "evidence": [
+        {
+          "id": "bb4a6b2f-cc04-4e08-8eba-dc90cbb93482",
+          "kind": "message",
+          "actor": "candidate",
+          "at": 1792474266.205133,
+          "elapsed": 5.158748149871826,
+          "quote": "운영 정책을 검색해서 올해 유료 기능과 위치 정보 공개 원칙을 확인해 주세요.",
+          "data": {
+            "flow": "collaboration",
+            "text": "운영 정책을 검색해서 올해 유료 기능과 위치 정보 공개 원칙을 확인해 주세요.",
+            "channel": "dm",
+            "reply_to": null,
+            "recipients": [
+              "colleague"
+            ],
+            "source_message_id": null
+          }
+        },
+        {
+          "id": "dad99a92-31a6-4307-852a-4f5fde7f637f",
+          "kind": "message",
+          "actor": "candidate",
+          "at": 1792474270.2965078,
+          "elapsed": 9.250123977661133,
+          "quote": "팀장님, 운영 정책에 맞춰 무료 알림을 검토하려고 합니다. 운영 정책 원문을 검색해 확인 부탁드립니다.",
+          "data": {
+            "flow": "collaboration",
+            "text": "팀장님, 운영 정책에 맞춰 무료 알림을 검토하려고 합니다. 운영 정책 원문을 검색해 확인 부탁드립니다.",
+            "channel": "team",
+            "reply_to": null,
+            "recipients": [
+              "leader"
+            ],
+            "source_message_id": null
+          }
+        },
+        {
+          "id": "9c30a225-73ff-4ee0-ae7f-628064c3f68f",
+          "kind": "part",
+          "actor": "candidate",
+          "at": 1792474289.8713741,
+          "elapsed": 28.82499098777771,
+          "quote": "{\"after\": {\"body\": \"운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.\", \"id\": \"69198dd0-f27e-482f-b3c1-011e6b16bb38\", \"number\": 1, \"owner\": \"candidate\", \"status\": \"todo\", \"title\": \"문제 정의와 대상 사용자\", \"version\": 2}, \"before\": {\"body\": \"\", \"id\": \"69198dd0-f27e-482f-b3c1-011e6b16bb38\", \"number\": 1, \"owner\": \"candidate\", \"status\": \"todo\", \"title\": \"문제 정의와 대상 사용자\", \"version\": 1}, \"job_id\": null, \"requested_change\": {\"body\": \"운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.\", \"source_message_id\": \"95d6148b-1065-40af-bab3-ba9166ee4b60\", \"status\": null, \"version\": 1}, \"source_message_id\": \"95d6148b-1065-40af-bab3-ba9166ee4b60\"}",
+          "data": {
+            "after": {
+              "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+              "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+              "owner": "candidate",
+              "title": "문제 정의와 대상 사용자",
+              "number": 1,
+              "status": "todo",
+              "version": 2
+            },
+            "before": {
+              "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+              "body": "",
+              "owner": "candidate",
+              "title": "문제 정의와 대상 사용자",
+              "number": 1,
+              "status": "todo",
+              "version": 1
+            },
+            "job_id": null,
+            "requested_change": {
+              "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+              "status": null,
+              "version": 1,
+              "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+            },
+            "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+          }
+        },
+        {
+          "id": "d78ea13a-247e-4f1b-80cf-abff22e2861e",
+          "kind": "message",
+          "actor": "leader",
+          "at": 1792474261.054517,
+          "elapsed": 0.008131980895996094,
+          "quote": "첫 모임에 나온 사용자가 두 번째 모임에도 다시 나오게 만드는 신규 기능을 기획해 주세요. 2시간 뒤 2~3쪽 기획안을 공유 문서로 받겠습니다. 필요하면 AI 채팅을 써도 됩니다.",
+          "data": {
+            "flow": "collaboration",
+            "text": "첫 모임에 나온 사용자가 두 번째 모임에도 다시 나오게 만드는 신규 기능을 기획해 주세요. 2시간 뒤 2~3쪽 기획안을 공유 문서로 받겠습니다. 필요하면 AI 채팅을 써도 됩니다.",
+            "channel": "team",
+            "agent_id": "leader",
+            "requirement": true
+          }
+        },
+        {
+          "id": "832ef102-291c-41c4-9e6a-542119dcc01f",
+          "kind": "message",
+          "actor": "leader",
+          "at": 1792474273.327698,
+          "elapsed": 12.281312942504883,
+          "quote": "운영 정책 원문은 다음과 같습니다:\n\n**운영 정책**\n- 올해는 유료 기능을 출시하지 않는다.\n- 위치 정보는 동네 단위까지만 공개하며, 세부 위치와 개인 이동 경로를 공개하지 않는다.\n\n이 내용을 바탕으로 무료 알림 검토를 진행하실 수 있습니다. 추가적인 도움이 필요하시거나 세부적인 사항이 있으면 말씀해 주세요.\n참고: 지난주 회의록 v1, 운영 정책 v1, 지표 현황 v1",
+          "data": {
+            "flow": "collaboration",
+            "text": "운영 정책 원문은 다음과 같습니다:\n\n**운영 정책**\n- 올해는 유료 기능을 출시하지 않는다.\n- 위치 정보는 동네 단위까지만 공개하며, 세부 위치와 개인 이동 경로를 공개하지 않는다.\n\n이 내용을 바탕으로 무료 알림 검토를 진행하실 수 있습니다. 추가적인 도움이 필요하시거나 세부적인 사항이 있으면 말씀해 주세요.\n참고: 지난주 회의록 v1, 운영 정책 v1, 지표 현황 v1",
+            "usage": {
+              "cost": null,
+              "calls": [
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 1679,
+                    "output_tokens": 16,
+                    "cached_input_tokens": 0,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 914
+                },
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 2081,
+                    "output_tokens": 87,
+                    "cached_input_tokens": 1536,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 1648
+                }
+              ]
+            },
+            "job_id": "47c68bef-a849-4068-a55c-546ffa8e02f2",
+            "binding": {
+              "model": "gpt-4o-mini",
+              "backend": "openai",
+              "cli_version": null,
+              "adapter_version": "1.0.2"
+            },
+            "channel": "team",
+            "sources": [
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:minutes:v1",
+                "title": "지난주 회의록",
+                "version": 1
+              },
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+                "title": "운영 정책",
+                "version": 1
+              },
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:metrics:v1",
+                "title": "지표 현황",
+                "version": 1
+              }
+            ],
+            "agent_id": "leader",
+            "reply_to": "dad99a92-31a6-4307-852a-4f5fde7f637f",
+            "mutation_ids": [],
+            "role_version": "agents-v1",
+            "model_attempts": 2
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.",
+          "data": {
+            "title": "운영 정책",
+            "version": 1
+          }
+        }
+      ],
+      "limitation": "원문에 나타난 행동만 제공합니다. 수행 수준·인성·검증 성공 여부는 사람이 판단합니다."
+    },
+    {
+      "axis": "업무 수행 역량",
+      "item": "근거 활용",
+      "situation": "세션 과제 수행",
+      "window": [
+        0,
+        28.833590030670166
+      ],
+      "status": "기록 있음",
+      "observation": "지원자는 올해 유료 기능 제외와 위치 정보 공개 원칙을 확인해 달라고 요청했으며, 운영 정책 원문의 유료 기능 제한을 최종 문서에 직접 기재했습니다.",
+      "evidence": [
+        {
+          "id": "bb4a6b2f-cc04-4e08-8eba-dc90cbb93482",
+          "kind": "message",
+          "actor": "candidate",
+          "at": 1792474266.205133,
+          "elapsed": 5.158748149871826,
+          "quote": "운영 정책을 검색해서 올해 유료 기능과 위치 정보 공개 원칙을 확인해 주세요.",
+          "data": {
+            "flow": "collaboration",
+            "text": "운영 정책을 검색해서 올해 유료 기능과 위치 정보 공개 원칙을 확인해 주세요.",
+            "channel": "dm",
+            "reply_to": null,
+            "recipients": [
+              "colleague"
+            ],
+            "source_message_id": null
+          }
+        },
+        {
+          "id": "9c30a225-73ff-4ee0-ae7f-628064c3f68f",
+          "kind": "part",
+          "actor": "candidate",
+          "at": 1792474289.8713741,
+          "elapsed": 28.82499098777771,
+          "quote": "{\"after\": {\"body\": \"운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.\", \"id\": \"69198dd0-f27e-482f-b3c1-011e6b16bb38\", \"number\": 1, \"owner\": \"candidate\", \"status\": \"todo\", \"title\": \"문제 정의와 대상 사용자\", \"version\": 2}, \"before\": {\"body\": \"\", \"id\": \"69198dd0-f27e-482f-b3c1-011e6b16bb38\", \"number\": 1, \"owner\": \"candidate\", \"status\": \"todo\", \"title\": \"문제 정의와 대상 사용자\", \"version\": 1}, \"job_id\": null, \"requested_change\": {\"body\": \"운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.\", \"source_message_id\": \"95d6148b-1065-40af-bab3-ba9166ee4b60\", \"status\": null, \"version\": 1}, \"source_message_id\": \"95d6148b-1065-40af-bab3-ba9166ee4b60\"}",
+          "data": {
+            "after": {
+              "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+              "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+              "owner": "candidate",
+              "title": "문제 정의와 대상 사용자",
+              "number": 1,
+              "status": "todo",
+              "version": 2
+            },
+            "before": {
+              "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+              "body": "",
+              "owner": "candidate",
+              "title": "문제 정의와 대상 사용자",
+              "number": 1,
+              "status": "todo",
+              "version": 1
+            },
+            "job_id": null,
+            "requested_change": {
+              "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+              "status": null,
+              "version": 1,
+              "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+            },
+            "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+          }
+        },
+        {
+          "id": "832ef102-291c-41c4-9e6a-542119dcc01f",
+          "kind": "message",
+          "actor": "leader",
+          "at": 1792474273.327698,
+          "elapsed": 12.281312942504883,
+          "quote": "운영 정책 원문은 다음과 같습니다:\n\n**운영 정책**\n- 올해는 유료 기능을 출시하지 않는다.\n- 위치 정보는 동네 단위까지만 공개하며, 세부 위치와 개인 이동 경로를 공개하지 않는다.\n\n이 내용을 바탕으로 무료 알림 검토를 진행하실 수 있습니다. 추가적인 도움이 필요하시거나 세부적인 사항이 있으면 말씀해 주세요.\n참고: 지난주 회의록 v1, 운영 정책 v1, 지표 현황 v1",
+          "data": {
+            "flow": "collaboration",
+            "text": "운영 정책 원문은 다음과 같습니다:\n\n**운영 정책**\n- 올해는 유료 기능을 출시하지 않는다.\n- 위치 정보는 동네 단위까지만 공개하며, 세부 위치와 개인 이동 경로를 공개하지 않는다.\n\n이 내용을 바탕으로 무료 알림 검토를 진행하실 수 있습니다. 추가적인 도움이 필요하시거나 세부적인 사항이 있으면 말씀해 주세요.\n참고: 지난주 회의록 v1, 운영 정책 v1, 지표 현황 v1",
+            "usage": {
+              "cost": null,
+              "calls": [
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 1679,
+                    "output_tokens": 16,
+                    "cached_input_tokens": 0,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 914
+                },
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 2081,
+                    "output_tokens": 87,
+                    "cached_input_tokens": 1536,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 1648
+                }
+              ]
+            },
+            "job_id": "47c68bef-a849-4068-a55c-546ffa8e02f2",
+            "binding": {
+              "model": "gpt-4o-mini",
+              "backend": "openai",
+              "cli_version": null,
+              "adapter_version": "1.0.2"
+            },
+            "channel": "team",
+            "sources": [
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:minutes:v1",
+                "title": "지난주 회의록",
+                "version": 1
+              },
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+                "title": "운영 정책",
+                "version": 1
+              },
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:metrics:v1",
+                "title": "지표 현황",
+                "version": 1
+              }
+            ],
+            "agent_id": "leader",
+            "reply_to": "dad99a92-31a6-4307-852a-4f5fde7f637f",
+            "mutation_ids": [],
+            "role_version": "agents-v1",
+            "model_attempts": 2
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.",
+          "data": {
+            "title": "운영 정책",
+            "version": 1
+          }
+        }
+      ],
+      "limitation": "원문에 나타난 행동만 제공합니다. 수행 수준·인성·검증 성공 여부는 사람이 판단합니다."
+    },
+    {
+      "axis": "업무 수행 역량",
+      "item": "실행 가능성",
+      "situation": "세션 과제 수행",
+      "window": [
+        0,
+        28.833590030670166
+      ],
+      "status": "기록 있음",
+      "observation": "지원자는 정책 기준에 따라 유료 기능을 제외하고 무료 다음 모임 알림을 제안하는 문구로 최종 문서를 변경했습니다.",
+      "evidence": [
+        {
+          "id": "9c30a225-73ff-4ee0-ae7f-628064c3f68f",
+          "kind": "part",
+          "actor": "candidate",
+          "at": 1792474289.8713741,
+          "elapsed": 28.82499098777771,
+          "quote": "{\"after\": {\"body\": \"운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.\", \"id\": \"69198dd0-f27e-482f-b3c1-011e6b16bb38\", \"number\": 1, \"owner\": \"candidate\", \"status\": \"todo\", \"title\": \"문제 정의와 대상 사용자\", \"version\": 2}, \"before\": {\"body\": \"\", \"id\": \"69198dd0-f27e-482f-b3c1-011e6b16bb38\", \"number\": 1, \"owner\": \"candidate\", \"status\": \"todo\", \"title\": \"문제 정의와 대상 사용자\", \"version\": 1}, \"job_id\": null, \"requested_change\": {\"body\": \"운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.\", \"source_message_id\": \"95d6148b-1065-40af-bab3-ba9166ee4b60\", \"status\": null, \"version\": 1}, \"source_message_id\": \"95d6148b-1065-40af-bab3-ba9166ee4b60\"}",
+          "data": {
+            "after": {
+              "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+              "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+              "owner": "candidate",
+              "title": "문제 정의와 대상 사용자",
+              "number": 1,
+              "status": "todo",
+              "version": 2
+            },
+            "before": {
+              "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+              "body": "",
+              "owner": "candidate",
+              "title": "문제 정의와 대상 사용자",
+              "number": 1,
+              "status": "todo",
+              "version": 1
+            },
+            "job_id": null,
+            "requested_change": {
+              "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+              "status": null,
+              "version": 1,
+              "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+            },
+            "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.",
+          "data": {
+            "title": "운영 정책",
+            "version": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:introduction:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "루프랩은 전원 리모트로 근무하는 12명 스타트업이다. 모아런은 동네 러닝 모임을 찾아 함께 뛰는 앱이다. 출시 1년, 월 사용자 3만 명. 모임 찾기, 참여 신청, 다음 모임 알림이 핵심 기능이다.",
+          "data": {
+            "title": "회사·서비스 소개",
+            "version": 1
+          }
+        }
+      ],
+      "limitation": "원문에 나타난 행동만 제공합니다. 수행 수준·인성·검증 성공 여부는 사람이 판단합니다."
+    },
+    {
+      "axis": "AI 활용 역량",
+      "item": "위임 판단",
+      "situation": "세션 과제 수행",
+      "window": [
+        0,
+        28.833590030670166
+      ],
+      "status": "기록 있음",
+      "observation": "지원자는 개인 AI에 운영 정책을 검색해 올해 유료 기능 출시 가능 여부와 원문·문서 이름을 알려 달라고 요청했고, AI는 ‘운영 정책 v1’의 유료 기능 금지 및 위치 공개 제한 원문을 응답했습니다. 이어 위치 공개를 동네 단위로 제한한 무료 알림 초안을 요청했고, AI는 동네 소식 안내 문구를 제안했습니다.",
+      "evidence": [
+        {
+          "id": "67dc1cd1-fcdd-4380-9be1-d2a50f6525c3",
+          "kind": "message",
+          "actor": "candidate",
+          "at": 1792474262.105152,
+          "elapsed": 1.0587680339813232,
+          "quote": "운영 정책 문서를 검색해서 올해 유료 기능을 출시할 수 있는지 원문 근거와 문서 이름을 알려 주세요.",
+          "data": {
+            "flow": "chat",
+            "text": "운영 정책 문서를 검색해서 올해 유료 기능을 출시할 수 있는지 원문 근거와 문서 이름을 알려 주세요.",
+            "channel": "assistant",
+            "reply_to": null,
+            "recipients": [
+              "chat"
+            ],
+            "source_message_id": null
+          }
+        },
+        {
+          "id": "c67c4b43-9e74-4a60-ac8f-ea75bed0b581",
+          "kind": "message",
+          "actor": "candidate",
+          "at": 1792474273.382436,
+          "elapsed": 12.336051225662231,
+          "quote": "앞선 정책 요약을 확인했습니다. 위치 공개는 동네 단위로 제한해 무료 알림 초안을 짧게 제안해 주세요.",
+          "data": {
+            "flow": "chat",
+            "text": "앞선 정책 요약을 확인했습니다. 위치 공개는 동네 단위로 제한해 무료 알림 초안을 짧게 제안해 주세요.",
+            "channel": "assistant",
+            "reply_to": null,
+            "recipients": [
+              "chat"
+            ],
+            "source_message_id": null
+          }
+        },
+        {
+          "id": "95d6148b-1065-40af-bab3-ba9166ee4b60",
+          "kind": "message",
+          "actor": "assistant",
+          "at": 1792474265.557409,
+          "elapsed": 4.511023998260498,
+          "quote": "올해 유료 기능을 출시할 수 없다는 내용은 '운영 정책' 문서에 명시되어 있습니다. 해당 문서의 주요 내용은 다음과 같습니다:\n\n- 올해는 유료 기능을 출시하지 않는다.\n\n문서 이름: 운영 정책  \n버전: 1  \n원문: \"올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.\"\n참고: 운영 정책 v1, 지난주 회의록 v1, 회사·서비스 소개 v1",
+          "data": {
+            "flow": "chat",
+            "text": "올해 유료 기능을 출시할 수 없다는 내용은 '운영 정책' 문서에 명시되어 있습니다. 해당 문서의 주요 내용은 다음과 같습니다:\n\n- 올해는 유료 기능을 출시하지 않는다.\n\n문서 이름: 운영 정책  \n버전: 1  \n원문: \"올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.\"\n참고: 운영 정책 v1, 지난주 회의록 v1, 회사·서비스 소개 v1",
+            "usage": {
+              "cost": null,
+              "calls": [
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 1250,
+                    "output_tokens": 20,
+                    "cached_input_tokens": 0,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 1130
+                },
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 1654,
+                    "output_tokens": 102,
+                    "cached_input_tokens": 1152,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 1403
+                }
+              ]
+            },
+            "job_id": "39dc6edd-b643-4afc-9a19-a5de546deb36",
+            "binding": {
+              "model": "gpt-4o-mini",
+              "backend": "openai",
+              "cli_version": null,
+              "adapter_version": "1.0.2"
+            },
+            "channel": "assistant",
+            "sources": [
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+                "title": "운영 정책",
+                "version": 1
+              },
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:minutes:v1",
+                "title": "지난주 회의록",
+                "version": 1
+              },
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:introduction:v1",
+                "title": "회사·서비스 소개",
+                "version": 1
+              }
+            ],
+            "agent_id": "chat",
+            "reply_to": "67dc1cd1-fcdd-4380-9be1-d2a50f6525c3",
+            "mutation_ids": [],
+            "role_version": "agents-v1",
+            "model_attempts": 2
+          }
+        },
+        {
+          "id": "e2259a59-9dd2-4c70-9a1b-83f58147b9ba",
+          "kind": "message",
+          "actor": "assistant",
+          "at": 1792474275.0308301,
+          "elapsed": 13.98444414138794,
+          "quote": "위치 공개를 동네 단위로 제한한 무료 알림 초안은 다음과 같습니다:\n\n---\n\n**무료 알림 초안**\n\n안녕하세요!  \n\n우리 서비스에서 당신이 거주하는 동네의 소식을 전해드립니다. 앞으로도 동네의 다양한 소식을 순차적으로 안내해 드릴 예정이니 많은 관심 부탁드립니다.  \n\n감사합니다!\n\n--- \n\n이 초안은 사용자의 위치 공개를 동네 단위로 제한하여 작성되었습니다. 추가 수정이 필요하면 말씀해 주세요.",
+          "data": {
+            "flow": "chat",
+            "text": "위치 공개를 동네 단위로 제한한 무료 알림 초안은 다음과 같습니다:\n\n---\n\n**무료 알림 초안**\n\n안녕하세요!  \n\n우리 서비스에서 당신이 거주하는 동네의 소식을 전해드립니다. 앞으로도 동네의 다양한 소식을 순차적으로 안내해 드릴 예정이니 많은 관심 부탁드립니다.  \n\n감사합니다!\n\n--- \n\n이 초안은 사용자의 위치 공개를 동네 단위로 제한하여 작성되었습니다. 추가 수정이 필요하면 말씀해 주세요.",
+            "usage": {
+              "cost": null,
+              "calls": [
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 1585,
+                    "output_tokens": 109,
+                    "cached_input_tokens": 0,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 1356
+                }
+              ]
+            },
+            "job_id": "f38b9fc6-20de-48c7-86c1-f2f52595f97c",
+            "binding": {
+              "model": "gpt-4o-mini",
+              "backend": "openai",
+              "cli_version": null,
+              "adapter_version": "1.0.2"
+            },
+            "channel": "assistant",
+            "sources": [],
+            "agent_id": "chat",
+            "reply_to": "c67c4b43-9e74-4a60-ac8f-ea75bed0b581",
+            "mutation_ids": [],
+            "role_version": "agents-v1",
+            "model_attempts": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.",
+          "data": {
+            "title": "운영 정책",
+            "version": 1
+          }
+        }
+      ],
+      "limitation": "원문에 나타난 행동만 제공합니다. 수행 수준·인성·검증 성공 여부는 사람이 판단합니다."
+    },
+    {
+      "axis": "AI 활용 역량",
+      "item": "맥락 전달",
+      "situation": "세션 과제 수행",
+      "window": [
+        0,
+        28.833590030670166
+      ],
+      "status": "기록 있음",
+      "observation": "지원자는 AI 요청에 확인 대상인 올해 유료 기능, 필요한 근거 형식인 원문과 문서 이름을 명시했고, 후속 요청에서는 앞선 정책 요약과 동네 단위 위치 제한, 무료 알림, 짧은 초안이라는 조건을 전달했습니다. 확인된 AI 응답에는 운영 정책의 원문·이름과 동네 단위 무료 알림 초안이 포함됐습니다.",
+      "evidence": [
+        {
+          "id": "67dc1cd1-fcdd-4380-9be1-d2a50f6525c3",
+          "kind": "message",
+          "actor": "candidate",
+          "at": 1792474262.105152,
+          "elapsed": 1.0587680339813232,
+          "quote": "운영 정책 문서를 검색해서 올해 유료 기능을 출시할 수 있는지 원문 근거와 문서 이름을 알려 주세요.",
+          "data": {
+            "flow": "chat",
+            "text": "운영 정책 문서를 검색해서 올해 유료 기능을 출시할 수 있는지 원문 근거와 문서 이름을 알려 주세요.",
+            "channel": "assistant",
+            "reply_to": null,
+            "recipients": [
+              "chat"
+            ],
+            "source_message_id": null
+          }
+        },
+        {
+          "id": "c67c4b43-9e74-4a60-ac8f-ea75bed0b581",
+          "kind": "message",
+          "actor": "candidate",
+          "at": 1792474273.382436,
+          "elapsed": 12.336051225662231,
+          "quote": "앞선 정책 요약을 확인했습니다. 위치 공개는 동네 단위로 제한해 무료 알림 초안을 짧게 제안해 주세요.",
+          "data": {
+            "flow": "chat",
+            "text": "앞선 정책 요약을 확인했습니다. 위치 공개는 동네 단위로 제한해 무료 알림 초안을 짧게 제안해 주세요.",
+            "channel": "assistant",
+            "reply_to": null,
+            "recipients": [
+              "chat"
+            ],
+            "source_message_id": null
+          }
+        },
+        {
+          "id": "95d6148b-1065-40af-bab3-ba9166ee4b60",
+          "kind": "message",
+          "actor": "assistant",
+          "at": 1792474265.557409,
+          "elapsed": 4.511023998260498,
+          "quote": "올해 유료 기능을 출시할 수 없다는 내용은 '운영 정책' 문서에 명시되어 있습니다. 해당 문서의 주요 내용은 다음과 같습니다:\n\n- 올해는 유료 기능을 출시하지 않는다.\n\n문서 이름: 운영 정책  \n버전: 1  \n원문: \"올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.\"\n참고: 운영 정책 v1, 지난주 회의록 v1, 회사·서비스 소개 v1",
+          "data": {
+            "flow": "chat",
+            "text": "올해 유료 기능을 출시할 수 없다는 내용은 '운영 정책' 문서에 명시되어 있습니다. 해당 문서의 주요 내용은 다음과 같습니다:\n\n- 올해는 유료 기능을 출시하지 않는다.\n\n문서 이름: 운영 정책  \n버전: 1  \n원문: \"올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.\"\n참고: 운영 정책 v1, 지난주 회의록 v1, 회사·서비스 소개 v1",
+            "usage": {
+              "cost": null,
+              "calls": [
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 1250,
+                    "output_tokens": 20,
+                    "cached_input_tokens": 0,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 1130
+                },
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 1654,
+                    "output_tokens": 102,
+                    "cached_input_tokens": 1152,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 1403
+                }
+              ]
+            },
+            "job_id": "39dc6edd-b643-4afc-9a19-a5de546deb36",
+            "binding": {
+              "model": "gpt-4o-mini",
+              "backend": "openai",
+              "cli_version": null,
+              "adapter_version": "1.0.2"
+            },
+            "channel": "assistant",
+            "sources": [
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+                "title": "운영 정책",
+                "version": 1
+              },
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:minutes:v1",
+                "title": "지난주 회의록",
+                "version": 1
+              },
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:introduction:v1",
+                "title": "회사·서비스 소개",
+                "version": 1
+              }
+            ],
+            "agent_id": "chat",
+            "reply_to": "67dc1cd1-fcdd-4380-9be1-d2a50f6525c3",
+            "mutation_ids": [],
+            "role_version": "agents-v1",
+            "model_attempts": 2
+          }
+        },
+        {
+          "id": "e2259a59-9dd2-4c70-9a1b-83f58147b9ba",
+          "kind": "message",
+          "actor": "assistant",
+          "at": 1792474275.0308301,
+          "elapsed": 13.98444414138794,
+          "quote": "위치 공개를 동네 단위로 제한한 무료 알림 초안은 다음과 같습니다:\n\n---\n\n**무료 알림 초안**\n\n안녕하세요!  \n\n우리 서비스에서 당신이 거주하는 동네의 소식을 전해드립니다. 앞으로도 동네의 다양한 소식을 순차적으로 안내해 드릴 예정이니 많은 관심 부탁드립니다.  \n\n감사합니다!\n\n--- \n\n이 초안은 사용자의 위치 공개를 동네 단위로 제한하여 작성되었습니다. 추가 수정이 필요하면 말씀해 주세요.",
+          "data": {
+            "flow": "chat",
+            "text": "위치 공개를 동네 단위로 제한한 무료 알림 초안은 다음과 같습니다:\n\n---\n\n**무료 알림 초안**\n\n안녕하세요!  \n\n우리 서비스에서 당신이 거주하는 동네의 소식을 전해드립니다. 앞으로도 동네의 다양한 소식을 순차적으로 안내해 드릴 예정이니 많은 관심 부탁드립니다.  \n\n감사합니다!\n\n--- \n\n이 초안은 사용자의 위치 공개를 동네 단위로 제한하여 작성되었습니다. 추가 수정이 필요하면 말씀해 주세요.",
+            "usage": {
+              "cost": null,
+              "calls": [
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 1585,
+                    "output_tokens": 109,
+                    "cached_input_tokens": 0,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 1356
+                }
+              ]
+            },
+            "job_id": "f38b9fc6-20de-48c7-86c1-f2f52595f97c",
+            "binding": {
+              "model": "gpt-4o-mini",
+              "backend": "openai",
+              "cli_version": null,
+              "adapter_version": "1.0.2"
+            },
+            "channel": "assistant",
+            "sources": [],
+            "agent_id": "chat",
+            "reply_to": "c67c4b43-9e74-4a60-ac8f-ea75bed0b581",
+            "mutation_ids": [],
+            "role_version": "agents-v1",
+            "model_attempts": 1
+          }
+        }
+      ],
+      "limitation": "원문에 나타난 행동만 제공합니다. 수행 수준·인성·검증 성공 여부는 사람이 판단합니다."
+    },
+    {
+      "axis": "AI 활용 역량",
+      "item": "결과 검증",
+      "situation": "세션 과제 수행",
+      "window": [
+        0,
+        28.833590030670166
+      ],
+      "status": "기록 있음",
+      "observation": "지원자는 개인 AI의 정책 요약을 운영 정책 원문과 대조했다고 말하고 무료 알림만 반영하겠다고 밝혔으며, 이후 최종 문서에 유료 기능 금지와 무료 다음 모임 알림을 직접 기재했습니다. 기록은 대조했다는 지원자의 진술과 반영 내용을 보여 주지만, 대조 절차 전체나 위치 공개 문구의 최종 반영까지 확인해 주지는 않습니다.",
+      "evidence": [
+        {
+          "id": "bba2d3d6-f901-4f58-a583-675edb015cad",
+          "kind": "message",
+          "actor": "candidate",
+          "at": 1792474280.641132,
+          "elapsed": 19.59474802017212,
+          "quote": "개인 AI의 정책 요약을 운영 정책 원문과 대조했습니다. 무료 알림만 선택해 반영하겠습니다.",
+          "data": {
+            "flow": "collaboration",
+            "text": "개인 AI의 정책 요약을 운영 정책 원문과 대조했습니다. 무료 알림만 선택해 반영하겠습니다.",
+            "channel": "team",
+            "reply_to": null,
+            "recipients": [
+              "colleague"
+            ],
+            "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+          }
+        },
+        {
+          "id": "9c30a225-73ff-4ee0-ae7f-628064c3f68f",
+          "kind": "part",
+          "actor": "candidate",
+          "at": 1792474289.8713741,
+          "elapsed": 28.82499098777771,
+          "quote": "{\"after\": {\"body\": \"운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.\", \"id\": \"69198dd0-f27e-482f-b3c1-011e6b16bb38\", \"number\": 1, \"owner\": \"candidate\", \"status\": \"todo\", \"title\": \"문제 정의와 대상 사용자\", \"version\": 2}, \"before\": {\"body\": \"\", \"id\": \"69198dd0-f27e-482f-b3c1-011e6b16bb38\", \"number\": 1, \"owner\": \"candidate\", \"status\": \"todo\", \"title\": \"문제 정의와 대상 사용자\", \"version\": 1}, \"job_id\": null, \"requested_change\": {\"body\": \"운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.\", \"source_message_id\": \"95d6148b-1065-40af-bab3-ba9166ee4b60\", \"status\": null, \"version\": 1}, \"source_message_id\": \"95d6148b-1065-40af-bab3-ba9166ee4b60\"}",
+          "data": {
+            "after": {
+              "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+              "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+              "owner": "candidate",
+              "title": "문제 정의와 대상 사용자",
+              "number": 1,
+              "status": "todo",
+              "version": 2
+            },
+            "before": {
+              "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+              "body": "",
+              "owner": "candidate",
+              "title": "문제 정의와 대상 사용자",
+              "number": 1,
+              "status": "todo",
+              "version": 1
+            },
+            "job_id": null,
+            "requested_change": {
+              "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+              "status": null,
+              "version": 1,
+              "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+            },
+            "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+          }
+        },
+        {
+          "id": "95d6148b-1065-40af-bab3-ba9166ee4b60",
+          "kind": "message",
+          "actor": "assistant",
+          "at": 1792474265.557409,
+          "elapsed": 4.511023998260498,
+          "quote": "올해 유료 기능을 출시할 수 없다는 내용은 '운영 정책' 문서에 명시되어 있습니다. 해당 문서의 주요 내용은 다음과 같습니다:\n\n- 올해는 유료 기능을 출시하지 않는다.\n\n문서 이름: 운영 정책  \n버전: 1  \n원문: \"올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.\"\n참고: 운영 정책 v1, 지난주 회의록 v1, 회사·서비스 소개 v1",
+          "data": {
+            "flow": "chat",
+            "text": "올해 유료 기능을 출시할 수 없다는 내용은 '운영 정책' 문서에 명시되어 있습니다. 해당 문서의 주요 내용은 다음과 같습니다:\n\n- 올해는 유료 기능을 출시하지 않는다.\n\n문서 이름: 운영 정책  \n버전: 1  \n원문: \"올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.\"\n참고: 운영 정책 v1, 지난주 회의록 v1, 회사·서비스 소개 v1",
+            "usage": {
+              "cost": null,
+              "calls": [
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 1250,
+                    "output_tokens": 20,
+                    "cached_input_tokens": 0,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 1130
+                },
+                {
+                  "cost": null,
+                  "model": "gpt-4o-mini",
+                  "tokens": {
+                    "input_tokens": 1654,
+                    "output_tokens": 102,
+                    "cached_input_tokens": 1152,
+                    "reasoning_output_tokens": 0
+                  },
+                  "backend": "openai",
+                  "attempts": 1,
+                  "latency_ms": 1403
+                }
+              ]
+            },
+            "job_id": "39dc6edd-b643-4afc-9a19-a5de546deb36",
+            "binding": {
+              "model": "gpt-4o-mini",
+              "backend": "openai",
+              "cli_version": null,
+              "adapter_version": "1.0.2"
+            },
+            "channel": "assistant",
+            "sources": [
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+                "title": "운영 정책",
+                "version": 1
+              },
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:minutes:v1",
+                "title": "지난주 회의록",
+                "version": 1
+              },
+              {
+                "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:introduction:v1",
+                "title": "회사·서비스 소개",
+                "version": 1
+              }
+            ],
+            "agent_id": "chat",
+            "reply_to": "67dc1cd1-fcdd-4380-9be1-d2a50f6525c3",
+            "mutation_ids": [],
+            "role_version": "agents-v1",
+            "model_attempts": 2
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.",
+          "data": {
+            "title": "운영 정책",
+            "version": 1
+          }
+        }
+      ],
+      "limitation": "원문에 나타난 행동만 제공합니다. 수행 수준·인성·검증 성공 여부는 사람이 판단합니다."
+    },
+    {
+      "axis": "협업 태도",
+      "item": "책임감",
+      "situation": "delay",
+      "window": [
+        0,
+        28.833590030670166
+      ],
+      "status": "관찰 기회 없음",
+      "observation": "",
+      "evidence": [],
+      "limitation": "원문에 나타난 행동만 제공합니다. 수행 수준·인성·검증 성공 여부는 사람이 판단합니다."
+    },
+    {
+      "axis": "협업 태도",
+      "item": "존중·소통",
+      "situation": "review",
+      "window": [
+        0,
+        28.833590030670166
+      ],
+      "status": "관찰 기회 없음",
+      "observation": "",
+      "evidence": [],
+      "limitation": "원문에 나타난 행동만 제공합니다. 수행 수준·인성·검증 성공 여부는 사람이 판단합니다."
+    },
+    {
+      "axis": "협업 태도",
+      "item": "협력 태도",
+      "situation": "help",
+      "window": [
+        0,
+        28.833590030670166
+      ],
+      "status": "관찰 기회 없음",
+      "observation": "",
+      "evidence": [],
+      "limitation": "원문에 나타난 행동만 제공합니다. 수행 수준·인성·검증 성공 여부는 사람이 판단합니다."
+    },
+    {
+      "axis": "협업 태도",
+      "item": "유연성",
+      "situation": "change",
+      "window": [
+        0,
+        28.833590030670166
+      ],
+      "status": "관찰 기회 없음",
+      "observation": "",
+      "evidence": [],
+      "limitation": "원문에 나타난 행동만 제공합니다. 수행 수준·인성·검증 성공 여부는 사람이 판단합니다."
+    }
+  ],
+  "utilization_links": [
+    {
+      "answer_id": "95d6148b-1065-40af-bab3-ba9166ee4b60",
+      "candidate_record_id": "bba2d3d6-f901-4f58-a583-675edb015cad",
+      "answer": {
+        "id": "95d6148b-1065-40af-bab3-ba9166ee4b60",
+        "kind": "message",
+        "actor": "assistant",
+        "at": 1792474265.557409,
+        "elapsed": 4.511023998260498,
+        "quote": "올해 유료 기능을 출시할 수 없다는 내용은 '운영 정책' 문서에 명시되어 있습니다. 해당 문서의 주요 내용은 다음과 같습니다:\n\n- 올해는 유료 기능을 출시하지 않는다.\n\n문서 이름: 운영 정책  \n버전: 1  \n원문: \"올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.\"\n참고: 운영 정책 v1, 지난주 회의록 v1, 회사·서비스 소개 v1",
+        "data": {
+          "flow": "chat",
+          "text": "올해 유료 기능을 출시할 수 없다는 내용은 '운영 정책' 문서에 명시되어 있습니다. 해당 문서의 주요 내용은 다음과 같습니다:\n\n- 올해는 유료 기능을 출시하지 않는다.\n\n문서 이름: 운영 정책  \n버전: 1  \n원문: \"올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.\"\n참고: 운영 정책 v1, 지난주 회의록 v1, 회사·서비스 소개 v1",
+          "usage": {
+            "cost": null,
+            "calls": [
+              {
+                "cost": null,
+                "model": "gpt-4o-mini",
+                "tokens": {
+                  "input_tokens": 1250,
+                  "output_tokens": 20,
+                  "cached_input_tokens": 0,
+                  "reasoning_output_tokens": 0
+                },
+                "backend": "openai",
+                "attempts": 1,
+                "latency_ms": 1130
+              },
+              {
+                "cost": null,
+                "model": "gpt-4o-mini",
+                "tokens": {
+                  "input_tokens": 1654,
+                  "output_tokens": 102,
+                  "cached_input_tokens": 1152,
+                  "reasoning_output_tokens": 0
+                },
+                "backend": "openai",
+                "attempts": 1,
+                "latency_ms": 1403
+              }
+            ]
+          },
+          "job_id": "39dc6edd-b643-4afc-9a19-a5de546deb36",
+          "binding": {
+            "model": "gpt-4o-mini",
+            "backend": "openai",
+            "cli_version": null,
+            "adapter_version": "1.0.2"
+          },
+          "channel": "assistant",
+          "sources": [
+            {
+              "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+              "title": "운영 정책",
+              "version": 1
+            },
+            {
+              "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:minutes:v1",
+              "title": "지난주 회의록",
+              "version": 1
+            },
+            {
+              "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:introduction:v1",
+              "title": "회사·서비스 소개",
+              "version": 1
+            }
+          ],
+          "agent_id": "chat",
+          "reply_to": "67dc1cd1-fcdd-4380-9be1-d2a50f6525c3",
+          "mutation_ids": [],
+          "role_version": "agents-v1",
+          "model_attempts": 2
+        }
+      },
+      "candidate_action": {
+        "id": "bba2d3d6-f901-4f58-a583-675edb015cad",
+        "kind": "message",
+        "actor": "candidate",
+        "at": 1792474280.641132,
+        "elapsed": 19.59474802017212,
+        "quote": "개인 AI의 정책 요약을 운영 정책 원문과 대조했습니다. 무료 알림만 선택해 반영하겠습니다.",
+        "data": {
+          "flow": "collaboration",
+          "text": "개인 AI의 정책 요약을 운영 정책 원문과 대조했습니다. 무료 알림만 선택해 반영하겠습니다.",
+          "channel": "team",
+          "reply_to": null,
+          "recipients": [
+            "colleague"
+          ],
+          "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+        }
+      },
+      "relation": "활용을 명시함",
+      "form": "다른 내용으로 공유·반영",
+      "matching_quotes": [],
+      "verified": null,
+      "limitation": "표현 일치나 수정만으로 복사·검증 완료를 단정하지 않습니다."
+    },
+    {
+      "answer_id": "95d6148b-1065-40af-bab3-ba9166ee4b60",
+      "candidate_record_id": "9c30a225-73ff-4ee0-ae7f-628064c3f68f",
+      "answer": {
+        "id": "95d6148b-1065-40af-bab3-ba9166ee4b60",
+        "kind": "message",
+        "actor": "assistant",
+        "at": 1792474265.557409,
+        "elapsed": 4.511023998260498,
+        "quote": "올해 유료 기능을 출시할 수 없다는 내용은 '운영 정책' 문서에 명시되어 있습니다. 해당 문서의 주요 내용은 다음과 같습니다:\n\n- 올해는 유료 기능을 출시하지 않는다.\n\n문서 이름: 운영 정책  \n버전: 1  \n원문: \"올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.\"\n참고: 운영 정책 v1, 지난주 회의록 v1, 회사·서비스 소개 v1",
+        "data": {
+          "flow": "chat",
+          "text": "올해 유료 기능을 출시할 수 없다는 내용은 '운영 정책' 문서에 명시되어 있습니다. 해당 문서의 주요 내용은 다음과 같습니다:\n\n- 올해는 유료 기능을 출시하지 않는다.\n\n문서 이름: 운영 정책  \n버전: 1  \n원문: \"올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.\"\n참고: 운영 정책 v1, 지난주 회의록 v1, 회사·서비스 소개 v1",
+          "usage": {
+            "cost": null,
+            "calls": [
+              {
+                "cost": null,
+                "model": "gpt-4o-mini",
+                "tokens": {
+                  "input_tokens": 1250,
+                  "output_tokens": 20,
+                  "cached_input_tokens": 0,
+                  "reasoning_output_tokens": 0
+                },
+                "backend": "openai",
+                "attempts": 1,
+                "latency_ms": 1130
+              },
+              {
+                "cost": null,
+                "model": "gpt-4o-mini",
+                "tokens": {
+                  "input_tokens": 1654,
+                  "output_tokens": 102,
+                  "cached_input_tokens": 1152,
+                  "reasoning_output_tokens": 0
+                },
+                "backend": "openai",
+                "attempts": 1,
+                "latency_ms": 1403
+              }
+            ]
+          },
+          "job_id": "39dc6edd-b643-4afc-9a19-a5de546deb36",
+          "binding": {
+            "model": "gpt-4o-mini",
+            "backend": "openai",
+            "cli_version": null,
+            "adapter_version": "1.0.2"
+          },
+          "channel": "assistant",
+          "sources": [
+            {
+              "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+              "title": "운영 정책",
+              "version": 1
+            },
+            {
+              "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:minutes:v1",
+              "title": "지난주 회의록",
+              "version": 1
+            },
+            {
+              "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:introduction:v1",
+              "title": "회사·서비스 소개",
+              "version": 1
+            }
+          ],
+          "agent_id": "chat",
+          "reply_to": "67dc1cd1-fcdd-4380-9be1-d2a50f6525c3",
+          "mutation_ids": [],
+          "role_version": "agents-v1",
+          "model_attempts": 2
+        }
+      },
+      "candidate_action": {
+        "id": "9c30a225-73ff-4ee0-ae7f-628064c3f68f",
+        "kind": "part",
+        "actor": "candidate",
+        "at": 1792474289.8713741,
+        "elapsed": 28.82499098777771,
+        "quote": "{\"after\": {\"body\": \"운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.\", \"id\": \"69198dd0-f27e-482f-b3c1-011e6b16bb38\", \"number\": 1, \"owner\": \"candidate\", \"status\": \"todo\", \"title\": \"문제 정의와 대상 사용자\", \"version\": 2}, \"before\": {\"body\": \"\", \"id\": \"69198dd0-f27e-482f-b3c1-011e6b16bb38\", \"number\": 1, \"owner\": \"candidate\", \"status\": \"todo\", \"title\": \"문제 정의와 대상 사용자\", \"version\": 1}, \"job_id\": null, \"requested_change\": {\"body\": \"운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.\", \"source_message_id\": \"95d6148b-1065-40af-bab3-ba9166ee4b60\", \"status\": null, \"version\": 1}, \"source_message_id\": \"95d6148b-1065-40af-bab3-ba9166ee4b60\"}",
+        "data": {
+          "after": {
+            "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+            "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+            "owner": "candidate",
+            "title": "문제 정의와 대상 사용자",
+            "number": 1,
+            "status": "todo",
+            "version": 2
+          },
+          "before": {
+            "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+            "body": "",
+            "owner": "candidate",
+            "title": "문제 정의와 대상 사용자",
+            "number": 1,
+            "status": "todo",
+            "version": 1
+          },
+          "job_id": null,
+          "requested_change": {
+            "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+            "status": null,
+            "version": 1,
+            "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+          },
+          "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+        }
+      },
+      "relation": "활용을 명시함",
+      "form": "다른 내용으로 공유·반영",
+      "matching_quotes": [],
+      "verified": null,
+      "limitation": "표현 일치나 수정만으로 복사·검증 완료를 단정하지 않습니다."
+    }
+  ],
+  "usage": {
+    "calls": [
+      {
+        "backend": "codex_cli",
+        "model": "gpt-5.6-sol",
+        "attempts": 1,
+        "latency_ms": 31452,
+        "tokens": {
+          "input_tokens": 9185,
+          "output_tokens": 1811,
+          "cached_input_tokens": 0,
+          "reasoning_output_tokens": 341
+        },
+        "cost": null
+      }
+    ],
+    "cost": null
+  },
+  "limits": "원문 인용 검사는 의미 해석의 정확성을 보장하지 않습니다. 최종 판단은 사람이 합니다.",
+  "contract": {
+    "roles": "agents-v1",
+    "quality": "quality-v1",
+    "version": "dayzero-v2",
+    "tool_limit": 3,
+    "permissions": "permissions-v1",
+    "duration_seconds": 7200,
+    "quality_criteria": [
+      "요구사항 반영",
+      "근거 활용",
+      "실행 가능성"
+    ],
+    "initial_division_limit": 3
+  },
+  "conditions": {
+    "scenario_version": "looplab-v1",
+    "target": "첫 참여자",
+    "duration_seconds": 28.833590030670166,
+    "deadline_seconds": 7200,
+    "early_submission": true,
+    "delivered_events": [],
+    "unconfirmed_events": [],
+    "record_gaps": [],
+    "limitation": "실제 전달된 조건만 적용합니다. 생성 응답·자료 전달 차이와 장애가 비교를 제한합니다."
+  },
+  "final_parts": [
+    {
+      "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+      "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+      "owner": "candidate",
+      "title": "문제 정의와 대상 사용자",
+      "number": 1,
+      "status": "todo",
+      "version": 2
+    },
+    {
+      "id": "2109395a-a6ea-4ddd-9f18-3adc5e949d3d",
+      "body": "",
+      "owner": "candidate",
+      "title": "사용자 인터뷰에서 찾은 근거",
+      "number": 2,
+      "status": "todo",
+      "version": 1
+    },
+    {
+      "id": "fc517efe-c4b4-4a22-8c39-d0b41fc4728d",
+      "body": "",
+      "owner": "shared",
+      "title": "핵심 기능 제안",
+      "number": 3,
+      "status": "todo",
+      "version": 1
+    },
+    {
+      "id": "c0b05287-dedc-47a8-b894-ade01fbe1ff3",
+      "body": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+      "owner": "colleague",
+      "title": "비슷한 서비스 사례",
+      "number": 4,
+      "status": "done",
+      "version": 3
+    },
+    {
+      "id": "bbe77955-f140-4dc8-8caa-eab6c6ba7f8a",
+      "body": "",
+      "owner": "colleague",
+      "title": "성공 지표와 출시 일정",
+      "number": 5,
+      "status": "todo",
+      "version": 1
+    }
+  ],
+  "tasks": [
+    {
+      "id": "69a2c256-d732-47f3-9a6f-c72ece5cf9cb",
+      "note": "정책 문서를 검색해 유료 기능 제외·동네 단위 공개 원칙을 기준으로 가상의 기능 비교 초안을 4번 파트에 저장했음을 알립니다.",
+      "owner": "colleague",
+      "title": "무료 알림의 비교 기준 정리",
+      "status": "done",
+      "part_id": "c0b05287-dedc-47a8-b894-ade01fbe1ff3",
+      "version": 2,
+      "source_id": null,
+      "due_elapsed": null
+    }
+  ],
+  "quality_comparison": [
+    {
+      "item": "요구사항 반영",
+      "rationale": "F0024는 운영 정책의 유료 기능 금지를 반영해 무료 다음 모임 알림을 제안하고, F0027은 다음 모임 참여 유도와 동네 단위 위치 공개 원칙을 기재해 과제 목표와 정책 일부에 연결됩니다. 다만 요구된 2~3쪽 기획안과 비교하면 문제 정의·대상 사용자 설명이 짧고, 사용자 인터뷰 근거·핵심 기능 제안·성공 지표와 출시 일정 파트가 비어 있습니다. F0027의 ‘비슷한 서비스 사례’도 실제 사례 대신 가상의 기능 목록을 담고 있습니다.",
+      "supporting": [
+        {
+          "id": "final:69198dd0-f27e-482f-b3c1-011e6b16bb38:v2",
+          "kind": "final_part",
+          "actor": "candidate",
+          "at": 1792474289.8713741,
+          "elapsed": 28.82499098777771,
+          "quote": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+          "data": {
+            "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+            "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+            "owner": "candidate",
+            "title": "문제 정의와 대상 사용자",
+            "number": 1,
+            "status": "todo",
+            "version": 2
+          }
+        },
+        {
+          "id": "final:c0b05287-dedc-47a8-b894-ade01fbe1ff3:v3",
+          "kind": "final_part",
+          "actor": "colleague",
+          "at": 1792474286.4561532,
+          "elapsed": 25.409768104553223,
+          "quote": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+          "data": {
+            "id": "c0b05287-dedc-47a8-b894-ade01fbe1ff3",
+            "body": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+            "owner": "colleague",
+            "title": "비슷한 서비스 사례",
+            "number": 4,
+            "status": "done",
+            "version": 3
+          }
+        }
+      ],
+      "conflicting": [
+        {
+          "id": "final:69198dd0-f27e-482f-b3c1-011e6b16bb38:v2",
+          "kind": "final_part",
+          "actor": "candidate",
+          "at": 1792474289.8713741,
+          "elapsed": 28.82499098777771,
+          "quote": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+          "data": {
+            "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+            "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+            "owner": "candidate",
+            "title": "문제 정의와 대상 사용자",
+            "number": 1,
+            "status": "todo",
+            "version": 2
+          }
+        },
+        {
+          "id": "final:c0b05287-dedc-47a8-b894-ade01fbe1ff3:v3",
+          "kind": "final_part",
+          "actor": "colleague",
+          "at": 1792474286.4561532,
+          "elapsed": 25.409768104553223,
+          "quote": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+          "data": {
+            "id": "c0b05287-dedc-47a8-b894-ade01fbe1ff3",
+            "body": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+            "owner": "colleague",
+            "title": "비슷한 서비스 사례",
+            "number": 4,
+            "status": "done",
+            "version": 3
+          }
+        }
+      ],
+      "comparison_basis": [
+        {
+          "id": "d78ea13a-247e-4f1b-80cf-abff22e2861e",
+          "kind": "message",
+          "actor": "leader",
+          "at": 1792474261.054517,
+          "elapsed": 0.008131980895996094,
+          "quote": "첫 모임에 나온 사용자가 두 번째 모임에도 다시 나오게 만드는 신규 기능을 기획해 주세요. 2시간 뒤 2~3쪽 기획안을 공유 문서로 받겠습니다. 필요하면 AI 채팅을 써도 됩니다.",
+          "data": {
+            "flow": "collaboration",
+            "text": "첫 모임에 나온 사용자가 두 번째 모임에도 다시 나오게 만드는 신규 기능을 기획해 주세요. 2시간 뒤 2~3쪽 기획안을 공유 문서로 받겠습니다. 필요하면 AI 채팅을 써도 됩니다.",
+            "channel": "team",
+            "agent_id": "leader",
+            "requirement": true
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:minutes:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "재참여율 개선을 이번 분기 최우선 과제로 정했다. 첫 참여 후 이탈 원인을 정리하고 신규 기능의 작은 실험을 제안한다. 정량 지표와 인터뷰 근거를 함께 검토한다.",
+          "data": {
+            "title": "지난주 회의록",
+            "version": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.",
+          "data": {
+            "title": "운영 정책",
+            "version": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:metrics:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "월 사용자 30,000명. 첫 모임 참여자 중 두 번째 모임 재참여율은 22%. 가상 상세 지표: 5명 이하 모임 28%, 6~10명 모임 23%, 11명 이상 모임 17%. 집계 기준은 첫 참여 후 30일이다.",
+          "data": {
+            "title": "지표 현황",
+            "version": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:introduction:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "루프랩은 전원 리모트로 근무하는 12명 스타트업이다. 모아런은 동네 러닝 모임을 찾아 함께 뛰는 앱이다. 출시 1년, 월 사용자 3만 명. 모임 찾기, 참여 신청, 다음 모임 알림이 핵심 기능이다.",
+          "data": {
+            "title": "회사·서비스 소개",
+            "version": 1
+          }
+        }
+      ],
+      "checks": [
+        "최종 공유 문서가 실제로 2~3쪽 분량이었는지 확인",
+        "비어 있는 사용자 인터뷰 근거·핵심 기능 제안·성공 지표와 출시 일정이 별도 자료에 있었는지 확인",
+        "가상의 기능 목록이 ‘비슷한 서비스 사례’ 요구를 충족하도록 의도된 것인지 확인"
+      ],
+      "missing_parts": [
+        2,
+        3,
+        5
+      ],
+      "limitation": "최종본 전체의 사실과 작성 주체를 보여줍니다. 지원자의 직접 기여와 의미 판단은 과정·원문을 함께 확인하세요."
+    },
+    {
+      "item": "근거 활용",
+      "rationale": "F0024의 유료 기능 금지 문구와 F0027의 유료 기능 금지·동네 단위 위치 공개 문구는 운영 정책 원문과 일치합니다. F0027의 다음 모임 참여 유도 방향은 첫 참여자의 재참여 개선 과제와 관련되지만, 회사 문서에 있는 재참여율 22%, 30일 집계 기준, 모임 규모별 지표나 인터뷰 근거는 최종본에 제시되지 않았습니다. 또한 F0027의 가상 기능과 사용자 피드백 관련 문장은 구체적인 출처나 확인된 조사 결과와 연결되어 있지 않습니다.",
+      "supporting": [
+        {
+          "id": "final:69198dd0-f27e-482f-b3c1-011e6b16bb38:v2",
+          "kind": "final_part",
+          "actor": "candidate",
+          "at": 1792474289.8713741,
+          "elapsed": 28.82499098777771,
+          "quote": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+          "data": {
+            "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+            "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+            "owner": "candidate",
+            "title": "문제 정의와 대상 사용자",
+            "number": 1,
+            "status": "todo",
+            "version": 2
+          }
+        },
+        {
+          "id": "final:c0b05287-dedc-47a8-b894-ade01fbe1ff3:v3",
+          "kind": "final_part",
+          "actor": "colleague",
+          "at": 1792474286.4561532,
+          "elapsed": 25.409768104553223,
+          "quote": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+          "data": {
+            "id": "c0b05287-dedc-47a8-b894-ade01fbe1ff3",
+            "body": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+            "owner": "colleague",
+            "title": "비슷한 서비스 사례",
+            "number": 4,
+            "status": "done",
+            "version": 3
+          }
+        }
+      ],
+      "conflicting": [
+        {
+          "id": "final:c0b05287-dedc-47a8-b894-ade01fbe1ff3:v3",
+          "kind": "final_part",
+          "actor": "colleague",
+          "at": 1792474286.4561532,
+          "elapsed": 25.409768104553223,
+          "quote": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+          "data": {
+            "id": "c0b05287-dedc-47a8-b894-ade01fbe1ff3",
+            "body": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+            "owner": "colleague",
+            "title": "비슷한 서비스 사례",
+            "number": 4,
+            "status": "done",
+            "version": 3
+          }
+        }
+      ],
+      "comparison_basis": [
+        {
+          "id": "d78ea13a-247e-4f1b-80cf-abff22e2861e",
+          "kind": "message",
+          "actor": "leader",
+          "at": 1792474261.054517,
+          "elapsed": 0.008131980895996094,
+          "quote": "첫 모임에 나온 사용자가 두 번째 모임에도 다시 나오게 만드는 신규 기능을 기획해 주세요. 2시간 뒤 2~3쪽 기획안을 공유 문서로 받겠습니다. 필요하면 AI 채팅을 써도 됩니다.",
+          "data": {
+            "flow": "collaboration",
+            "text": "첫 모임에 나온 사용자가 두 번째 모임에도 다시 나오게 만드는 신규 기능을 기획해 주세요. 2시간 뒤 2~3쪽 기획안을 공유 문서로 받겠습니다. 필요하면 AI 채팅을 써도 됩니다.",
+            "channel": "team",
+            "agent_id": "leader",
+            "requirement": true
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:minutes:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "재참여율 개선을 이번 분기 최우선 과제로 정했다. 첫 참여 후 이탈 원인을 정리하고 신규 기능의 작은 실험을 제안한다. 정량 지표와 인터뷰 근거를 함께 검토한다.",
+          "data": {
+            "title": "지난주 회의록",
+            "version": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.",
+          "data": {
+            "title": "운영 정책",
+            "version": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:metrics:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "월 사용자 30,000명. 첫 모임 참여자 중 두 번째 모임 재참여율은 22%. 가상 상세 지표: 5명 이하 모임 28%, 6~10명 모임 23%, 11명 이상 모임 17%. 집계 기준은 첫 참여 후 30일이다.",
+          "data": {
+            "title": "지표 현황",
+            "version": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:introduction:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "루프랩은 전원 리모트로 근무하는 12명 스타트업이다. 모아런은 동네 러닝 모임을 찾아 함께 뛰는 앱이다. 출시 1년, 월 사용자 3만 명. 모임 찾기, 참여 신청, 다음 모임 알림이 핵심 기능이다.",
+          "data": {
+            "title": "회사·서비스 소개",
+            "version": 1
+          }
+        }
+      ],
+      "checks": [
+        "정책 문서명과 버전 또는 인용 표기가 최종 제출물의 다른 위치에 포함됐는지 확인",
+        "가상 기능 및 사용자 피드백 문장의 별도 출처가 있는지 확인",
+        "정량 지표와 인터뷰 근거를 누락한 이유 또는 별도 첨부 여부 확인"
+      ],
+      "missing_parts": [
+        2,
+        3,
+        5
+      ],
+      "limitation": "최종본 전체의 사실과 작성 주체를 보여줍니다. 지원자의 직접 기여와 의미 판단은 과정·원문을 함께 확인하세요."
+    },
+    {
+      "item": "실행 가능성",
+      "rationale": "F0024는 정책상 가능한 무료 방식의 다음 모임 알림을 제안하고, F0027은 모임 알림·재참여 유도 메시지·개인 선호 수집이라는 후보 기능을 적었습니다. 그러나 발송 시점과 대상 선정, 알림 채널과 내용, 동의·개인정보 처리, 실험군 구성, 성공 지표, 일정과 담당 등 실행 조건이 기재되지 않았고 성공 지표와 출시 일정 파트도 비어 있어 실제 시행 계획은 최종본만으로 확인할 수 없습니다.",
+      "supporting": [
+        {
+          "id": "final:69198dd0-f27e-482f-b3c1-011e6b16bb38:v2",
+          "kind": "final_part",
+          "actor": "candidate",
+          "at": 1792474289.8713741,
+          "elapsed": 28.82499098777771,
+          "quote": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+          "data": {
+            "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+            "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+            "owner": "candidate",
+            "title": "문제 정의와 대상 사용자",
+            "number": 1,
+            "status": "todo",
+            "version": 2
+          }
+        },
+        {
+          "id": "final:c0b05287-dedc-47a8-b894-ade01fbe1ff3:v3",
+          "kind": "final_part",
+          "actor": "colleague",
+          "at": 1792474286.4561532,
+          "elapsed": 25.409768104553223,
+          "quote": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+          "data": {
+            "id": "c0b05287-dedc-47a8-b894-ade01fbe1ff3",
+            "body": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+            "owner": "colleague",
+            "title": "비슷한 서비스 사례",
+            "number": 4,
+            "status": "done",
+            "version": 3
+          }
+        }
+      ],
+      "conflicting": [
+        {
+          "id": "final:69198dd0-f27e-482f-b3c1-011e6b16bb38:v2",
+          "kind": "final_part",
+          "actor": "candidate",
+          "at": 1792474289.8713741,
+          "elapsed": 28.82499098777771,
+          "quote": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+          "data": {
+            "id": "69198dd0-f27e-482f-b3c1-011e6b16bb38",
+            "body": "운영 정책: 올해는 유료 기능을 출시하지 않는다. 무료 다음 모임 알림을 제안합니다.",
+            "owner": "candidate",
+            "title": "문제 정의와 대상 사용자",
+            "number": 1,
+            "status": "todo",
+            "version": 2
+          }
+        },
+        {
+          "id": "final:c0b05287-dedc-47a8-b894-ade01fbe1ff3:v3",
+          "kind": "final_part",
+          "actor": "colleague",
+          "at": 1792474286.4561532,
+          "elapsed": 25.409768104553223,
+          "quote": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+          "data": {
+            "id": "c0b05287-dedc-47a8-b894-ade01fbe1ff3",
+            "body": "운영 정책에 따라 올해 유료 기능을 출시하지 않으며, 위치 정보는 동네 단위까지만 공개하는 원칙에 기반하여 무료 알림 기능의 비교 기준을 정리했습니다. 무료 알림 기능은 참가자에게 유용한 정보를 제공하고 다음 모임 참여를 유도하는 것에 중점을 두었습니다. 가상의 기능 비교 초안으로는 '모임 알림', '재참여 유도 메시지', '사용자 개인 선호 수집 기능'을 포함하였습니다. 각 기능은 사용자 피드백을 기반으로 지속적으로 개선이 필요합니다.",
+            "owner": "colleague",
+            "title": "비슷한 서비스 사례",
+            "number": 4,
+            "status": "done",
+            "version": 3
+          }
+        }
+      ],
+      "comparison_basis": [
+        {
+          "id": "d78ea13a-247e-4f1b-80cf-abff22e2861e",
+          "kind": "message",
+          "actor": "leader",
+          "at": 1792474261.054517,
+          "elapsed": 0.008131980895996094,
+          "quote": "첫 모임에 나온 사용자가 두 번째 모임에도 다시 나오게 만드는 신규 기능을 기획해 주세요. 2시간 뒤 2~3쪽 기획안을 공유 문서로 받겠습니다. 필요하면 AI 채팅을 써도 됩니다.",
+          "data": {
+            "flow": "collaboration",
+            "text": "첫 모임에 나온 사용자가 두 번째 모임에도 다시 나오게 만드는 신규 기능을 기획해 주세요. 2시간 뒤 2~3쪽 기획안을 공유 문서로 받겠습니다. 필요하면 AI 채팅을 써도 됩니다.",
+            "channel": "team",
+            "agent_id": "leader",
+            "requirement": true
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:minutes:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "재참여율 개선을 이번 분기 최우선 과제로 정했다. 첫 참여 후 이탈 원인을 정리하고 신규 기능의 작은 실험을 제안한다. 정량 지표와 인터뷰 근거를 함께 검토한다.",
+          "data": {
+            "title": "지난주 회의록",
+            "version": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:policy:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "올해는 유료 기능을 출시하지 않는다. 위치 정보는 동네 단위까지만 공개한다. 세부 위치와 개인 이동 경로를 공개하지 않는다.",
+          "data": {
+            "title": "운영 정책",
+            "version": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:metrics:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "월 사용자 30,000명. 첫 모임 참여자 중 두 번째 모임 재참여율은 22%. 가상 상세 지표: 5명 이하 모임 28%, 6~10명 모임 23%, 11명 이상 모임 17%. 집계 기준은 첫 참여 후 30일이다.",
+          "data": {
+            "title": "지표 현황",
+            "version": 1
+          }
+        },
+        {
+          "id": "0233640f-8b72-4e30-a0ee-62d8fca078df:introduction:v1",
+          "kind": "company_document",
+          "actor": "company",
+          "at": null,
+          "elapsed": 0,
+          "quote": "루프랩은 전원 리모트로 근무하는 12명 스타트업이다. 모아런은 동네 러닝 모임을 찾아 함께 뛰는 앱이다. 출시 1년, 월 사용자 3만 명. 모임 찾기, 참여 신청, 다음 모임 알림이 핵심 기능이다.",
+          "data": {
+            "title": "회사·서비스 소개",
+            "version": 1
+          }
+        }
+      ],
+      "checks": [
+        "알림 발송 대상·시점·채널과 개인정보 처리 기준이 별도로 정의됐는지 확인",
+        "작은 실험의 범위·대조 방식·성공 지표·30일 측정 기준이 마련됐는지 확인",
+        "출시 일정과 담당자 및 필요한 개발·운영 작업이 별도 계획에 있는지 확인"
+      ],
+      "missing_parts": [
+        2,
+        3,
+        5
+      ],
+      "limitation": "최종본 전체의 사실과 작성 주체를 보여줍니다. 지원자의 직접 기여와 의미 판단은 과정·원문을 함께 확인하세요."
+    }
+  ],
+  "process_links": [
+    {
+      "record_id": "fc9511f5-9260-4e6b-9456-ba56e2cae8b3",
+      "actor": "leader",
+      "kind": "message",
+      "elapsed": 0.6372630596160889,
+      "references": {
+        "reply_to": "d78ea13a-247e-4f1b-80cf-abff22e2861e",
+        "job_id": "5b0d30ff-4e50-4a6a-bc75-16b197fa97a6"
+      }
+    },
+    {
+      "record_id": "0e622117-a263-4ee0-80c2-5981cb384127",
+      "actor": "colleague",
+      "kind": "message",
+      "elapsed": 0.6412289142608643,
+      "references": {
+        "reply_to": "6efd566c-ed34-4330-b9d2-6a9a6bfabc11",
+        "job_id": "adc4bd7c-cf9d-47ce-af92-33576eb6e33e"
+      }
+    },
+    {
+      "record_id": "95d6148b-1065-40af-bab3-ba9166ee4b60",
+      "actor": "assistant",
+      "kind": "message",
+      "elapsed": 4.511023998260498,
+      "references": {
+        "reply_to": "67dc1cd1-fcdd-4380-9be1-d2a50f6525c3",
+        "job_id": "39dc6edd-b643-4afc-9a19-a5de546deb36"
+      }
+    },
+    {
+      "record_id": "2a8a9903-b1cc-4233-81cc-e8db4fd73344",
+      "actor": "colleague",
+      "kind": "message",
+      "elapsed": 9.14818286895752,
+      "references": {
+        "reply_to": "bb4a6b2f-cc04-4e08-8eba-dc90cbb93482",
+        "job_id": "b678014a-32b8-4ea6-aa4f-d832ff8f83a3"
+      }
+    },
+    {
+      "record_id": "832ef102-291c-41c4-9e6a-542119dcc01f",
+      "actor": "leader",
+      "kind": "message",
+      "elapsed": 12.281312942504883,
+      "references": {
+        "reply_to": "dad99a92-31a6-4307-852a-4f5fde7f637f",
+        "job_id": "47c68bef-a849-4068-a55c-546ffa8e02f2"
+      }
+    },
+    {
+      "record_id": "e2259a59-9dd2-4c70-9a1b-83f58147b9ba",
+      "actor": "assistant",
+      "kind": "message",
+      "elapsed": 13.98444414138794,
+      "references": {
+        "reply_to": "c67c4b43-9e74-4a60-ac8f-ea75bed0b581",
+        "job_id": "f38b9fc6-20de-48c7-86c1-f2f52595f97c"
+      }
+    },
+    {
+      "record_id": "ed48d891-9006-4389-ba42-4e7af18e54d7",
+      "actor": "candidate",
+      "kind": "task",
+      "elapsed": 14.404908895492554,
+      "references": {
+        "part_id": "c0b05287-dedc-47a8-b894-ade01fbe1ff3"
+      }
+    },
+    {
+      "record_id": "dabea031-2cf2-425e-9336-4bde28551b85",
+      "actor": "colleague",
+      "kind": "part",
+      "elapsed": 17.008906841278076,
+      "references": {
+        "task_id": "69a2c256-d732-47f3-9a6f-c72ece5cf9cb",
+        "job_id": "a3be4dbf-ba24-4dd4-8374-10f633265303"
+      }
+    },
+    {
+      "record_id": "64d4034e-98cb-4b6b-ba02-87c39027d966",
+      "actor": "colleague",
+      "kind": "task",
+      "elapsed": 17.010046243667603,
+      "references": {
+        "part_record_id": "dabea031-2cf2-425e-9336-4bde28551b85",
+        "job_id": "a3be4dbf-ba24-4dd4-8374-10f633265303",
+        "part_id": "c0b05287-dedc-47a8-b894-ade01fbe1ff3"
+      }
+    },
+    {
+      "record_id": "090172ef-dec8-4de0-b38b-67ed16f31a01",
+      "actor": "colleague",
+      "kind": "message",
+      "elapsed": 19.322242975234985,
+      "references": {
+        "reply_to": "d07a576b-bb3b-444b-9b40-75ea9ff6fccf",
+        "mutation_ids": [
+          "64d4034e-98cb-4b6b-ba02-87c39027d966",
+          "dabea031-2cf2-425e-9336-4bde28551b85"
+        ],
+        "job_id": "a3be4dbf-ba24-4dd4-8374-10f633265303"
+      }
+    },
+    {
+      "record_id": "bba2d3d6-f901-4f58-a583-675edb015cad",
+      "actor": "candidate",
+      "kind": "message",
+      "elapsed": 19.59474802017212,
+      "references": {
+        "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+      }
+    },
+    {
+      "record_id": "d0ee716c-7b26-47ae-9820-5f4ce01b3c15",
+      "actor": "colleague",
+      "kind": "part",
+      "elapsed": 25.409768104553223,
+      "references": {
+        "job_id": "e54f475a-9e2e-4f7e-a616-d919c032d50e"
+      }
+    },
+    {
+      "record_id": "3b961182-9716-4ea0-ac36-cad22b1018b8",
+      "actor": "colleague",
+      "kind": "message",
+      "elapsed": 27.867166996002197,
+      "references": {
+        "reply_to": "bba2d3d6-f901-4f58-a583-675edb015cad",
+        "mutation_ids": [
+          "d0ee716c-7b26-47ae-9820-5f4ce01b3c15"
+        ],
+        "job_id": "e54f475a-9e2e-4f7e-a616-d919c032d50e"
+      }
+    },
+    {
+      "record_id": "9c30a225-73ff-4ee0-ae7f-628064c3f68f",
+      "actor": "candidate",
+      "kind": "part",
+      "elapsed": 28.82499098777771,
+      "references": {
+        "source_message_id": "95d6148b-1065-40af-bab3-ba9166ee4b60"
+      }
+    }
+  ],
+  "prompt_threads": [
+    {
+      "request_id": "67dc1cd1-fcdd-4380-9be1-d2a50f6525c3",
+      "previous_request_id": null,
+      "response_ids": [
+        "95d6148b-1065-40af-bab3-ba9166ee4b60"
+      ],
+      "utilization_record_ids": [
+        "bba2d3d6-f901-4f58-a583-675edb015cad",
+        "9c30a225-73ff-4ee0-ae7f-628064c3f68f"
+      ]
+    },
+    {
+      "request_id": "c67c4b43-9e74-4a60-ac8f-ea75bed0b581",
+      "previous_request_id": "67dc1cd1-fcdd-4380-9be1-d2a50f6525c3",
+      "response_ids": [
+        "e2259a59-9dd2-4c70-9a1b-83f58147b9ba"
+      ],
+      "utilization_record_ids": []
+    }
+  ],
+  "agent_binding": {
+    "model": "gpt-4o-mini",
+    "backend": "openai",
+    "cli_version": null,
+    "adapter_version": "1.0.2"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "actual_model": true,
+  "synthetic_fixture": true,
+  "completed": true,
+  "session_id": "055b6541-52a3-4af2-8cc8-152f2ecd667f",
+  "binding": {
+    "backend": "openai",
+    "model": "gpt-4o-mini",
+    "adapter_version": "1.0.2",
+    "cli_version": null
+  },
+  "pending_checkpoint_nodes": [
+    "teammate_work"
+  ],
+  "recovery_seconds": 44.76,
+  "queue_attempts": 2,
+  "model_calls": 3,
+  "tool_operations": 1,
+  "part_changes": 1,
+  "answers": 1,
+  "task_completions": 1,
+  "duplicate_deliveries": 2
+}

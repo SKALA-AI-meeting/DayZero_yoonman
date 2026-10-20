@@ -1,0 +1,8 @@
+{
+  "session_id": "625ac5b3-55dd-48b2-975f-2c5ca334a15f",
+  "actual_model": true,
+  "synthetic_fixture": true,
+  "completed": false,
+  "task_and_document_saved": true,
+  "failure": "later follow-up proposed nonexistent task id; backend denied; scoped tool ID enums and recoverable MCP feedback added"
+}

@@ -1,0 +1,14 @@
+{
+  "session_id": "075975f4-301a-45d2-91a5-f87ff210f2e5",
+  "binding": {
+    "model": "gpt-4o-mini",
+    "backend": "openai",
+    "cli_version": null,
+    "adapter_version": "1.0.2"
+  },
+  "actual_model": true,
+  "synthetic_fixture": true,
+  "completed": false,
+  "three_agent_mcp_sources": true,
+  "failure": "assigned task remained todo; colleague answered previous conversation; current-trigger input fixed"
+}

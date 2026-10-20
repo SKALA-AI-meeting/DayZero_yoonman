@@ -1,0 +1,16 @@
+{
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "adjusted_clock": true,
+  "full_120_minutes": false,
+  "completed": false,
+  "session_id": "758216c7-a826-44d0-8af7-0a5efa8b62c4",
+  "binding": {
+    "backend": "openai",
+    "model": "gpt-4o-mini",
+    "adapter_version": "1.0.2",
+    "cli_version": null
+  },
+  "error": "AssertionError",
+  "job_errors": []
+}

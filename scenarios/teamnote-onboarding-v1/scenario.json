@@ -1,0 +1,116 @@
+{
+  "id": "teamnote-onboarding-v1",
+  "title": "팀노트 온보딩 개선",
+  "company": "노트웍스",
+  "team": "고객 경험 팀",
+  "service": "팀노트",
+  "introduction": "노트웍스는 팀 문서 협업 서비스 ‘팀노트’를 운영하는 리모트 팀입니다.",
+  "brief": "새로 가입한 팀이 첫 공동 문서를 완성하도록 온보딩 개선안을 제안해 주세요. 제공된 이용 현황과 운영 정책을 근거로 2시간 안에 2쪽 내외 개선 제안서를 완성해 주세요. 필요한 세부 업무와 분담은 동료와 대화하며 정하세요.",
+  "short_brief": "새로 가입한 팀이 첫 공동 문서를 완성하도록 온보딩을 개선합니다.",
+  "deliverable_title": "팀노트 온보딩 개선 제안서",
+  "deliverable_description": "2쪽 내외의 개선 제안서",
+  "completion_conditions": [
+    "제공 자료에서 개선할 고객 경험과 근거를 설명합니다.",
+    "운영 정책과 변경된 대상 조건을 제안에 반영합니다.",
+    "실행 순서와 검증 방법을 정리합니다."
+  ],
+  "roles": {
+    "leader": {
+      "name": "박지우",
+      "role": "고객 경험 팀장",
+      "introduction": "목표와 제약을 안내하고 진행 보고를 확인합니다."
+    },
+    "colleague": {
+      "name": "김민서",
+      "role": "고객 경험 동료",
+      "introduction": "안녕하세요. 고객 경험 팀 김민서입니다. 자료를 함께 보고 개선 제안서를 완성해 봐요."
+    }
+  },
+  "sections": [
+    {
+      "title": "고객 문제와 근거",
+      "owner": "shared"
+    },
+    {
+      "title": "온보딩 개선안",
+      "owner": "shared"
+    },
+    {
+      "title": "실행과 검증 계획",
+      "owner": "shared"
+    }
+  ],
+  "documents": [
+    "introduction.json",
+    "metrics.json",
+    "policy.json",
+    "interviews.json"
+  ],
+  "events": [
+    {
+      "key": "division",
+      "offset": 600,
+      "actor": "colleague",
+      "text": "어떤 자료부터 볼지, 어떤 부분을 맡을지 함께 정해 볼까요? 필요한 일을 대화로 정리해 주세요."
+    },
+    {
+      "key": "help",
+      "offset": 1800,
+      "actor": "colleague",
+      "text": "첫 공동 문서 작성까지의 이탈 원인을 비교하는 기준이 헷갈려요. 잠깐 함께 살펴볼 수 있을까요?",
+      "debrief": {
+        "title": "00:30 도움 요청",
+        "text": "동료가 이탈 원인 비교에 도움을 요청했습니다."
+      }
+    },
+    {
+      "key": "delay",
+      "offset": 3000,
+      "actor": "system",
+      "text": "고객 인터뷰 요약은 담당자 확인 때문에 15분 늦게, 01:05에 공유됩니다.",
+      "debrief": {
+        "title": "00:50 자료 지연",
+        "text": "고객 인터뷰 자료가 늦게 공개됐습니다."
+      }
+    },
+    {
+      "key": "release",
+      "offset": 3900,
+      "actor": "system",
+      "text": "고객 인터뷰 요약이 공개되었습니다.",
+      "release_slug": "interviews"
+    },
+    {
+      "key": "change",
+      "offset": 4200,
+      "actor": "leader",
+      "text": "고객 성공 팀과 확인한 결과 대상은 새 가입자 전체보다 초대를 받아 처음 참여한 팀 관리자로 좁혀 주세요. 마감은 같습니다.",
+      "debrief": {
+        "title": "01:10 요구사항 변경",
+        "text": "개선 대상이 초대를 받아 처음 참여한 팀 관리자로 변경됐습니다."
+      }
+    },
+    {
+      "key": "review",
+      "offset": 5400,
+      "actor": "colleague",
+      "text": "별도 리뷰 초안으로 가입자의 개인 연락처를 동의 없이 수집해 자동 연락하는 방안을 적었습니다. 운영 정책과 함께 검토해 주세요. 제안서에는 반영하지 않았습니다.",
+      "review_body": "가입자의 개인 연락처를 동의 없이 수집해 자동 연락합니다.",
+      "review_part": 2,
+      "debrief": {
+        "title": "01:30 상호 리뷰",
+        "text": "동료가 사전 동의가 필요한 운영 정책과 어긋나는 제안을 공유했습니다."
+      }
+    },
+    {
+      "key": "report_request",
+      "offset": 6600,
+      "actor": "leader",
+      "text": "마감이 다가왔어요. 개선 제안서의 현재 내용과 남은 확인 사항을 공유해 주세요."
+    }
+  ],
+  "initial_target": "새로 가입한 팀",
+  "changed_target": "초대를 받아 처음 참여한 팀 관리자",
+  "duration_seconds": 7200,
+  "workflow": "conversation"
+}

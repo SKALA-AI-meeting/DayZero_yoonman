@@ -1,0 +1,18 @@
+{
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "adjusted_clock": true,
+  "full_120_minutes": false,
+  "completed": false,
+  "session_id": "9c8cff50-3e48-4d68-b43d-7af338e80fda",
+  "binding": {
+    "backend": "openai",
+    "model": "gpt-4o-mini",
+    "adapter_version": "1.0.2",
+    "cli_version": null
+  },
+  "error": "RuntimeError",
+  "job_errors": [
+    "tool_budget_exceeded"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "compressed_clock": false,
+  "completed": false,
+  "steps": [
+    {
+      "label": "started",
+      "at": "2026-10-20T06:14:50.990Z",
+      "elapsed_seconds": 0.2164299488067627,
+      "records": 5,
+      "tasks": 0
+    },
+    {
+      "label": "first-ai-chat",
+      "at": "2026-10-20T06:16:50.788Z",
+      "elapsed_seconds": 120.01443004608154,
+      "records": 8,
+      "tasks": 0
+    },
+    {
+      "label": "division",
+      "at": "2026-10-20T06:25:00.799Z",
+      "elapsed_seconds": 610.0254299640656,
+      "records": 11,
+      "tasks": 0
+    }
+  ],
+  "session_id": "ab91b702-d4ed-45c2-bb8a-6dd11834cb99",
+  "started_at": "2026-10-20T06:14:50.773Z",
+  "binding": {
+    "model": "gpt-4o-mini",
+    "backend": "openai",
+    "cli_version": null,
+    "adapter_version": "1.0.2"
+  },
+  "report_binding": {
+    "model": "gpt-5.6-sol",
+    "backend": "codex_cli",
+    "cli_version": "codex-cli 0.153.4",
+    "adapter_version": "1.0.2"
+  },
+  "failure": {
+    "phase": "division",
+    "action": "send colleague",
+    "message": "AI failed invalid_model_output",
+    "detail": "AI failed invalid_model_output",
+    "at": "2026-10-20T06:25:05.074Z",
+    "screenshot": "docs/evidence/revision-full120-ab91b702-d4ed-45c2-bb8a-6dd11834cb99-failure.png"
+  }
+}

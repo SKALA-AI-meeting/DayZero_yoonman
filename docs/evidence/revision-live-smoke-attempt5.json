@@ -1,0 +1,7 @@
+{
+  "session_id": "5317dd40-d650-43b3-b3c5-7275b783a72e",
+  "actual_model": true,
+  "synthetic_fixture": true,
+  "completed": false,
+  "failure": "assignment stopped after doing status and a future promise; explicit teammate_work route and unfinished-work guard added"
+}

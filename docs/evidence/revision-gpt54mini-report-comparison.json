@@ -1,0 +1,24 @@
+{
+  "session_id": "4967a424-5084-4192-ae67-385329265568",
+  "synthetic_fixture": true,
+  "detached_comparison": true,
+  "snapshot_sha256": "231a178598283b155371886b9e85680921910efb58b9f8fc2ad37a9fb6112243",
+  "agent_binding": {
+    "model": "gpt-4o-mini",
+    "backend": "openai",
+    "cli_version": null,
+    "adapter_version": "1.0.2"
+  },
+  "report_binding": {
+    "backend": "openai",
+    "model": "gpt-5.4-mini-2026-03-17",
+    "adapter_version": "1.0.2",
+    "cli_version": null
+  },
+  "completed": false,
+  "scope": "report inference and strict evidence validation; no live session or 120-minute claim",
+  "error": "candidate_evidence_required",
+  "seconds": 19.09,
+  "model_calls": 3,
+  "original_snapshot_unchanged": true
+}

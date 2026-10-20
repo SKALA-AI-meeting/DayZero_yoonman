@@ -1,0 +1,27 @@
+{
+  "session_id": "3a41d7f5-77d9-496f-8b0c-4c99763e806c",
+  "binding": {
+    "backend": "openai",
+    "model": "gpt-4o-mini",
+    "adapter_version": "1.0.2",
+    "cli_version": null
+  },
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "three_agents_with_actual_mcp_sources": true,
+  "colleague_task_and_document_saved": true,
+  "quality_items": 3,
+  "prompt_turns": 2,
+  "utilization_links": 2,
+  "report_items": 10,
+  "observed_items": [
+    "요구사항 반영",
+    "근거 활용",
+    "실행 가능성"
+  ],
+  "elapsed_seconds": 38.956746101379395,
+  "full_120_minutes": false,
+  "completed": false,
+  "content_review_rejected": true,
+  "reason": "AI observation axis empty; final quality did not cover colleague part; unsupported execution feasibility claim"
+}

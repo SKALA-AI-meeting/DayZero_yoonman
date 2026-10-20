@@ -1,0 +1,33 @@
+{
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "compressed_clock": false,
+  "completed": false,
+  "steps": [
+    {
+      "label": "started",
+      "at": "2026-10-20T03:23:06.452Z",
+      "elapsed_seconds": 0.13605976104736328,
+      "records": 2
+    },
+    {
+      "label": "first-ai-chat",
+      "at": "2026-10-20T03:25:06.370Z",
+      "elapsed_seconds": 120.05405974388123,
+      "records": 3
+    },
+    {
+      "label": "division",
+      "at": "2026-10-20T03:33:16.339Z",
+      "elapsed_seconds": 610.0230598449707,
+      "records": 7
+    }
+  ],
+  "session_id": "5f1c3ca3-995d-42d3-8346-92edddc7db17",
+  "started_at": "2026-10-20T03:23:06.315Z",
+  "failure": {
+    "phase": "division",
+    "message": "Backend request timed out during lock contention; invitation credential revoked",
+    "credential_revoked": true
+  }
+}

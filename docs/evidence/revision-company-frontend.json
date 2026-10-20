@@ -1,0 +1,26 @@
+{
+  "scope": "personal/company entry and per-completed-person report pages",
+  "synthetic_fixture": true,
+  "actual_database_and_api": true,
+  "model_generation_test": false,
+  "browser_test": "company.spec.ts",
+  "passed": true,
+  "checked": [
+    "two role entries",
+    "invitation flow",
+    "company login",
+    "completed-only list",
+    "generation states",
+    "two separate report URLs",
+    "reload",
+    "cross-company denial",
+    "logout"
+  ],
+  "routes": [
+    "/personal",
+    "/admin",
+    "/admin/reports",
+    "/admin/reports/{sessionId}"
+  ],
+  "full_120_minutes": false
+}

@@ -1,0 +1,15 @@
+{
+  "session_id": "da777879-07bb-46c5-a84f-87c60cc3e086",
+  "binding": {
+    "backend": "openai",
+    "model": "gpt-4o-mini",
+    "adapter_version": "1.0.2",
+    "cli_version": null
+  },
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "two_flows_with_actual_mcp_sources": true,
+  "report_items": 10,
+  "elapsed_seconds": 10.208282947540283,
+  "full_120_minutes": false
+}

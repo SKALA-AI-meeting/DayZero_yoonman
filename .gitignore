@@ -1,0 +1,18 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+node_modules/
+.next/
+*.tsbuildinfo
+artifacts/
+playwright-report/
+test-results/
+.codex-runtime/
+.DS_Store
+
+# Separate output for the scenario preview while an existing session is running.
+.next-scenario-preview/

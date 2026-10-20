@@ -1,0 +1,48 @@
+{
+  "scope": "Office UI layout and interaction verification",
+  "synthetic_fixture": true,
+  "desktop": {
+    "composerBottom": 1031,
+    "page": [
+      1920,
+      1080
+    ],
+    "railBottom": 1054,
+    "teamBottom": 894,
+    "viewport": [
+      1920,
+      1080
+    ]
+  },
+  "compact": {
+    "composerBottom": 771,
+    "page": [
+      1440,
+      810
+    ],
+    "railBottom": 794,
+    "teamBottom": 719,
+    "viewport": [
+      1440,
+      810
+    ]
+  },
+  "browser_regressions": {
+    "passed": 3,
+    "checks": [
+      "last edit persisted at submission",
+      "concurrent edit conflict preserves draft",
+      "unread counts preserve app navigation names"
+    ]
+  },
+  "manual_checks": [
+    "team and DM drafts retained",
+    "personal AI draft retained",
+    "task created and status updated",
+    "proposal autosaved at version 2",
+    "expanded company document retained across app switches",
+    "submission review opens from header"
+  ],
+  "production_build": "passed",
+  "screenshot": "ui-office-desktop-16x9.png"
+}

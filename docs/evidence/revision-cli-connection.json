@@ -1,0 +1,10 @@
+{
+  "backend": "codex_cli",
+  "model": "gpt-5.6-sol",
+  "cli": "codex-cli 0.153.4",
+  "synthetic_fixture": true,
+  "scope": "connection only, no file or tool request",
+  "completed": true,
+  "response": "OK",
+  "seconds": 3.55
+}

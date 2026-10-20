@@ -1,0 +1,313 @@
+.office-desktop {
+  --ink: #243b34;
+  --muted: #738078;
+  --green: #245c47;
+  --line: #e5eae6;
+  height: 100dvh;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f3f5f3;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.office-desktop svg { flex-shrink: 0; }
+.office-desktop button { transition: background .15s, color .15s; }
+.office-desktop button:disabled { cursor: default; }
+.office-desktop .office-header {
+  position: static;
+  flex: 0 0 56px;
+  min-height: 56px;
+  padding: 0 28px;
+  background: #193d30;
+  color: #f4f8f5;
+  border: 0;
+}
+.office-desktop .office-identity, .office-desktop .office-session { display: flex; align-items: center; gap: 22px; }
+.office-desktop .brand { color: white; font-size: 21px; letter-spacing: -1px; }
+.office-desktop .brand span { color: #a3c7ae; }
+.office-desktop .header-divider { height: 18px; width: 1px; background: #ffffff26; }
+.office-desktop .workspace-name { color: #d2dfd6; font-size: 12px; }
+.office-desktop .saved { display: flex; align-items: center; gap: 6px; color: #d0e0d4; font-size: 11px; }
+.office-desktop .saved svg { width: 14px; height: 14px; }
+.office-desktop .timer { display: flex; align-items: center; gap: 8px; padding-left: 20px; border-left: 1px solid #ffffff26; font-size: 11px; font-weight: 400; }
+.office-desktop .timer svg { width: 15px; height: 15px; color: #b9cebf; }
+.office-desktop .timer strong { font-size: 16px; font-weight: 600; letter-spacing: .3px; }
+.office-desktop .timer-urgent { color: #ffcfac; }
+.office-desktop .my-avatar { display: flex; justify-content: center; align-items: center; flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px; color: #365c45; background: #dce9d9; font-weight: 700; font-size: 12px; }
+.office-desktop .office { display: flex; flex-direction: column; flex: 1; min-height: 0; width: 100%; max-width: none; margin: 0; padding: 22px 28px 20px; }
+.office-desktop .workspace-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-shrink: 0; margin-bottom: 20px; }
+.office-desktop .workspace-breadcrumb { display: flex; gap: 9px; margin: 0 0 6px; color: var(--muted); font-size: 11px; }
+.office-desktop .workspace-breadcrumb span { color: #b1bab3; }
+.office-desktop h1 { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 0; font-size: 24px; letter-spacing: -.8px; font-weight: 700; }
+.office-desktop .project-tag { padding: 3px 9px; border: 1px solid #d7e4d9; border-radius: 5px; color: #4e7559; background: #eaf1e8; font-size: 10px; font-weight: 500; letter-spacing: 0; }
+.office-desktop .review-submit { display: flex; gap: 9px; align-items: center; padding: 9px 13px; border-radius: 6px; color: #435c4d; font-size: 12px; white-space: nowrap; }
+.office-desktop .review-submit svg { width: 15px; height: 15px; }
+.office-desktop .app-bar { flex-shrink: 0; align-items: stretch; gap: 0; margin: 0 0 16px; padding: 0 12px; min-height: 64px; border-radius: 10px; background: white; border-color: var(--line); }
+.office-desktop .app-bar button { position: relative; display: flex; align-items: center; gap: 12px; min-width: 194px; padding: 12px 22px; background: transparent; color: #7a867e; border: 0; border-radius: 0; text-align: left; }
+.office-desktop .app-bar button:hover { background: #f6f8f5; }
+.office-desktop .app-bar button[aria-pressed=true] { color: var(--green); background: #f3f7f2; }
+.office-desktop .app-bar button[aria-pressed=true]::after { content: ''; position: absolute; bottom: -1px; left: 18px; right: 18px; height: 3px; border-radius: 3px 3px 0 0; background: #46785b; }
+.office-desktop .app-label { font-size: 13px; font-weight: 700; line-height: 1.5; }
+.office-desktop .app-label small { display: block; font-weight: 400; font-size: 10px; color: #819087; margin-top: 2px; }
+.office-desktop .app-bar-caption { align-self: center; margin-left: auto; padding: 0 12px; color: #9aa59d; letter-spacing: 1.7px; font-size: 9px; }
+.office-desktop .unread { min-width: 18px; margin-left: auto; padding: 0 5px; background: #bc6946; font-size: 10px; text-align: center; line-height: 18px; }
+.office-desktop .workspace-alert { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 14px; margin: 0 0 12px; font-size: 12px; }
+.office-desktop .workspace-alert button { padding: 3px 10px; font-size: 11px; }
+.office-desktop .workspace-body { display: grid; grid-template-columns: minmax(0,1fr) 276px; gap: 20px; flex: 1; min-height: 0; }
+.office-desktop .workspace-surface { min-width: 0; min-height: 0; }
+.office-desktop .app-window { min-height: 0; height: 100%; margin: 0; padding: 0; overflow: hidden; border-radius: 10px; border-color: #dfe6df; box-shadow: 0 2px 4px #23392a03; }
+.office-desktop .messenger-layout, .office-desktop .work-layout { height: 100%; min-height: 0; display: grid; grid-template-columns: 210px minmax(0,1fr); gap: 0; }
+.office-desktop .app-sidebar { display: flex; flex-direction: column; min-height: 0; padding: 22px 14px 16px; border-right: 1px solid var(--line); background: #f9faf8; overflow-y: auto; }
+.office-desktop .sidebar-heading { display: flex; align-items: center; gap: 10px; margin: 0 4px 28px; }
+.office-desktop .workspace-monogram { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; flex-shrink: 0; border: 1px solid #dce6d9; border-radius: 9px; background: #eaf0e5; color: #416841; font-size: 21px; font-weight: 700; }
+.office-desktop .sidebar-heading strong { display: block; font-size: 13px; }
+.office-desktop .sidebar-heading small { display: block; margin-top: 1px; font-size: 9px; color: var(--muted); }
+.office-desktop .app-sidebar h2 { margin: 0 9px 20px; font-size: 16px; letter-spacing: -.4px; }
+.office-desktop .app-sidebar .sidebar-label { margin: 0 9px 8px; color: #88958b; font-size: 10px; font-weight: 600; }
+.office-desktop .app-sidebar button { display: flex; align-items: center; gap: 10px; width: 100%; margin: 0 0 5px; padding: 9px 11px; border: 0; border-radius: 6px; text-align: left; color: #617268; background: transparent; font-size: 12px; white-space: nowrap; }
+.office-desktop .app-sidebar button:hover { background: #eff3ed; }
+.office-desktop .app-sidebar button[aria-pressed=true] { color: #2f6244; background: #e7eee2; font-weight: 600; }
+.office-desktop .channel-symbol { width: 21px; flex-shrink: 0; font-size: 19px; line-height: 24px; text-align: center; font-weight: 500; }
+.office-desktop .dm-symbol { width: 24px; height: 24px; margin-left: -1px; border-radius: 7px; background: #e5e4f0; color: #736587; font-size: 11px; }
+.office-desktop .app-sidebar .channel-help { margin: 14px 10px 24px; color: #89928b; font-size: 10px; line-height: 1.8; }
+.office-desktop .sidebar-bottom { display: flex; gap: 9px; align-items: center; margin-top: auto; padding: 16px 5px 0; border-top: 1px solid var(--line); min-width: 0; }
+.office-desktop .sidebar-bottom > div { min-width: 0; }
+.office-desktop .sidebar-bottom strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 138px; font-size: 11px; }
+.office-desktop .sidebar-bottom small { display: block; color: #89938b; font-size: 10px; }
+.office-desktop .conversation { display: flex; flex-direction: column; min-width: 0; min-height: 0; height: 100%; }
+.office-desktop .conversation-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 84px; padding: 17px 24px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+.office-desktop .conversation-heading h2 { font-size: 17px; margin: 0 0 3px; letter-spacing: -.5px; }
+.office-desktop .conversation-heading p { margin: 0; font-size: 10px; color: #8a958d; }
+.office-desktop .recipient { flex-shrink: 0; display: flex; align-items: center; gap: 8px; margin: 0; color: #879289; font-size: 10px; font-weight: 400; }
+.office-desktop .recipient select { width: 142px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 5px; font-size: 11px; color: #4b6052; }
+.office-desktop .conversation-thread { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.office-desktop .messages { flex: 1; min-height: 0; height: auto; gap: 22px; padding: 24px 24px 18px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #d5ded5 transparent; }
+.office-desktop .message, .office-desktop .message.candidate { display: flex; align-items: flex-start; gap: 11px; flex-shrink: 0; max-width: 100%; width: 100%; margin: 0; padding: 0; border-radius: 0; background: transparent; align-self: auto; white-space: normal; }
+.office-desktop .message-avatar { display: flex; justify-content: center; align-items: center; flex-shrink: 0; width: 32px; height: 32px; border: 1px solid #e1e7de; border-radius: 9px; background: #ebeee6; color: #5a6b48; font-size: 12px; font-weight: 600; }
+.office-desktop .avatar-colleague { border-color: #e4dfeb; color: #79648d; background: #eeebf5; }
+.office-desktop .avatar-candidate { color: #47744e; background: #e5efdf; border-color: #dae5d4; }
+.office-desktop .avatar-assistant { color: #4f7a68; background: #e6f1eb; }
+.office-desktop .message-body { min-width: 0; flex: 1; padding-top: 1px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; line-height: 1.85; color: #42554a; }
+.office-desktop .message-body > small { margin: 0 0 5px; color: #728276; font-size: 10px; font-weight: 500; line-height: 1.5; }
+.office-desktop .message-actions { margin-top: 7px; gap: 16px; }
+.office-desktop .message-actions button { padding: 1px 0; border: 0; border-radius: 3px; background: transparent; color: #829083; font-size: 10px; }
+.office-desktop .message-actions button:hover { color: var(--green); text-decoration: underline; }
+.office-desktop .sources { margin-top: 8px; font-size: 10px; line-height: 1.7; }
+.office-desktop .conversation-thread > .notice, .office-desktop .conversation-thread > .error, .office-desktop .conversation-thread > p { flex-shrink: 0; margin: 0 20px 8px; padding: 7px 10px; font-size: 11px; }
+.office-desktop .composer { display: flex; align-items: flex-end; flex-shrink: 0; gap: 12px; min-height: 92px; margin: 8px 22px 22px; padding: 12px; border: 1px solid #dce3d9; border-radius: 9px; box-shadow: 0 2px 4px #23392a03; }
+.office-desktop .composer:focus-within { border-color: #86a58e; box-shadow: 0 0 0 2px #eaf1e8; }
+.office-desktop .composer textarea { flex: 1; min-width: 0; min-height: 64px; max-height: 160px; padding: 1px 2px; border: 0; border-radius: 0; resize: none; font-size: 12px; background: transparent; line-height: 1.8; }
+.office-desktop .composer textarea:focus { outline: none; }
+.office-desktop .composer textarea::placeholder { color: #9aa49b; }
+.office-desktop .composer button { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 83px; height: 33px; padding: 6px 11px; border-radius: 6px; white-space: nowrap; font-size: 11px; background: #39674b; border-color: #39674b; }
+.office-desktop .composer button svg { width: 14px; height: 14px; }
+.office-desktop .composer button:disabled { opacity: 1; color: #f6f8f5; background: #a8b9aa; border-color: #a8b9aa; }
+.office-desktop .private-label { display: flex; align-items: center; gap: 5px; flex-shrink: 0; color: #839087; font-size: 10px; }
+.office-desktop .private-label svg { width: 13px; height: 13px; }
+.office-desktop .conversation-empty { margin: auto; padding: 30px 8px; text-align: center; color: #839087; }
+.office-desktop .empty-icon { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin-bottom: 18px; color: #61836b; background: #eef3e9; border: 1px solid #e4ecde; border-radius: 16px; }
+.office-desktop .empty-icon svg { width: 24px; height: 24px; }
+.office-desktop .conversation-empty h3 { margin: 0 0 8px; color: #576d5d; font-size: 15px; font-weight: 500; }
+.office-desktop .conversation-empty p { max-width: 330px; margin: 0 auto; font-size: 11px; }
+.office-desktop .sidebar-tool { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 6px; background: #e7eee2; color: #3c6748; font-size: 12px; font-weight: 600; }
+.office-desktop .ai-monogram { background: #e5eee7; }
+.office-desktop .ai-privacy { margin: 28px 8px 24px; color: #89948a; }
+.office-desktop .ai-privacy > svg { width: 17px; height: 17px; margin-bottom: 8px; }
+.office-desktop .ai-privacy h3 { margin: 0 0 8px; color: #687d6b; font-size: 11px; }
+.office-desktop .ai-privacy p { margin: 0; font-size: 10px; line-height: 1.9; }
+.office-desktop .work-sidebar .tabs { display: flex; flex-direction: column; flex-wrap: nowrap; gap: 3px; margin: 0 0 24px; }
+.office-desktop .work-sidebar .tabs svg { width: 17px; height: 17px; }
+.office-desktop .work-content { min-width: 0; min-height: 0; overflow: auto; scrollbar-width: thin; scrollbar-color: #d5ded5 transparent; }
+.office-desktop .work-panel { padding: 26px 28px 40px; }
+.office-desktop .work-panel > h2 { margin-bottom: 6px; font-size: 19px; }
+.office-desktop .work-panel > .muted { margin-bottom: 24px; font-size: 11px; line-height: 1.8; }
+.office-desktop .work-panel label { font-size: 11px; margin: 12px 0 5px; }
+.office-desktop .work-panel input, .office-desktop .work-panel select, .office-desktop .work-panel textarea { border-color: #dce3da; font-size: 12px; border-radius: 6px; padding: 8px 10px; }
+.office-desktop .work-panel button { font-size: 11px; padding: 7px 12px; border-radius: 6px; }
+.office-desktop .work-panel .part { margin-top: 20px; padding-top: 20px; }
+.office-desktop .work-panel .part h3 { margin: 0; font-size: 13px; }
+.office-desktop .work-panel .saved { color: var(--green); display: block; font-size: 10px; }
+.office-desktop .work-panel .badge { font-size: 10px; padding: 2px 8px; }
+.office-desktop .task { padding: 18px; margin: 0 0 16px; border-color: var(--line); border-radius: 8px; }
+.office-desktop .task h3 { font-size: 13px; margin-bottom: 8px; }
+.office-desktop .task p { font-size: 11px; }
+.office-desktop .task .row { align-items: flex-start; gap: 12px; }
+.office-desktop .task .row label { min-width: 110px; }
+.office-desktop .new-task { background: #fafbf9; }
+.office-desktop .task-board-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.office-desktop .task-board-heading h2 { margin: 0 0 6px; font-size: 19px; }
+.office-desktop .task-board-heading p { font-size: 11px; }
+.office-desktop .task-board-heading > button { white-space: nowrap; }
+.office-desktop .task-flow-note { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 8px 0 22px; padding: 11px 13px; border: 1px solid #e4ebdf; border-radius: 7px; background: #f6f8f2; color: #71836b; font-size: 10px; }
+.office-desktop .task-flow-note > svg { width: 15px; height: 15px; }
+.office-desktop .task-flow-note > button { margin-left: auto; padding: 3px 6px; font-size: 10px; border: 0; background: transparent; }
+.office-desktop .task-columns { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; align-items: start; }
+.office-desktop .task-column { min-width: 0; padding: 10px; background: #f7f9f5; border: 1px solid #e9eee5; border-radius: 8px; }
+.office-desktop .task-column-heading { display: flex; align-items: center; gap: 8px; margin: 3px 3px 14px; }
+.office-desktop .task-column-heading h3 { margin: 0; font-size: 12px; font-weight: 600; }
+.office-desktop .task-column-heading > span { padding: 0 6px; border-radius: 4px; background: #e9eee4; color: #7f8d76; font-size: 10px; }
+.office-desktop .column-empty { padding: 15px 4px; margin: 0; color: #99a28f; font-size: 10px; }
+.office-desktop .task-status-card { padding: 14px; background: white; border-radius: 7px; }
+.office-desktop .task-status-card:last-child { margin-bottom: 0; }
+.office-desktop .task-status-card h3 { line-height: 1.6; overflow-wrap: anywhere; }
+.office-desktop .task-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 9px 0; }
+.office-desktop .task-state { color: #819178; font-size: 10px; }
+.office-desktop .status-waiting .task-state { color: #9a7540; }
+.office-desktop .status-done .task-state { color: #4e7b4f; }
+.office-desktop .task-note { color: #72816d; overflow-wrap: anywhere; white-space: pre-wrap; line-height: 1.8; }
+.office-desktop .task-part { padding-top: 9px; margin: 9px 0; border-top: 1px solid #edf0e9; color: #8c9981; }
+.office-desktop .task-source, .office-desktop .task-edit { margin: 10px 0 0; font-size: 10px; }
+.office-desktop .task-source summary, .office-desktop .task-edit summary { color: #7d8b73; font-weight: 400; }
+.office-desktop .task-source blockquote { padding: 9px; margin: 8px 0; font-size: 10px; }
+.office-desktop .task-card-actions { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+.office-desktop .task-card-actions button { padding: 4px 7px; font-size: 10px; }
+.office-desktop .task-edit form { padding-top: 5px; }
+.office-desktop .task-board-empty { padding: 55px 18px; text-align: center; border: 1px dashed #dce5d4; border-radius: 9px; background: #fcfdf9; }
+.office-desktop .task-board-empty > svg { width: 28px; height: 28px; color: #9bad8b; margin-bottom: 15px; }
+.office-desktop .task-board-empty h3 { font-size: 14px; color: #647c59; font-weight: 500; margin-bottom: 9px; }
+.office-desktop .task-board-empty p { color: #8b9980; font-size: 11px; }
+.office-desktop .task-board-empty button { margin-top: 6px; }
+.office-desktop .deliverable-brief { margin: 0 0 22px; padding: 12px 15px; border-radius: 7px; border: 1px solid #e5ecdf; background: #f8faf4; font-size: 11px; color: #748468; }
+.office-desktop .deliverable-brief summary { font-weight: 500; }
+.office-desktop .deliverable-brief p { margin: 12px 0 8px; }
+.office-desktop .deliverable-brief ul { padding-left: 18px; margin-bottom: 0; }
+.office-desktop .documents-panel > details { padding: 18px; background: #fcfdfa; }
+.office-desktop .documents-panel summary { font-size: 12px; }
+.office-desktop .documents-panel details > p { margin: 16px 0 0; line-height: 1.9; }
+.office-desktop .project-context { min-height: 0; overflow: auto; border: 1px solid #e1e7df; border-radius: 10px; background: #fff; scrollbar-width: thin; scrollbar-color: #d5ded5 transparent; }
+.office-desktop .context-brief { padding: 21px 20px; background: #f5f7ef; border-bottom: 1px solid #e3e8dc; }
+.office-desktop .context-eyebrow { margin: 0 0 12px; color: #7d916c; letter-spacing: 1.5px; font-size: 9px; font-weight: 600; }
+.office-desktop .context-brief h2 { margin: 0 0 10px; font-size: 17px; letter-spacing: -.6px; font-weight: 600; }
+.office-desktop .context-brief > p:not(.context-eyebrow) { margin: 0 0 16px; font-size: 11px; line-height: 1.9; color: #7b8775; }
+.office-desktop .brief-deliverable { display: flex; gap: 7px; align-items: center; color: #6f8065; font-size: 10px; }
+.office-desktop .brief-deliverable svg { width: 13px; height: 13px; }
+.office-desktop .context-section { padding: 19px 20px; border-bottom: 1px solid var(--line); }
+.office-desktop .context-section h3 { margin: 0 0 14px; font-size: 12px; font-weight: 600; }
+.office-desktop .context-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.office-desktop .context-title h3 { margin: 0; }
+.office-desktop .context-title > span { font-size: 9px; color: #8d998c; }
+.office-desktop .context-title > svg { width: 15px; height: 15px; color: #95a18f; }
+.office-desktop .progress-label { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: #81907f; }
+.office-desktop .progress-label strong { color: #51714e; font-size: 13px; }
+.office-desktop .progress-label strong span { color: #9aa493; font-size: 10px; font-weight: 400; }
+.office-desktop .document-progress { height: 4px; margin: 10px 0 15px; overflow: hidden; border-radius: 4px; background: #eaf0e5; }
+.office-desktop .document-progress > span { display: block; height: 100%; background: #7e9a66; border-radius: inherit; transition: width .2s; }
+.office-desktop .task-summary { display: flex; gap: 7px; align-items: center; color: #81907f; font-size: 11px; }
+.office-desktop .task-summary svg { width: 13px; height: 13px; }
+.office-desktop .task-summary strong { margin-left: auto; color: #57704f; font-size: 11px; font-weight: 500; }
+.office-desktop .progress-caption { display: block; margin-top: 12px; font-size: 9px; color: #9ba695; }
+.office-desktop .context-link { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 13px; padding: 0; border: 0; background: transparent; color: #5e725c; text-align: left; font-size: 11px; }
+.office-desktop .context-link:hover { background: #f5f8f1; }
+.office-desktop .resource-icon { display: flex; align-items: center; justify-content: center; width: 31px; height: 35px; border: 1px solid #e6ebdf; border-radius: 5px; background: #f5f8ef; color: #8b9a70; }
+.office-desktop .resource-icon svg { width: 16px; height: 16px; }
+.office-desktop .context-link small { display: block; margin-top: 2px; font-size: 9px; color: #9ba494; }
+.office-desktop .context-link > svg { margin-left: auto; width: 13px; height: 13px; color: #a4b09b; }
+.office-desktop .team-member { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+.office-desktop .team-member .message-avatar { width: 29px; height: 29px; font-size: 10px; border-radius: 8px; }
+.office-desktop .team-member strong { display: block; font-size: 11px; font-weight: 500; }
+.office-desktop .team-member small { display: block; margin-top: 1px; font-size: 9px; color: #98a08f; }
+.office-desktop .context-ai-note { display: flex; align-items: flex-start; gap: 9px; padding: 18px 20px; color: #8c9c83; }
+.office-desktop .context-ai-note svg { width: 16px; height: 16px; margin-top: 2px; }
+.office-desktop .context-ai-note p { margin: 0; font-size: 9px; line-height: 1.9; }
+.office-desktop .context-ai-note strong { color: #7b8d72; font-weight: 500; }
+.office-desktop .modal { font-size: 13px; }
+@media (min-width: 1200px) and (max-height: 900px) {
+  .office-desktop .office { padding-top: 16px; padding-bottom: 16px; }
+  .office-desktop .workspace-heading { margin-bottom: 16px; }
+  .office-desktop .context-brief { padding: 14px 17px; }
+  .office-desktop .context-eyebrow { margin-bottom: 6px; }
+  .office-desktop .context-brief h2 { margin-bottom: 7px; font-size: 15px; }
+  .office-desktop .context-brief > p:not(.context-eyebrow) { margin-bottom: 9px; font-size: 10px; line-height: 1.75; }
+  .office-desktop .context-section { padding: 12px 17px; }
+  .office-desktop .context-title { margin-bottom: 10px; }
+  .office-desktop .context-section h3 { margin-bottom: 9px; }
+  .office-desktop .context-title h3 { margin-bottom: 0; }
+  .office-desktop .document-progress { margin: 8px 0 10px; }
+  .office-desktop .progress-caption { display: none; }
+  .office-desktop .context-link { margin-top: 9px; }
+  .office-desktop .context-link small { display: none; }
+  .office-desktop .resource-icon { height: 26px; width: 26px; }
+  .office-desktop .team-member { margin-top: 8px; }
+  .office-desktop .context-ai-note { display: none; }
+}
+@media (min-width: 1680px) {
+  .office-desktop .office { padding: 26px 36px 26px; }
+  .office-desktop .workspace-body { grid-template-columns: minmax(0,1fr) 300px; gap: 24px; }
+  .office-desktop .messenger-layout, .office-desktop .work-layout { grid-template-columns: 230px minmax(0,1fr); }
+  .office-desktop .messages { padding: 30px; gap: 28px; }
+  .office-desktop .message-body { font-size: 14px; }
+  .office-desktop .conversation-heading { padding: 20px 30px; }
+}
+@media (max-width: 1500px) {
+  .office-desktop .task-columns { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width: 1199px) {
+  .office-desktop .office { padding: 18px; }
+  .office-desktop .workspace-body { grid-template-columns: minmax(0,1fr); }
+  .office-desktop .project-context { display: none; }
+  .office-desktop .app-bar-caption { display: none; }
+  .office-desktop .workspace-heading { margin-bottom: 16px; }
+}
+@media (max-width: 850px) {
+  .office-desktop .office-header { padding: 0 18px; }
+  .office-desktop .workspace-name, .office-desktop .header-divider, .office-desktop .office-header .saved { display: none; }
+  .office-desktop .office-session { gap: 14px; }
+  .office-desktop .timer { padding-left: 0; border: 0; }
+  .office-desktop .messenger-layout, .office-desktop .work-layout { grid-template-columns: 180px minmax(0,1fr); }
+  .office-desktop .conversation-heading { padding: 14px 18px; gap: 10px; }
+  .office-desktop .conversation-heading p { max-width: 200px; }
+  .office-desktop .recipient { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .office-desktop .recipient select { width: 130px; }
+  .office-desktop .messages { padding: 20px 18px; }
+  .office-desktop .app-bar button { min-width: 0; flex: 1; padding: 12px 18px; }
+  .office-desktop .app-sidebar { padding: 18px 10px 14px; }
+  .office-desktop .sidebar-heading { gap: 8px; }
+  .office-desktop .sidebar-heading small { font-size: 8px; }
+  .office-desktop .work-panel { padding: 22px 20px 30px; }
+}
+@media (max-width: 640px) {
+  .office-desktop { height: auto; min-height: 100dvh; overflow: visible; }
+  .office-desktop .office-header { flex-basis: 52px; min-height: 52px; gap: 8px; padding: 0 14px; }
+  .office-desktop .office { flex: none; padding: 16px 10px; }
+  .office-desktop .brand { font-size: 19px; }
+  .office-desktop .office-session { gap: 9px; }
+  .office-desktop .timer { gap: 5px; }
+  .office-desktop .timer strong { font-size: 14px; }
+  .office-desktop .timer > span, .office-desktop .office-session > .my-avatar { display: none; }
+  .office-desktop h1 { font-size: 19px; gap: 8px; }
+  .office-desktop .workspace-breadcrumb { font-size: 9px; gap: 6px; }
+  .office-desktop .project-tag { font-size: 8px; }
+  .office-desktop .review-submit { font-size: 10px; padding: 7px; gap: 5px; }
+  .office-desktop .review-submit > svg:first-child { display: none; }
+  .office-desktop .app-bar { padding: 0; margin-bottom: 12px; min-height: 58px; }
+  .office-desktop .app-bar button { padding: 10px; gap: 7px; }
+  .office-desktop .app-bar button > svg { width: 17px; height: 17px; }
+  .office-desktop .app-label { font-size: 11px; }
+  .office-desktop .app-label small { font-size: 8px; }
+  .office-desktop .workspace-body { display: block; }
+  .office-desktop .app-window { height: auto; }
+  .office-desktop .messenger-layout, .office-desktop .work-layout { display: flex; flex-direction: column; height: auto; }
+  .office-desktop .app-sidebar { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 8px; padding: 12px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .office-desktop .sidebar-heading, .office-desktop .app-sidebar h2, .office-desktop .app-sidebar .sidebar-label, .office-desktop .sidebar-bottom, .office-desktop .channel-help, .office-desktop .ai-privacy { display: none; }
+  .office-desktop .app-sidebar button { width: auto; margin: 0; padding: 7px 10px; font-size: 11px; }
+  .office-desktop .conversation { height: 580px; }
+  .office-desktop .conversation-heading { min-height: 76px; padding: 14px; }
+  .office-desktop .conversation-heading h2 { font-size: 15px; }
+  .office-desktop .conversation-heading p { max-width: 190px; font-size: 9px; }
+  .office-desktop .messages { padding: 20px 14px; }
+  .office-desktop .message-body { font-size: 12px; }
+  .office-desktop .message-avatar { width: 27px; height: 27px; font-size: 10px; }
+  .office-desktop .composer { margin: 8px 12px 14px; padding: 10px; gap: 6px; }
+  .office-desktop .composer button { min-width: 72px; }
+  .office-desktop .work-sidebar .tabs { flex-direction: row; flex-wrap: wrap; gap: 4px; margin: 0; }
+  .office-desktop .work-sidebar .tabs button { gap: 5px; font-size: 10px; padding: 7px; }
+  .office-desktop .work-sidebar .tabs svg { width: 13px; height: 13px; }
+  .office-desktop .work-content { overflow: visible; }
+  .office-desktop .work-panel { padding: 22px 16px; }
+  .office-desktop .workspace-alert { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .office-desktop button, .office-desktop .document-progress > span { transition: none; }
+}

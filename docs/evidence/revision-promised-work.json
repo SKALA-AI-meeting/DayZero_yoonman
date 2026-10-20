@@ -1,0 +1,45 @@
+{
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "adjusted_clock": true,
+  "full_120_minutes": false,
+  "completed": true,
+  "session_id": "5dc3be9d-d52a-450d-a3e2-7f8e853e8076",
+  "binding": {
+    "backend": "openai",
+    "model": "gpt-4o-mini",
+    "adapter_version": "1.0.2",
+    "cli_version": null
+  },
+  "promise_task_id": "b2c71021-1987-47fb-beee-8119266a296a",
+  "due_elapsed": 2412.9342062473297,
+  "document_unchanged_before_due": true,
+  "promise_triggers": 1,
+  "document_changes": 1,
+  "jobs": [
+    {
+      "agent": "colleague",
+      "model_calls": 2,
+      "tool_calls": 3,
+      "status": "done"
+    },
+    {
+      "agent": "colleague",
+      "model_calls": 2,
+      "tool_calls": 1,
+      "status": "done"
+    },
+    {
+      "agent": "leader",
+      "model_calls": 0,
+      "tool_calls": 0,
+      "status": "done"
+    },
+    {
+      "agent": "colleague",
+      "model_calls": 0,
+      "tool_calls": 0,
+      "status": "done"
+    }
+  ]
+}

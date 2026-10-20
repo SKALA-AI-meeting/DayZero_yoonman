@@ -1,0 +1,7 @@
+{
+  "session_id": "460b1ae5-5b68-4962-b3ec-516776be50e9",
+  "actual_model": true,
+  "synthetic_fixture": true,
+  "completed": false,
+  "failure": "tool_budget_exceeded; over-budget proposal rejected; added bounded repair without executing excess tools"
+}

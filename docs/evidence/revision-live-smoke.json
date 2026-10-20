@@ -1,0 +1,48 @@
+{
+  "session_id": "86585361-53e6-49b5-a484-8f83a3873443",
+  "binding": {
+    "backend": "openai",
+    "model": "gpt-4o-mini",
+    "adapter_version": "1.0.2",
+    "cli_version": null
+  },
+  "report_binding": {
+    "backend": "codex_cli",
+    "model": "gpt-5.6-sol",
+    "adapter_version": "1.0.2",
+    "cli_version": "codex-cli 0.153.4"
+  },
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "three_agents_with_actual_mcp_sources": true,
+  "colleague_task_and_document_saved": true,
+  "quality_items": 3,
+  "prompt_turns": 2,
+  "utilization_links": 2,
+  "report_items": 10,
+  "observed_items": [
+    "요구사항 반영",
+    "근거 활용",
+    "실행 가능성",
+    "위임 판단",
+    "맥락 전달",
+    "결과 검증"
+  ],
+  "elapsed_seconds": 77.25680899620056,
+  "full_120_minutes": false,
+  "semantic_review": {
+    "status": "reviewed_against_originals",
+    "checks": [
+      "지원자 요청·동료 문서 저장·최종본 작성 주체 구분",
+      "AI의 정책 요약과 후속 초안 2턴 표시",
+      "검증했다는 진술과 실제 검증 절차를 구분",
+      "비어 있지 않은 1·4번 파트 대조, 빈 2·3·5번 표시",
+      "3개 품질 항목에서 정책·공통 요구사항·확인할 조건을 원문과 대조"
+    ],
+    "limits": [
+      "조기 제출 합성 스모크이며 120분 완주 아님",
+      "보고 모델 출력 2회(검사 보정 1회)로 통과",
+      "전체 의미 정확성이나 다양한 데이터의 품질을 보증하지 않음"
+    ]
+  }
+}

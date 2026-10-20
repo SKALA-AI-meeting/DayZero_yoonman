@@ -1,0 +1,48 @@
+{
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "compressed_clock": false,
+  "completed": false,
+  "steps": [
+    {
+      "label": "started",
+      "at": "2026-10-20T05:47:35.032Z",
+      "elapsed_seconds": 0.1822819709777832,
+      "records": 7,
+      "tasks": 0
+    },
+    {
+      "label": "first-ai-chat",
+      "at": "2026-10-20T05:49:34.873Z",
+      "elapsed_seconds": 120.02428197860718,
+      "records": 8,
+      "tasks": 0
+    },
+    {
+      "label": "division",
+      "at": "2026-10-20T05:57:44.885Z",
+      "elapsed_seconds": 610.0352818965912,
+      "records": 11,
+      "tasks": 0
+    }
+  ],
+  "session_id": "95a2f57d-9fdb-45f4-8846-63574dfa5917",
+  "started_at": "2026-10-20T05:47:34.849Z",
+  "binding": {
+    "model": "gpt-4o-mini",
+    "backend": "openai",
+    "cli_version": null,
+    "adapter_version": "1.0.2"
+  },
+  "report_binding": {
+    "model": "gpt-5.6-sol",
+    "backend": "codex_cli",
+    "cli_version": "codex-cli 0.153.4",
+    "adapter_version": "1.0.2"
+  },
+  "failure": {
+    "phase": "division",
+    "message": "verification phase failed: TimeoutError",
+    "at": "2026-10-20T05:58:14.894Z"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "synthetic_fixture": true,
+  "isolated_database_and_vhost": true,
+  "actual_backend": true,
+  "actual_rabbitmq": true,
+  "actual_model": false,
+  "completed": true,
+  "session_id": "31da5236-563a-4037-8c02-fc55b91003c1",
+  "committed_unpublished_jobs": 2,
+  "crash": "SIGKILL after committed jobs, before broker publication",
+  "same_job_ids_recovered": true,
+  "persistent_deliveries": 2,
+  "duplicate_publications": 0,
+  "duplicate_kickoffs": 0,
+  "disposable_resources_removed": true
+}

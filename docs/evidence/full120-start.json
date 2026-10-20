@@ -1,0 +1,41 @@
+{
+  "session_id": "5f1c3ca3-995d-42d3-8346-92edddc7db17",
+  "binding": {
+    "model": "gpt-5.6-sol",
+    "backend": "codex_cli",
+    "cli_version": "codex-cli 0.153.4",
+    "adapter_version": "1.0.0"
+  },
+  "scenario_version": "looplab-v1",
+  "started": 1792466586.3159401,
+  "real_120_minute_run": true,
+  "completed": false,
+  "first_real_chat_reply": {
+    "record_id": "3ec6e24e-e7c1-4f57-bdcb-c92afc6eb574",
+    "sources": [
+      {
+        "id": "2ef47870-8180-401d-8009-570cc7602980:policy:v1",
+        "title": "운영 정책",
+        "version": 1
+      },
+      {
+        "id": "2ef47870-8180-401d-8009-570cc7602980:minutes:v1",
+        "title": "지난주 회의록",
+        "version": 1
+      },
+      {
+        "id": "2ef47870-8180-401d-8009-570cc7602980:metrics:v1",
+        "title": "지표 현황",
+        "version": 1
+      }
+    ],
+    "usage": {
+      "cost": null,
+      "source": "codex_jsonl",
+      "input_tokens": 5969,
+      "output_tokens": 96,
+      "cached_input_tokens": 2560,
+      "reasoning_output_tokens": 0
+    }
+  }
+}

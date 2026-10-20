@@ -1,0 +1,100 @@
+name: dayzero
+x-python: &python
+  image: dayzero-python:0.1.0
+  build:
+    context: .
+    dockerfile: services/dayzero/Dockerfile
+  env_file: .env
+  environment: &python-env
+    DATABASE_URL: postgresql+psycopg://dayzero:dayzero@postgres:5432/dayzero
+    CHECKPOINT_DATABASE_URL: postgresql://graph:graph@postgres:5432/dayzero
+    RAG_DATABASE_URL: postgresql://rag:rag@postgres:5432/dayzero
+    RABBITMQ_URL: amqp://dayzero:dayzero@rabbitmq:5672/
+    BACKEND_URL: http://backend:8000
+    MCP_HOST: 0.0.0.0
+    BUSINESS_MCP_URL: http://business-mcp:8001/mcp
+    RAG_MCP_URL: http://rag-mcp:8002/mcp
+  depends_on:
+    postgres: {condition: service_healthy}
+    rabbitmq: {condition: service_healthy}
+services:
+  postgres:
+    image: pgvector/pgvector:pg16@sha256:7b822b0aac60967beb1ea5e576b8602c94c300a157d187f385ae3e0da199b90a
+    environment:
+      POSTGRES_USER: dayzero
+      POSTGRES_PASSWORD: dayzero
+      POSTGRES_DB: dayzero
+    ports: ['127.0.0.1:55432:5432']
+    volumes: ['pgdata:/var/lib/postgresql/data', './scripts/init-db.sql:/docker-entrypoint-initdb.d/roles.sql:ro']
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U dayzero']
+      interval: 2s
+      retries: 30
+  rabbitmq:
+    image: rabbitmq:4.1-management@sha256:789893c0b4907f0ff3bc6e630120174ab6879825907f4c3ab79439e2488409cc
+    environment:
+      RABBITMQ_DEFAULT_USER: dayzero
+      RABBITMQ_DEFAULT_PASS: dayzero
+    ports: ['127.0.0.1:5673:5672', '127.0.0.1:15673:15672']
+    volumes: ['rabbitdata:/var/lib/rabbitmq']
+    healthcheck:
+      test: ['CMD', 'rabbitmq-diagnostics', '-q', 'ping']
+      interval: 3s
+      retries: 30
+  migrate:
+    <<: *python
+    command: ['alembic', 'upgrade', 'head']
+  backend:
+    <<: *python
+    command: ['uvicorn', 'dayzero.backend.main:app', '--host', '0.0.0.0', '--port', '8000', '--no-access-log']
+    ports: ['127.0.0.1:8000:8000']
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+      rabbitmq: {condition: service_healthy}
+  business-mcp:
+    <<: *python
+    command: ['python', '-m', 'dayzero.mcp_servers.business']
+  rag-mcp:
+    <<: *python
+    environment:
+      <<: *python-env
+      HF_HOME: /models
+    volumes: ['models:/models']
+    command: ['python', '-m', 'dayzero.mcp_servers.rag']
+  index:
+    <<: *python
+    profiles: ['index']
+    command: ['python', '-m', 'dayzero.rag.index']
+    environment:
+      <<: *python-env
+      HF_HOME: /models
+    volumes: ['models:/models']
+  worker-ai:
+    <<: *python
+    command: ['python', '-m', 'dayzero.workers.ai']
+    environment:
+      <<: *python-env
+      DATABASE_URL: postgresql+psycopg://graph:graph@postgres:5432/dayzero
+    depends_on:
+      backend: {condition: service_started}
+      business-mcp: {condition: service_started}
+      rag-mcp: {condition: service_started}
+  worker-report:
+    <<: *python
+    command: ['python', '-m', 'dayzero.workers.report']
+    environment:
+      <<: *python-env
+      DATABASE_URL: postgresql+psycopg://graph:graph@postgres:5432/dayzero
+    depends_on:
+      backend: {condition: service_started}
+  web:
+    build: ./apps/web
+    environment:
+      BACKEND_PROXY_URL: http://backend:8000
+    ports: ['127.0.0.1:3000:3000']
+    depends_on:
+      backend: {condition: service_started}
+volumes:
+  pgdata:
+  rabbitdata:
+  models:

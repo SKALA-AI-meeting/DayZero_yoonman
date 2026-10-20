@@ -1,0 +1,21 @@
+{
+  "synthetic_fixture": true,
+  "actual_model": true,
+  "adjusted_clock": true,
+  "full_120_minutes": false,
+  "completed": false,
+  "session_id": "2693a871-8e15-487a-b420-5cf521f2a268",
+  "binding": {
+    "backend": "openai",
+    "model": "gpt-4o-mini",
+    "adapter_version": "1.0.2",
+    "cli_version": null
+  },
+  "promise_task_id": "7c22d8e4-e7a7-4219-91c3-e0333c5ca494",
+  "due_elapsed": 2413.239624977112,
+  "document_unchanged_before_due": true,
+  "error": "RuntimeError",
+  "job_errors": [
+    "assigned_work_unfinished"
+  ]
+}
